@@ -47,7 +47,7 @@
 24. Model education system ideological content by level
 25. Model media/propaganda apparatus structure
 26. Add foreign relations doctrine (anti-imperialism, juche diplomacy)
-27. Model nuclear doctrine under Byungjin policy
+27. [DONE] Model nuclear doctrine under Byungjin policy
 28. [DONE] Prove succession chain well-foundedness
 29. [DONE] Add temporal queries (leader_at_year, policy_at_year)
 30. [DONE] Model prison camp (kwanliso) system classification
@@ -1751,6 +1751,88 @@ Definition period_start_year (p : HistoricalPeriod) : JucheYear :=
 Lemma arduous_march_after_kim_il_sung :
   period_start_year ArduousMarch = kim_il_sung_death.
 Proof. reflexivity. Qed.
+
+(** -------------------------------------------------------------------------- *)
+(** Nuclear Doctrine                                                           *)
+(** -------------------------------------------------------------------------- *)
+
+(** Nuclear weapons development under Byungjin (병진) policy:
+    parallel development of nuclear weapons and economy. *)
+
+(** Nuclear program milestones (Juche years). *)
+Definition first_nuclear_test : JucheYear := 95.   (* 2006 *)
+Definition second_nuclear_test : JucheYear := 98.  (* 2009 *)
+Definition third_nuclear_test : JucheYear := 102.  (* 2013 *)
+Definition fourth_nuclear_test : JucheYear := 105. (* 2016 January *)
+Definition fifth_nuclear_test : JucheYear := 105.  (* 2016 September *)
+Definition sixth_nuclear_test : JucheYear := 106.  (* 2017 *)
+
+(** Nuclear capability claims. *)
+Inductive NuclearCapability : Type :=
+  | FissionDevice       (* Basic nuclear device *)
+  | BoostFission        (* Boosted fission weapon *)
+  | ThermonuclearClaim  (* Claimed H-bomb capability *)
+  | ICBMCapable         (* Intercontinental delivery claimed *)
+  | Miniaturized.       (* Warhead miniaturization claimed *)
+
+(** Byungjin policy derives from Charip (self-reliance) and Chawi (self-defense). *)
+Definition byungjin_derivation_pillars : list Pillar := [Charip; Chawi].
+
+(** Hwasong missile series. *)
+Inductive MissileSeries : Type :=
+  | Hwasong5   (* Scud variant, short range *)
+  | Hwasong6   (* Extended Scud *)
+  | Hwasong7   (* Nodong, medium range *)
+  | Hwasong10  (* Musudan, intermediate range *)
+  | Hwasong12  (* IRBM *)
+  | Hwasong14  (* ICBM *)
+  | Hwasong15  (* ICBM, larger *)
+  | Hwasong17  (* "Monster" ICBM *)
+  | Hwasong18. (* Solid fuel ICBM *)
+
+Definition missile_range_km (m : MissileSeries) : nat :=
+  match m with
+  | Hwasong5 => 300
+  | Hwasong6 => 500
+  | Hwasong7 => 1300
+  | Hwasong10 => 3500
+  | Hwasong12 => 4500
+  | Hwasong14 => 10000
+  | Hwasong15 => 13000
+  | Hwasong17 => 15000
+  | Hwasong18 => 15000
+  end.
+
+(** ICBM threshold: >= 5500 km range. *)
+Definition icbm_threshold : nat := 5500.
+
+Definition is_icbm (m : MissileSeries) : bool :=
+  Nat.leb icbm_threshold (missile_range_km m).
+
+Lemma hwasong14_is_icbm : is_icbm Hwasong14 = true.
+Proof. reflexivity. Qed.
+
+Lemma hwasong7_not_icbm : is_icbm Hwasong7 = false.
+Proof. reflexivity. Qed.
+
+(** Nuclear deterrence doctrine: all hostile actions met with nuclear response. *)
+Definition nuclear_deterrence : Prop :=
+  True.  (* Stated policy: nuclear weapons deter invasion *)
+
+(** 2022 nuclear law: first-use policy under certain conditions. *)
+Inductive FirstUseCondition : Type :=
+  | LeadershipThreat     (* Attack on leadership *)
+  | NuclearAttack        (* Nuclear attack on DPRK *)
+  | StrategicTarget      (* Attack on strategic targets *)
+  | RegimeChange.        (* Attempt to overthrow regime *)
+
+Definition nuclear_first_use_justified (c : FirstUseCondition) : Prop :=
+  match c with
+  | LeadershipThreat => True
+  | NuclearAttack => True
+  | StrategicTarget => True
+  | RegimeChange => True
+  end.
 
 (** ========================================================================= *)
 (** SUMMARY                                                                   *)
