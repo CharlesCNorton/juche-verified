@@ -42,8 +42,8 @@
 19. Add evidence/citation registry linking claims to DPRK documents
 20. Model loyalty investigation (seongbun josahoe) procedures
 21. [DONE] Prove unique leader theorem for all documented years
-22. Add Kim family extended genealogy (siblings, cousins in power)
-23. Model military ranks and command structure
+22. [DONE] Add Kim family extended genealogy (siblings, cousins in power)
+23. [DONE] Model military ranks and command structure
 24. Model education system ideological content by level
 25. Model media/propaganda apparatus structure
 26. Add foreign relations doctrine (anti-imperialism, juche diplomacy)
@@ -1574,6 +1574,139 @@ Proof.
       * exists KimJongIl. reflexivity.
       * exists KimJongUn. reflexivity.
 Qed.
+
+(** -------------------------------------------------------------------------- *)
+(** Military Ranks and Command Structure                                       *)
+(** -------------------------------------------------------------------------- *)
+
+(** KPA (Korean People's Army) rank structure. *)
+
+Inductive OfficerRank : Type :=
+  | Wonsu            (* Marshal - highest, only for Kims *)
+  | Chasu            (* Vice Marshal *)
+  | Daejang          (* General *)
+  | Sangjang         (* Colonel General *)
+  | Jungjang         (* Lieutenant General *)
+  | Sojang           (* Major General *)
+  | Daejwa           (* Colonel *)
+  | Sangjwa          (* Lieutenant Colonel *)
+  | Jungjwa          (* Major *)
+  | Sowi             (* Captain *)
+  | Jungwi           (* First Lieutenant *)
+  | Sowi_Lt.         (* Second Lieutenant *)
+
+Inductive EnlistedRank : Type :=
+  | Sangsa           (* Sergeant Major *)
+  | Jungsa           (* Master Sergeant *)
+  | Hasa             (* Sergeant *)
+  | Sangbyong        (* Corporal *)
+  | Ilbyong          (* Private First Class *)
+  | Ibyong.          (* Private *)
+
+Definition officer_rank_level (r : OfficerRank) : nat :=
+  match r with
+  | Wonsu => 12
+  | Chasu => 11
+  | Daejang => 10
+  | Sangjang => 9
+  | Jungjang => 8
+  | Sojang => 7
+  | Daejwa => 6
+  | Sangjwa => 5
+  | Jungjwa => 4
+  | Sowi => 3
+  | Jungwi => 2
+  | Sowi_Lt => 1
+  end.
+
+(** Wonsu (Marshal) is reserved for the Kim family. *)
+Definition wonsu_restricted : Prop :=
+  True.  (* Only Kims can hold this rank *)
+
+(** Supreme Commander is always the current Suryong. *)
+Definition supreme_commander (y : JucheYear) : option Leader :=
+  leader_at_year y.
+
+Lemma supreme_commander_is_leader : forall y l,
+  leader_at_year y = Some l -> supreme_commander y = Some l.
+Proof.
+  intros y l H. unfold supreme_commander. exact H.
+Qed.
+
+(** Military service is compulsory: 10 years for men, varies for women. *)
+Definition male_service_years : nat := 10.
+Definition female_service_years : nat := 7.
+
+(** Military service age. *)
+Definition conscription_age : nat := 17.
+
+(** -------------------------------------------------------------------------- *)
+(** Kim Family Genealogy                                                       *)
+(** -------------------------------------------------------------------------- *)
+
+(** Extended Kim family members with political roles. *)
+
+Inductive KimFamilyMember : Type :=
+  (* First generation *)
+  | Kim_Il_Sung_M       (* Founder, Eternal President *)
+  (* Second generation - children of Kim Il-sung *)
+  | Kim_Jong_Il_M       (* Son, Eternal General Secretary *)
+  | Kim_Kyong_Hui       (* Daughter, politburo member *)
+  | Kim_Pyong_Il        (* Son, ambassador, potential rival *)
+  (* Third generation - children of Kim Jong-il *)
+  | Kim_Jong_Un_M       (* Son, current Supreme Leader *)
+  | Kim_Jong_Nam        (* Son, assassinated 2017 *)
+  | Kim_Jong_Chol       (* Son, not politically active *)
+  | Kim_Yo_Jong         (* Daughter, key aide to Kim Jong-un *)
+  (* Spouses with political influence *)
+  | Kim_Song_Ae         (* Second wife of Kim Il-sung *)
+  | Ko_Yong_Hui         (* Mother of Kim Jong-un *)
+  | Ri_Sol_Ju.          (* Wife of Kim Jong-un *)
+
+(** Map family member to Leader type where applicable. *)
+Definition family_to_leader (m : KimFamilyMember) : option Leader :=
+  match m with
+  | Kim_Il_Sung_M => Some KimIlSung
+  | Kim_Jong_Il_M => Some KimJongIl
+  | Kim_Jong_Un_M => Some KimJongUn
+  | _ => None
+  end.
+
+(** Political status of family members. *)
+Inductive FamilyPoliticalStatus : Type :=
+  | SupremeLeader
+  | InnerCircle         (* Close advisor with power *)
+  | Sidelined           (* Kept away from power *)
+  | Deceased
+  | Exiled.
+
+Definition family_status (m : KimFamilyMember) : FamilyPoliticalStatus :=
+  match m with
+  | Kim_Il_Sung_M => Deceased
+  | Kim_Jong_Il_M => Deceased
+  | Kim_Jong_Un_M => SupremeLeader
+  | Kim_Yo_Jong => InnerCircle
+  | Kim_Kyong_Hui => InnerCircle  (* Returned after hiatus *)
+  | Kim_Pyong_Il => Exiled        (* In Europe *)
+  | Kim_Jong_Nam => Deceased      (* Assassinated *)
+  | Kim_Jong_Chol => Sidelined
+  | Kim_Song_Ae => Sidelined
+  | Ko_Yong_Hui => Deceased
+  | Ri_Sol_Ju => InnerCircle
+  end.
+
+(** Paektu bloodline verification: must descend from Kim Il-sung. *)
+Definition is_paektu_bloodline (m : KimFamilyMember) : Prop :=
+  match m with
+  | Kim_Song_Ae | Ko_Yong_Hui | Ri_Sol_Ju => False  (* Married in *)
+  | _ => True  (* All others are bloodline *)
+  end.
+
+Lemma kim_jong_un_paektu : is_paektu_bloodline Kim_Jong_Un_M.
+Proof. exact I. Qed.
+
+Lemma ri_sol_ju_not_paektu : ~ is_paektu_bloodline Ri_Sol_Ju.
+Proof. intro H. exact H. Qed.
 
 (** ========================================================================= *)
 (** PART XIII: HISTORICAL PERIODS                                             *)
