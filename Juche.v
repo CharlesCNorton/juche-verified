@@ -40,7 +40,7 @@
 17. [DONE] Add richer derivation rules beyond BaseSource/Derive
 18. [DONE] Model economic planning units (cooperative farms, factory cells)
 19. Add evidence/citation registry linking claims to DPRK documents
-20. Model loyalty investigation (seongbun josahoe) procedures
+20. [DONE] Model loyalty investigation (seongbun josahoe) procedures
 21. [DONE] Prove unique leader theorem for all documented years
 22. [DONE] Add Kim family extended genealogy (siblings, cousins in power)
 23. [DONE] Model military ranks and command structure
@@ -2047,6 +2047,81 @@ Definition public_loudspeakers : Prop :=
 (** Three revolutions: ideological, technical, cultural (propaganda theme). *)
 Definition three_revolutions : list string :=
   ["ideological"; "technical"; "cultural"].
+
+(** -------------------------------------------------------------------------- *)
+(** Loyalty Investigation Procedures                                           *)
+(** -------------------------------------------------------------------------- *)
+
+(** Seongbun josahoe (성분조사회): songbun investigation committees that
+    periodically review citizen backgrounds and loyalty. *)
+
+Inductive InvestigationType : Type :=
+  | RoutineReview       (* Periodic background check *)
+  | PromotionCheck      (* Before career advancement *)
+  | MarriageCheck       (* Before marriage approval *)
+  | PartyAdmission      (* Before WPK membership *)
+  | SpecialInvestigation. (* Triggered by suspicion *)
+
+(** Investigation authorities. *)
+Inductive InvestigationAuthority : Type :=
+  | LocalCommittee      (* Dong/village level *)
+  | CountyMPS           (* County security *)
+  | ProvincialSSD       (* State Security Department *)
+  | CentralSSD.         (* For high-level cases *)
+
+Definition investigation_authority (i : InvestigationType) : InvestigationAuthority :=
+  match i with
+  | RoutineReview => LocalCommittee
+  | PromotionCheck => CountyMPS
+  | MarriageCheck => LocalCommittee
+  | PartyAdmission => CountyMPS
+  | SpecialInvestigation => ProvincialSSD
+  end.
+
+(** Investigation covers three generations of ancestors. *)
+Definition investigation_generations : nat := 3.
+
+(** Information sources for investigations. *)
+Inductive InvestigationSource : Type :=
+  | AncestorRecords     (* Historical family background *)
+  | NeighborReports     (* Inminban surveillance *)
+  | WorkplaceReports    (* Employer/coworker reports *)
+  | OrganizationRecords (* Party/mass org records *)
+  | SecurityFiles.      (* MPS/SSD files *)
+
+(** Investigation outcomes. *)
+Inductive InvestigationOutcome : Type :=
+  | Cleared             (* No issues found *)
+  | Flagged             (* Minor concerns, monitoring *)
+  | Restricted          (* Privileges limited *)
+  | Reclassified        (* Songbun downgraded *)
+  | Detained.           (* Sent for further processing *)
+
+(** Investigation outcome affects songbun. *)
+Definition outcome_affects_songbun (o : InvestigationOutcome) : Prop :=
+  match o with
+  | Reclassified => True
+  | Detained => True
+  | _ => False
+  end.
+
+(** Party admission requires clean investigation. *)
+Definition party_admission_requires_clear (o : InvestigationOutcome) : Prop :=
+  match o with
+  | Cleared => True
+  | _ => False
+  end.
+
+Lemma flagged_no_party : ~ party_admission_requires_clear Flagged.
+Proof. intro H. exact H. Qed.
+
+(** Self-reporting obligation: must report own suspicious contacts. *)
+Definition self_reporting_required : Prop :=
+  True.  (* Failure to report is itself a violation *)
+
+(** Mutual surveillance: citizens expected to report on each other. *)
+Definition mutual_surveillance_duty : Prop :=
+  True.  (* Derives from P9_Discipline *)
 
 (** ========================================================================= *)
 (** SUMMARY                                                                   *)
