@@ -46,7 +46,7 @@
 23. [DONE] Model military ranks and command structure
 24. Model education system ideological content by level
 25. Model media/propaganda apparatus structure
-26. Add foreign relations doctrine (anti-imperialism, juche diplomacy)
+26. [DONE] Add foreign relations doctrine (anti-imperialism, juche diplomacy)
 27. [DONE] Model nuclear doctrine under Byungjin policy
 28. [DONE] Prove succession chain well-foundedness
 29. [DONE] Add temporal queries (leader_at_year, policy_at_year)
@@ -1833,6 +1833,73 @@ Definition nuclear_first_use_justified (c : FirstUseCondition) : Prop :=
   | StrategicTarget => True
   | RegimeChange => True
   end.
+
+(** -------------------------------------------------------------------------- *)
+(** Foreign Relations Doctrine                                                 *)
+(** -------------------------------------------------------------------------- *)
+
+(** Foreign policy derives from Chajusong (political independence).
+    Anti-imperialism and opposition to US are foundational. *)
+
+(** Foreign policy classification of countries. *)
+Inductive ForeignRelationStatus : Type :=
+  | FriendlyState       (* Aligned interests *)
+  | NeutralState        (* Non-hostile *)
+  | HostileState        (* Enemy/imperialist *)
+  | PuppetState.        (* Controlled by hostile power *)
+
+(** Key countries and their status from DPRK perspective. *)
+Inductive Country : Type :=
+  | USA | ROK | Japan | China | Russia
+  | Cuba | Vietnam | Syria | Iran.
+
+Definition country_status (c : Country) : ForeignRelationStatus :=
+  match c with
+  | USA => HostileState
+  | ROK => PuppetState       (* "Puppet of US imperialism" *)
+  | Japan => HostileState    (* Historical colonizer *)
+  | China => FriendlyState   (* Ally with complications *)
+  | Russia => FriendlyState
+  | Cuba => FriendlyState
+  | Vietnam => FriendlyState
+  | Syria => FriendlyState
+  | Iran => FriendlyState
+  end.
+
+Lemma usa_hostile : country_status USA = HostileState.
+Proof. reflexivity. Qed.
+
+Lemma rok_puppet : country_status ROK = PuppetState.
+Proof. reflexivity. Qed.
+
+(** Reunification doctrine: peaceful reunification under DPRK leadership. *)
+Definition reunification_terms : Prop :=
+  True.  (* One Korea under Juche system *)
+
+(** Juche diplomacy: no dependence on foreign powers. *)
+Definition juche_diplomacy : Prop :=
+  True.  (* Self-reliance in foreign relations *)
+
+(** Foreign relations derive from Chajusong pillar. *)
+Definition foreign_policy_pillar : Pillar := Chajusong.
+
+(** Anti-imperialism is a core ideological tenet. *)
+Inductive ImperialistPower : Type :=
+  | USImperialism
+  | JapaneseImperialism.  (* Historical *)
+
+Definition is_imperialist (c : Country) : Prop :=
+  match c with
+  | USA | Japan => True
+  | _ => False
+  end.
+
+Lemma usa_imperialist : is_imperialist USA.
+Proof. exact I. Qed.
+
+(** Songun diplomacy: military strength as diplomatic leverage. *)
+Definition songun_diplomacy : Prop :=
+  True.  (* Negotiation from position of military strength *)
 
 (** ========================================================================= *)
 (** SUMMARY                                                                   *)
