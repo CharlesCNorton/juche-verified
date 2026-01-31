@@ -45,7 +45,7 @@
 22. [DONE] Add Kim family extended genealogy (siblings, cousins in power)
 23. [DONE] Model military ranks and command structure
 24. [DONE] Model education system ideological content by level
-25. Model media/propaganda apparatus structure
+25. [DONE] Model media/propaganda apparatus structure
 26. [DONE] Add foreign relations doctrine (anti-imperialism, juche diplomacy)
 27. [DONE] Model nuclear doctrine under Byungjin policy
 28. [DONE] Prove succession chain well-foundedness
@@ -1976,6 +1976,77 @@ Definition elite_school_access (s : SongbunClass) : Prop :=
   | CoreClass => True
   | _ => False
   end.
+
+(** -------------------------------------------------------------------------- *)
+(** Media and Propaganda Apparatus                                             *)
+(** -------------------------------------------------------------------------- *)
+
+(** All media in the DPRK is state-controlled and serves ideological purposes.
+    No private media, no foreign media access without special permission. *)
+
+Inductive MediaType : Type :=
+  | Television          (* KCTV, main state broadcaster *)
+  | Radio               (* KCBS and others *)
+  | Newspaper           (* Rodong Sinmun, party paper *)
+  | Magazine            (* Various periodicals *)
+  | Film                (* Korean Feature Film Studio *)
+  | Internet.           (* Kwangmyong intranet only *)
+
+(** Media outlets. *)
+Inductive MediaOutlet : Type :=
+  | KCTV                (* Korean Central Television *)
+  | KCBS                (* Korean Central Broadcasting Station *)
+  | RodongSinmun        (* Workers' Party newspaper *)
+  | KCNA                (* Korean Central News Agency *)
+  | Minju_Choson        (* Government newspaper *)
+  | PyongyangTimes.     (* English-language, for foreigners *)
+
+(** All media controlled by Propaganda and Agitation Department. *)
+Definition media_controller : Organization := WPK.
+
+(** Media content categories. *)
+Inductive ContentCategory : Type :=
+  | LeaderNews          (* Activities of Supreme Leader *)
+  | PartyDirectives     (* Party announcements *)
+  | RevolutionaryArt    (* Ideologically correct art *)
+  | ProductionNews      (* Economic achievements *)
+  | MilitaryNews        (* KPA activities *)
+  | AntiImperialist.    (* Anti-US/Japan content *)
+
+(** Daily broadcast must include leader news. *)
+Definition requires_leader_content (m : MediaType) : Prop :=
+  match m with
+  | Television => True
+  | Radio => True
+  | Newspaper => True
+  | Magazine => True
+  | Film => True  (* Must glorify leaders *)
+  | Internet => True
+  end.
+
+Lemma all_media_leader_content : forall m, requires_leader_content m.
+Proof. intro m. destruct m; exact I. Qed.
+
+(** Foreign media access is prohibited except for elites. *)
+Definition foreign_media_access (s : SongbunClass) : Prop :=
+  match s with
+  | CoreClass => True  (* High officials may have limited access *)
+  | _ => False
+  end.
+
+Lemma hostile_no_foreign_media : ~ foreign_media_access HostileClass.
+Proof. intro H. exact H. Qed.
+
+(** Watching/distributing foreign media: serious crime. *)
+Definition foreign_media_penalty : nat := 3.  (* Serious - labor camp *)
+
+(** Propaganda sessions: loudspeakers in public spaces. *)
+Definition public_loudspeakers : Prop :=
+  True.  (* Broadcast ideological content throughout day *)
+
+(** Three revolutions: ideological, technical, cultural (propaganda theme). *)
+Definition three_revolutions : list string :=
+  ["ideological"; "technical"; "cultural"].
 
 (** ========================================================================= *)
 (** SUMMARY                                                                   *)
