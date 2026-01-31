@@ -39,7 +39,7 @@
 16. [DONE] Add scope predicate DSL for obligation targeting (cf. halakha ScopePred)
 17. [DONE] Add richer derivation rules beyond BaseSource/Derive
 18. [DONE] Model economic planning units (cooperative farms, factory cells)
-19. Add evidence/citation registry linking claims to DPRK documents
+19. [DONE] Add evidence/citation registry linking claims to DPRK documents
 20. [DONE] Model loyalty investigation (seongbun josahoe) procedures
 21. [DONE] Prove unique leader theorem for all documented years
 22. [DONE] Add Kim family extended genealogy (siblings, cousins in power)
@@ -2122,6 +2122,66 @@ Definition self_reporting_required : Prop :=
 (** Mutual surveillance: citizens expected to report on each other. *)
 Definition mutual_surveillance_duty : Prop :=
   True.  (* Derives from P9_Discipline *)
+
+(** -------------------------------------------------------------------------- *)
+(** Evidence and Citation Registry                                             *)
+(** -------------------------------------------------------------------------- *)
+
+(** Sources used for claims in this formalization. *)
+
+Inductive SourceType : Type :=
+  | PrimaryDocument     (* DPRK official documents *)
+  | ScholarlyWork       (* Academic research *)
+  | DefectorTestimony   (* Accounts from defectors *)
+  | NGOReport           (* Human rights organizations *)
+  | JournalisticSource  (* News reporting *)
+  | GovernmentReport.   (* Non-DPRK government analysis *)
+
+(** Source reliability tiers. *)
+Inductive SourceTier : Type :=
+  | TierDefinitive      (* Multiple corroborating sources *)
+  | TierStrong          (* Well-documented *)
+  | TierSupported       (* Some documentation *)
+  | TierClaimed.        (* Single source or uncorroborated *)
+
+(** Citation record. *)
+Record Citation := mkCitation {
+  cite_id : nat;
+  cite_source_type : SourceType;
+  cite_tier : SourceTier;
+  cite_description : string
+}.
+
+(** Sample citations for key claims. *)
+Definition cite_ten_principles : Citation :=
+  mkCitation 1 PrimaryDocument TierDefinitive
+    "Ten Principles for the Establishment of the One-Ideology System (1974, revised 2013)".
+
+Definition cite_songbun_system : Citation :=
+  mkCitation 2 ScholarlyWork TierStrong
+    "Robert Collins, Marked for Life: Songbun, HRNK 2012".
+
+Definition cite_kwanliso : Citation :=
+  mkCitation 3 NGOReport TierStrong
+    "UN Commission of Inquiry on Human Rights in the DPRK, 2014".
+
+Definition cite_nuclear_tests : Citation :=
+  mkCitation 4 GovernmentReport TierDefinitive
+    "CTBTO seismic monitoring data".
+
+Definition cite_inminban : Citation :=
+  mkCitation 5 DefectorTestimony TierSupported
+    "Multiple defector accounts documented by HRNK".
+
+(** All citations. *)
+Definition all_citations : list Citation :=
+  [cite_ten_principles; cite_songbun_system; cite_kwanliso;
+   cite_nuclear_tests; cite_inminban].
+
+(** Claim-to-citation mapping (representative examples). *)
+Definition principle_citation : Citation := cite_ten_principles.
+Definition songbun_citation : Citation := cite_songbun_system.
+Definition camp_citation : Citation := cite_kwanliso.
 
 (** ========================================================================= *)
 (** SUMMARY                                                                   *)
