@@ -1,0 +1,4308 @@
+DIGEST 98f3baee1d6d557f29a8c44c6778010a
+FJuche
+R6148:6161 Coq.Lists.List <> <> lib
+R6179:6196 Coq.Arith.PeanoNat <> <> lib
+R6214:6226 Coq.Bool.Bool <> <> lib
+R6244:6261 Coq.Strings.String <> <> lib
+R6279:6281 Coq.micromega.Lia <> <> lib
+R6291:6303 Coq.Lists.List ListNotations <> mod
+def 6717:6725 <> JucheYear
+R6730:6732 Coq.Init.Datatypes <> nat ind
+def 6747:6757 <> juche_to_ce
+R6764:6772 Juche <> JucheYear def
+binder 6760:6760 <> j:1
+R6777:6779 Coq.Init.Datatypes <> nat ind
+R6788:6790 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R6791:6791 Juche <> j:1 var
+def 6805:6815 <> ce_to_juche
+R6823:6825 Coq.Init.Datatypes <> nat ind
+binder 6818:6819 <> ce:2
+R6830:6832 Coq.Init.Datatypes <> nat ind
+R6839:6841 Coq.Init.Peano <> ::nat_scope:x_'-'_x not
+R6837:6838 Juche <> ce:2 var
+def 6908:6920 <> founding_year
+R6924:6932 Juche <> JucheYear def
+def 6982:6996 <> liberation_year
+R7000:7008 Juche <> JucheYear def
+def 7065:7073 <> war_start
+R7077:7085 Juche <> JucheYear def
+def 7144:7150 <> war_end
+R7154:7162 Juche <> JucheYear def
+def 7215:7231 <> kim_il_sung_death
+R7235:7243 Juche <> JucheYear def
+def 7275:7291 <> kim_jong_il_death
+R7295:7303 Juche <> JucheYear def
+prf 7331:7346 <> founding_is_1948
+R7375:7377 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7350:7360 Juche <> juche_to_ce def
+R7362:7374 Juche <> founding_year def
+prf 7416:7433 <> liberation_is_1945
+R7464:7466 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R7437:7447 Juche <> juche_to_ce def
+R7449:7463 Juche <> liberation_year def
+rec 7830:7840 <> PreciseDate
+proj 7863:7869 <> pd_year
+proj 7886:7893 <> pd_month
+proj 7939:7944 <> pd_day
+R7873:7881 Juche <> JucheYear def
+R7897:7902 Coq.Init.Datatypes <> option ind
+R7904:7906 Coq.Init.Datatypes <> nat ind
+R7948:7953 Coq.Init.Datatypes <> option ind
+R7955:7957 Coq.Init.Datatypes <> nat ind
+def 8005:8013 <> year_only
+R8020:8028 Juche <> JucheYear def
+binder 8016:8016 <> y:7
+R8033:8043 Juche <> PreciseDate rec
+R8050:8062 Juche <> mkPreciseDate constr
+R8064:8064 Juche <> y:7 var
+R8066:8069 Coq.Init.Datatypes <> None constr
+R8071:8074 Coq.Init.Datatypes <> None constr
+def 8089:8098 <> year_month
+R8105:8113 Juche <> JucheYear def
+binder 8101:8101 <> y:8
+R8121:8123 Coq.Init.Datatypes <> nat ind
+binder 8117:8117 <> m:9
+R8128:8138 Juche <> PreciseDate rec
+R8145:8157 Juche <> mkPreciseDate constr
+R8159:8159 Juche <> y:8 var
+R8162:8165 Coq.Init.Datatypes <> Some constr
+R8167:8167 Juche <> m:9 var
+R8170:8173 Coq.Init.Datatypes <> None constr
+def 8188:8196 <> full_date
+R8203:8211 Juche <> JucheYear def
+binder 8199:8199 <> y:10
+R8221:8223 Coq.Init.Datatypes <> nat ind
+binder 8215:8215 <> m:11
+binder 8217:8217 <> d:12
+R8228:8238 Juche <> PreciseDate rec
+R8245:8257 Juche <> mkPreciseDate constr
+R8259:8259 Juche <> y:10 var
+R8262:8265 Coq.Init.Datatypes <> Some constr
+R8267:8267 Juche <> m:11 var
+R8271:8274 Coq.Init.Datatypes <> Some constr
+R8276:8276 Juche <> d:12 var
+def 8337:8347 <> valid_month
+R8354:8356 Coq.Init.Datatypes <> nat ind
+binder 8350:8350 <> m:13
+R8375:8378 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8370:8373 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R8369:8369 Juche <> m:13 var
+R8380:8383 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R8379:8379 Juche <> m:13 var
+def 8399:8407 <> valid_day
+R8414:8416 Coq.Init.Datatypes <> nat ind
+binder 8410:8410 <> d:14
+R8435:8438 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8430:8433 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R8429:8429 Juche <> d:14 var
+R8440:8443 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R8439:8439 Juche <> d:14 var
+def 8460:8477 <> precise_date_valid
+R8485:8495 Juche <> PreciseDate rec
+binder 8480:8481 <> pd:15
+R8529:8534 Juche <> pd_day proj
+R8536:8537 Juche <> pd:15 var
+R8516:8523 Juche <> pd_month proj
+R8525:8526 Juche <> pd:15 var
+R8548:8551 Coq.Init.Datatypes <> None constr
+R8554:8557 Coq.Init.Datatypes <> None constr
+R8562:8565 Coq.Init.Logic <> True ind
+R8571:8574 Coq.Init.Datatypes <> Some constr
+R8579:8582 Coq.Init.Datatypes <> None constr
+R8587:8597 Juche <> valid_month def
+R8605:8608 Coq.Init.Datatypes <> Some constr
+R8613:8616 Coq.Init.Datatypes <> Some constr
+R8636:8639 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8623:8633 Juche <> valid_month def
+R8640:8648 Juche <> valid_day def
+R8656:8659 Coq.Init.Datatypes <> None constr
+R8662:8665 Coq.Init.Datatypes <> Some constr
+R8672:8676 Coq.Init.Logic <> False ind
+def 8801:8815 <> precise_date_le
+R8826:8836 Juche <> PreciseDate rec
+binder 8818:8819 <> d1:16
+binder 8821:8822 <> d2:17
+R8874:8880 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R9198:9198 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R8861:8863 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R8851:8857 Juche <> pd_year proj
+R8859:8860 Juche <> d1:16 var
+R8864:8870 Juche <> pd_year proj
+R8872:8873 Juche <> d2:17 var
+R8904:8910 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R8891:8893 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R8881:8887 Juche <> pd_year proj
+R8889:8890 Juche <> d1:16 var
+R8894:8900 Juche <> pd_year proj
+R8902:8903 Juche <> d2:17 var
+R8930:8937 Juche <> pd_month proj
+R8939:8940 Juche <> d2:17 var
+R8917:8924 Juche <> pd_month proj
+R8926:8927 Juche <> d1:16 var
+R8952:8955 Coq.Init.Datatypes <> None constr
+R8963:8966 Coq.Init.Logic <> True ind
+R8973:8976 Coq.Init.Datatypes <> Some constr
+R8981:8984 Coq.Init.Datatypes <> None constr
+R8989:8993 Coq.Init.Logic <> False ind
+R9000:9003 Coq.Init.Datatypes <> Some constr
+R9009:9012 Coq.Init.Datatypes <> Some constr
+R9027:9031 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R9190:9190 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R9022:9024 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R9039:9049 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R9034:9036 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R9067:9072 Juche <> pd_day proj
+R9074:9075 Juche <> d2:17 var
+R9056:9061 Juche <> pd_day proj
+R9063:9064 Juche <> d1:16 var
+R9091:9094 Coq.Init.Datatypes <> None constr
+R9102:9105 Coq.Init.Logic <> True ind
+R9116:9119 Coq.Init.Datatypes <> Some constr
+R9124:9127 Coq.Init.Datatypes <> None constr
+R9132:9136 Coq.Init.Logic <> False ind
+R9147:9150 Coq.Init.Datatypes <> Some constr
+R9157:9160 Coq.Init.Datatypes <> Some constr
+R9172:9175 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+def 9255:9271 <> kim_il_sung_birth
+R9275:9285 Juche <> PreciseDate rec
+R9290:9298 Juche <> full_date def
+def 9342:9358 <> kim_jong_il_birth
+R9362:9372 Juche <> PreciseDate rec
+R9377:9385 Juche <> full_date def
+def 9427:9443 <> kim_jong_un_birth
+R9447:9457 Juche <> PreciseDate rec
+R9462:9470 Juche <> full_date def
+def 9521:9533 <> dprk_founding
+R9537:9547 Juche <> PreciseDate rec
+R9552:9560 Juche <> full_date def
+def 9606:9619 <> armistice_date
+R9623:9633 Juche <> PreciseDate rec
+R9638:9646 Juche <> full_date def
+prf 9688:9710 <> kim_il_sung_birth_valid
+R9714:9731 Juche <> precise_date_valid def
+R9733:9749 Juche <> kim_il_sung_birth def
+R9768:9785 Juche <> precise_date_valid def
+R9788:9804 Juche <> kim_il_sung_birth def
+R9807:9817 Juche <> valid_month def
+R9820:9828 Juche <> valid_day def
+ind 10172:10177 <> Pillar
+constr 10193:10201 <> Chajusong
+constr 10252:10257 <> Charip
+constr 10315:10319 <> Chawi
+scheme 10172:10177 <> Pillar_rect
+scheme 10172:10177 <> Pillar_ind
+scheme 10172:10177 <> Pillar_rec
+scheme 10172:10177 <> Pillar_sind
+def 10367:10376 <> pillar_eqb
+R10387:10392 Juche <> Pillar ind
+binder 10379:10380 <> p1:20
+binder 10382:10383 <> p2:21
+R10397:10400 Coq.Init.Datatypes <> bool ind
+R10417:10418 Juche <> p2:21 var
+R10413:10414 Juche <> p1:20 var
+R10429:10437 Juche <> Chajusong constr
+R10440:10448 Juche <> Chajusong constr
+R10453:10456 Coq.Init.Datatypes <> true constr
+R10462:10467 Juche <> Charip constr
+R10470:10475 Juche <> Charip constr
+R10480:10483 Coq.Init.Datatypes <> true constr
+R10489:10493 Juche <> Chawi constr
+R10496:10500 Juche <> Chawi constr
+R10505:10508 Coq.Init.Datatypes <> true constr
+R10522:10526 Coq.Init.Datatypes <> false constr
+prf 10542:10554 <> pillar_eqb_eq
+binder 10565:10566 <> p1:24
+binder 10568:10569 <> p2:25
+R10595:10599 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R10588:10590 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10572:10581 Juche <> pillar_eqb def
+R10583:10584 Juche <> p1:24 var
+R10586:10587 Juche <> p2:25 var
+R10591:10594 Coq.Init.Datatypes <> true constr
+R10602:10604 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10600:10601 Juche <> p1:24 var
+R10605:10606 Juche <> p2:25 var
+prf 10691:10703 <> pillar_eq_dec
+R10722:10727 Juche <> Pillar ind
+binder 10714:10715 <> p1:26
+binder 10717:10718 <> p2:27
+R10730:10730 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R10738:10742 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R10751:10751 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R10733:10735 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R10731:10732 Juche <> p1:26 var
+R10736:10737 Juche <> p2:27 var
+R10745:10748 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R10743:10744 Juche <> p1:26 var
+R10749:10750 Juche <> p2:27 var
+def 10844:10854 <> all_pillars
+R10858:10861 Coq.Init.Datatypes <> list ind
+R10863:10868 Juche <> Pillar ind
+R10873:10873 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10883:10884 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10891:10892 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10898:10898 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R10874:10882 Juche <> Chajusong constr
+R10885:10890 Juche <> Charip constr
+R10893:10897 Juche <> Chawi constr
+prf 10908:10927 <> all_pillars_complete
+binder 10938:10938 <> p:28
+R10941:10942 Coq.Lists.List <> In def
+R10946:10956 Juche <> all_pillars def
+R10944:10944 Juche <> p:28 var
+ind 11477:11485 <> Principle
+constr 11501:11511 <> P1_Struggle
+constr 11585:11592 <> P2_Honor
+constr 11655:11666 <> P3_Authority
+constr 11731:11738 <> P4_Faith
+constr 11800:11813 <> P5_Inheritance
+constr 11878:11885 <> P6_Unity
+constr 11952:11962 <> P7_Learning
+constr 12031:12042 <> P8_Gratitude
+constr 12102:12114 <> P9_Discipline
+constr 12180:12193 <> P10_Succession
+scheme 11477:11485 <> Principle_rect
+scheme 11477:11485 <> Principle_ind
+scheme 11477:11485 <> Principle_rec
+scheme 11477:11485 <> Principle_sind
+def 12278:12290 <> principle_eqb
+R12301:12309 Juche <> Principle ind
+binder 12293:12294 <> p1:31
+binder 12296:12297 <> p2:32
+R12314:12317 Coq.Init.Datatypes <> bool ind
+R12334:12335 Juche <> p2:32 var
+R12330:12331 Juche <> p1:31 var
+R12346:12356 Juche <> P1_Struggle constr
+R12359:12369 Juche <> P1_Struggle constr
+R12374:12377 Coq.Init.Datatypes <> true constr
+R12383:12390 Juche <> P2_Honor constr
+R12393:12400 Juche <> P2_Honor constr
+R12405:12408 Coq.Init.Datatypes <> true constr
+R12414:12425 Juche <> P3_Authority constr
+R12428:12439 Juche <> P3_Authority constr
+R12444:12447 Coq.Init.Datatypes <> true constr
+R12453:12460 Juche <> P4_Faith constr
+R12463:12470 Juche <> P4_Faith constr
+R12475:12478 Coq.Init.Datatypes <> true constr
+R12484:12497 Juche <> P5_Inheritance constr
+R12500:12513 Juche <> P5_Inheritance constr
+R12518:12521 Coq.Init.Datatypes <> true constr
+R12527:12534 Juche <> P6_Unity constr
+R12537:12544 Juche <> P6_Unity constr
+R12549:12552 Coq.Init.Datatypes <> true constr
+R12558:12568 Juche <> P7_Learning constr
+R12571:12581 Juche <> P7_Learning constr
+R12586:12589 Coq.Init.Datatypes <> true constr
+R12595:12606 Juche <> P8_Gratitude constr
+R12609:12620 Juche <> P8_Gratitude constr
+R12625:12628 Coq.Init.Datatypes <> true constr
+R12634:12646 Juche <> P9_Discipline constr
+R12649:12661 Juche <> P9_Discipline constr
+R12666:12669 Coq.Init.Datatypes <> true constr
+R12675:12688 Juche <> P10_Succession constr
+R12691:12704 Juche <> P10_Succession constr
+R12709:12712 Coq.Init.Datatypes <> true constr
+R12726:12730 Coq.Init.Datatypes <> false constr
+prf 12746:12761 <> principle_eqb_eq
+binder 12772:12773 <> p1:35
+binder 12775:12776 <> p2:36
+R12805:12809 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R12798:12800 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12779:12791 Juche <> principle_eqb def
+R12793:12794 Juche <> p1:35 var
+R12796:12797 Juche <> p2:36 var
+R12801:12804 Coq.Init.Datatypes <> true constr
+R12812:12814 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12810:12811 Juche <> p1:35 var
+R12815:12816 Juche <> p2:36 var
+prf 12901:12916 <> principle_eq_dec
+R12935:12943 Juche <> Principle ind
+binder 12927:12928 <> p1:37
+binder 12930:12931 <> p2:38
+R12946:12946 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R12954:12958 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R12967:12967 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R12949:12951 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12947:12948 Juche <> p1:37 var
+R12952:12953 Juche <> p2:38 var
+R12961:12964 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R12959:12960 Juche <> p1:37 var
+R12965:12966 Juche <> p2:38 var
+def 13060:13073 <> all_principles
+R13077:13080 Coq.Init.Datatypes <> list ind
+R13082:13090 Juche <> Principle ind
+R13097:13097 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13109:13110 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13119:13120 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13133:13134 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13143:13144 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13159:13163 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13172:13173 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13185:13186 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13199:13200 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13214:13215 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13230:13230 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R13098:13108 Juche <> P1_Struggle constr
+R13111:13118 Juche <> P2_Honor constr
+R13121:13132 Juche <> P3_Authority constr
+R13135:13142 Juche <> P4_Faith constr
+R13145:13158 Juche <> P5_Inheritance constr
+R13164:13171 Juche <> P6_Unity constr
+R13174:13184 Juche <> P7_Learning constr
+R13187:13198 Juche <> P8_Gratitude constr
+R13201:13213 Juche <> P9_Discipline constr
+R13216:13229 Juche <> P10_Succession constr
+prf 13240:13260 <> all_principles_length
+R13290:13292 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R13264:13274 Coq.Lists.List <> length abbrev
+R13276:13289 Juche <> all_principles def
+prf 13329:13351 <> all_principles_complete
+binder 13362:13362 <> p:39
+R13365:13366 Coq.Lists.List <> In def
+R13370:13383 Juche <> all_principles def
+R13368:13368 Juche <> p:39 var
+R13423:13436 Juche <> all_principles def
+def 14356:14369 <> principle_text
+R14376:14384 Juche <> Principle ind
+binder 14372:14372 <> p:40
+R14389:14394 Coq.Strings.String <> string ind
+R14407:14407 Juche <> p:40 var
+R14418:14428 Juche <> P1_Struggle constr
+R14637:14644 Juche <> P2_Honor constr
+R14841:14852 Juche <> P3_Authority constr
+R15051:15058 Juche <> P4_Faith constr
+R15327:15340 Juche <> P5_Inheritance constr
+R15573:15580 Juche <> P6_Unity constr
+R15746:15756 Juche <> P7_Learning constr
+R15963:15974 Juche <> P8_Gratitude constr
+R16177:16189 Juche <> P9_Discipline constr
+R16363:16376 Juche <> P10_Succession constr
+def 16676:16695 <> principle_short_name
+R16702:16710 Juche <> Principle ind
+binder 16698:16698 <> p:42
+R16715:16720 Coq.Strings.String <> string ind
+R16733:16733 Juche <> p:42 var
+R16744:16754 Juche <> P1_Struggle constr
+R16783:16790 Juche <> P2_Honor constr
+R16819:16830 Juche <> P3_Authority constr
+R16860:16867 Juche <> P4_Faith constr
+R16898:16911 Juche <> P5_Inheritance constr
+R16946:16953 Juche <> P6_Unity constr
+R16976:16986 Juche <> P7_Learning constr
+R17014:17025 Juche <> P8_Gratitude constr
+R17056:17068 Juche <> P9_Discipline constr
+R17105:17118 Juche <> P10_Succession constr
+def 17207:17222 <> principle_korean
+R17229:17237 Juche <> Principle ind
+binder 17225:17225 <> p:44
+R17242:17247 Coq.Strings.String <> string ind
+R17260:17260 Juche <> p:44 var
+R17271:17281 Juche <> P1_Struggle constr
+R17311:17318 Juche <> P2_Honor constr
+R17342:17353 Juche <> P3_Authority constr
+R17377:17384 Juche <> P4_Faith constr
+R17408:17421 Juche <> P5_Inheritance constr
+R17445:17452 Juche <> P6_Unity constr
+R17476:17486 Juche <> P7_Learning constr
+R17510:17521 Juche <> P8_Gratitude constr
+R17548:17560 Juche <> P9_Discipline constr
+R17584:17597 Juche <> P10_Succession constr
+ind 17986:18005 <> TenPrinciplesVersion
+constr 18021:18031 <> Version1974
+constr 18072:18082 <> Version2013
+scheme 17986:18005 <> TenPrinciplesVersion_rect
+scheme 17986:18005 <> TenPrinciplesVersion_ind
+scheme 17986:18005 <> TenPrinciplesVersion_rec
+scheme 17986:18005 <> TenPrinciplesVersion_sind
+def 18151:18162 <> version_year
+R18169:18188 Juche <> TenPrinciplesVersion ind
+binder 18165:18165 <> v:48
+R18193:18201 Juche <> JucheYear def
+R18214:18214 Juche <> v:48 var
+R18225:18235 Juche <> Version1974 constr
+R18260:18270 Juche <> Version2013 constr
+def 18445:18464 <> version_leader_count
+R18471:18490 Juche <> TenPrinciplesVersion ind
+binder 18467:18467 <> v:50
+R18495:18497 Coq.Init.Datatypes <> nat ind
+R18510:18510 Juche <> v:50 var
+R18521:18531 Juche <> Version1974 constr
+R18542:18552 Juche <> Version2013 constr
+def 18652:18672 <> version_ideology_name
+R18679:18698 Juche <> TenPrinciplesVersion ind
+binder 18675:18675 <> v:52
+R18703:18708 Coq.Strings.String <> string ind
+R18721:18721 Juche <> v:52 var
+R18732:18742 Juche <> Version1974 constr
+R18766:18776 Juche <> Version2013 constr
+def 18896:18918 <> version_includes_songun
+R18925:18944 Juche <> TenPrinciplesVersion ind
+binder 18921:18921 <> v:54
+R18949:18952 Coq.Init.Datatypes <> bool ind
+R18965:18965 Juche <> v:54 var
+R18976:18986 Juche <> Version1974 constr
+R18991:18995 Coq.Init.Datatypes <> false constr
+R19001:19011 Juche <> Version2013 constr
+R19016:19019 Coq.Init.Datatypes <> true constr
+ind 19080:19093 <> RevisionChange
+constr 19109:19122 <> AddedKimJongIl
+constr 19170:19183 <> AddedKimJongUn
+constr 19231:19241 <> AddedSongun
+constr 19291:19308 <> AddedEternalLeader
+constr 19356:19374 <> ChangedIdeologyName
+constr 19408:19423 <> AddedSubArticles
+scheme 19080:19093 <> RevisionChange_rect
+scheme 19080:19093 <> RevisionChange_ind
+scheme 19080:19093 <> RevisionChange_rec
+scheme 19080:19093 <> RevisionChange_sind
+def 19469:19485 <> principle_changes
+R19492:19500 Juche <> Principle ind
+binder 19488:19488 <> p:58
+R19505:19508 Coq.Init.Datatypes <> list ind
+R19510:19523 Juche <> RevisionChange ind
+R19536:19536 Juche <> p:58 var
+R19547:19557 Juche <> P1_Struggle constr
+R19562:19562 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19582:19583 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19598:19598 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19563:19581 Juche <> ChangedIdeologyName constr
+R19584:19597 Juche <> AddedKimJongIl constr
+R19604:19611 Juche <> P2_Honor constr
+R19616:19616 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19631:19632 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19651:19651 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19617:19630 Juche <> AddedKimJongIl constr
+R19633:19650 Juche <> AddedEternalLeader constr
+R19657:19668 Juche <> P3_Authority constr
+R19673:19673 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19688:19689 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19704:19704 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19674:19687 Juche <> AddedKimJongIl constr
+R19690:19703 Juche <> AddedKimJongUn constr
+R19710:19717 Juche <> P4_Faith constr
+R19722:19722 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R19737:19737 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R19723:19736 Juche <> AddedKimJongIl constr
+R19743:19756 Juche <> P5_Inheritance constr
+R19761:19761 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19776:19777 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19792:19792 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19762:19775 Juche <> AddedKimJongIl constr
+R19778:19791 Juche <> AddedKimJongUn constr
+R19798:19805 Juche <> P6_Unity constr
+R19810:19810 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R19825:19825 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R19811:19824 Juche <> AddedKimJongUn constr
+R19831:19841 Juche <> P7_Learning constr
+R19846:19846 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R19861:19861 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R19847:19860 Juche <> AddedKimJongIl constr
+R19867:19878 Juche <> P8_Gratitude constr
+R19883:19884 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R19913:19925 Juche <> P9_Discipline constr
+R19930:19931 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R19960:19973 Juche <> P10_Succession constr
+R19978:19978 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19993:19994 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R20006:20006 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R19979:19992 Juche <> AddedKimJongIl constr
+R19995:20005 Juche <> AddedSongun constr
+def 20078:20098 <> subarticle_count_1974
+R20105:20113 Juche <> Principle ind
+binder 20101:20101 <> p:60
+R20118:20120 Coq.Init.Datatypes <> nat ind
+R20133:20133 Juche <> p:60 var
+R20144:20154 Juche <> P1_Struggle constr
+R20165:20172 Juche <> P2_Honor constr
+R20207:20218 Juche <> P3_Authority constr
+R20249:20256 Juche <> P4_Faith constr
+R20267:20280 Juche <> P5_Inheritance constr
+R20291:20298 Juche <> P6_Unity constr
+R20333:20343 Juche <> P7_Learning constr
+R20354:20365 Juche <> P8_Gratitude constr
+R20376:20388 Juche <> P9_Discipline constr
+R20399:20412 Juche <> P10_Succession constr
+def 20534:20554 <> subarticle_count_2013
+R20561:20569 Juche <> Principle ind
+binder 20557:20557 <> p:62
+R20574:20576 Coq.Init.Datatypes <> nat ind
+R20589:20589 Juche <> p:62 var
+R20600:20610 Juche <> P1_Struggle constr
+R20621:20628 Juche <> P2_Honor constr
+R20639:20650 Juche <> P3_Authority constr
+R20661:20668 Juche <> P4_Faith constr
+R20679:20692 Juche <> P5_Inheritance constr
+R20703:20710 Juche <> P6_Unity constr
+R20721:20731 Juche <> P7_Learning constr
+R20742:20753 Juche <> P8_Gratitude constr
+R20764:20776 Juche <> P9_Discipline constr
+R20787:20800 Juche <> P10_Succession constr
+def 20827:20849 <> subarticle_count_change
+R20856:20864 Juche <> Principle ind
+binder 20852:20852 <> p:64
+R20869:20871 Coq.Init.Datatypes <> nat ind
+R20901:20903 Coq.Init.Peano <> ::nat_scope:x_'-'_x not
+R20878:20898 Juche <> subarticle_count_2013 def
+R20900:20900 Juche <> p:64 var
+R20904:20924 Juche <> subarticle_count_1974 def
+R20926:20926 Juche <> p:64 var
+prf 20936:20957 <> total_subarticles_1974
+R21032:21034 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R20963:20976 Coq.Lists.List <> fold_left def
+R20984:20991 Coq.Lists.List <> map def
+R21015:21028 Juche <> all_principles def
+R20993:21013 Juche <> subarticle_count_1974 def
+R20978:20981 Coq.Init.Peano <> plus abbrev
+prf 21071:21092 <> total_subarticles_2013
+R21167:21169 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R21098:21111 Coq.Lists.List <> fold_left def
+R21119:21126 Coq.Lists.List <> map def
+R21150:21163 Juche <> all_principles def
+R21128:21148 Juche <> subarticle_count_2013 def
+R21113:21116 Coq.Init.Peano <> plus abbrev
+def 21242:21256 <> current_version
+R21260:21279 Juche <> TenPrinciplesVersion ind
+R21284:21294 Juche <> Version2013 constr
+def 21368:21383 <> principle_pillar
+R21390:21398 Juche <> Principle ind
+binder 21386:21386 <> p:65
+R21403:21408 Juche <> Pillar ind
+R21421:21421 Juche <> p:65 var
+R21432:21442 Juche <> P1_Struggle constr
+R21447:21455 Juche <> Chajusong constr
+R21461:21468 Juche <> P2_Honor constr
+R21473:21481 Juche <> Chajusong constr
+R21487:21498 Juche <> P3_Authority constr
+R21503:21511 Juche <> Chajusong constr
+R21517:21524 Juche <> P4_Faith constr
+R21529:21537 Juche <> Chajusong constr
+R21543:21556 Juche <> P5_Inheritance constr
+R21561:21569 Juche <> Chajusong constr
+R21575:21582 Juche <> P6_Unity constr
+R21587:21595 Juche <> Chajusong constr
+R21601:21611 Juche <> P7_Learning constr
+R21616:21621 Juche <> Charip constr
+R21627:21638 Juche <> P8_Gratitude constr
+R21643:21651 Juche <> Chajusong constr
+R21657:21669 Juche <> P9_Discipline constr
+R21674:21678 Juche <> Chawi constr
+R21684:21697 Juche <> P10_Succession constr
+R21702:21710 Juche <> Chajusong constr
+def 21779:21797 <> is_leader_principle
+R21804:21812 Juche <> Principle ind
+binder 21800:21800 <> p:67
+R21833:21833 Juche <> p:67 var
+R21844:21851 Juche <> P2_Honor constr
+R21855:21866 Juche <> P3_Authority constr
+R21870:21880 Juche <> P7_Learning constr
+R21884:21895 Juche <> P8_Gratitude constr
+R21900:21903 Coq.Init.Logic <> True ind
+R21900:21903 Coq.Init.Logic <> True ind
+R21900:21903 Coq.Init.Logic <> True ind
+R21900:21903 Coq.Init.Logic <> True ind
+R21914:21918 Coq.Init.Logic <> False ind
+prf 21934:21955 <> P2_is_leader_principle
+R21959:21977 Juche <> is_leader_principle def
+R21979:21986 Juche <> P2_Honor constr
+R22002:22002 Coq.Init.Logic <> I constr
+R22002:22002 Coq.Init.Logic <> I constr
+prf 22017:22038 <> P3_is_leader_principle
+R22042:22060 Juche <> is_leader_principle def
+R22062:22073 Juche <> P3_Authority constr
+R22089:22089 Coq.Init.Logic <> I constr
+R22089:22089 Coq.Init.Logic <> I constr
+def 22543:22568 <> principle_subarticle_count
+R22575:22583 Juche <> Principle ind
+binder 22571:22571 <> p:69
+R22588:22590 Coq.Init.Datatypes <> nat ind
+R22603:22603 Juche <> p:69 var
+R22614:22624 Juche <> P1_Struggle constr
+R22635:22642 Juche <> P2_Honor constr
+R22653:22664 Juche <> P3_Authority constr
+R22675:22682 Juche <> P4_Faith constr
+R22693:22706 Juche <> P5_Inheritance constr
+R22717:22724 Juche <> P6_Unity constr
+R22735:22745 Juche <> P7_Learning constr
+R22756:22767 Juche <> P8_Gratitude constr
+R22778:22790 Juche <> P9_Discipline constr
+R22801:22814 Juche <> P10_Succession constr
+def 22841:22857 <> total_subarticles
+R22861:22863 Coq.Init.Datatypes <> nat ind
+R22870:22883 Coq.Lists.List <> fold_left def
+R22891:22898 Coq.Lists.List <> map def
+R22927:22940 Juche <> all_principles def
+R22900:22925 Juche <> principle_subarticle_count def
+R22885:22888 Coq.Init.Peano <> plus abbrev
+prf 22953:22975 <> total_subarticles_count
+R22996:22998 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R22979:22995 Juche <> total_subarticles def
+rec 23101:23110 <> SubArticle
+proj 23132:23143 <> sa_principle
+proj 23160:23168 <> sa_number
+proj 23179:23186 <> sa_valid
+R23147:23155 Juche <> Principle ind
+R23172:23174 Coq.Init.Datatypes <> nat ind
+R23204:23207 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R23199:23202 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R23190:23198 Juche <> sa_number:73 meth
+R23217:23220 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R23208:23216 Juche <> sa_number:73 meth
+R23221:23246 Juche <> principle_subarticle_count def
+R23248:23259 Juche <> sa_principle:72 meth
+ind 23390:23405 <> VenerationTarget
+constr 23421:23428 <> Portrait
+constr 23485:23490 <> Statue
+constr 23528:23532 <> Badge
+constr 23587:23597 <> Publication
+constr 23630:23643 <> HistoricalSite
+scheme 23390:23405 <> VenerationTarget_rect
+scheme 23390:23405 <> VenerationTarget_ind
+scheme 23390:23405 <> VenerationTarget_rec
+scheme 23390:23405 <> VenerationTarget_sind
+rec 23749:23763 <> P2_1_Obligation
+proj 23779:23789 <> p2_1_target
+proj 23813:23831 <> p2_1_daily_required
+proj 23879:23903 <> p2_1_physical_maintenance
+proj 23951:23970 <> p2_1_placement_rules
+R23793:23808 Juche <> VenerationTarget ind
+R23835:23838 Coq.Init.Datatypes <> bool ind
+R23907:23910 Coq.Init.Datatypes <> bool ind
+R23974:23977 Coq.Init.Datatypes <> bool ind
+def 24043:24066 <> P2_1_portrait_veneration
+R24092:24107 Juche <> VenerationTarget ind
+binder 24088:24088 <> t:82
+R24121:24121 Juche <> t:82 var
+R24134:24141 Juche <> Portrait constr
+R24146:24149 Coq.Init.Logic <> True ind
+R24211:24215 Juche <> Badge constr
+R24220:24223 Coq.Init.Logic <> True ind
+R24282:24285 Coq.Init.Logic <> True ind
+rec 24356:24370 <> P2_3_Obligation
+proj 24386:24408 <> p2_3_priority_over_self
+proj 24462:24486 <> p2_3_priority_over_family
+proj 24536:24556 <> p2_3_rescue_mandatory
+proj 24615:24636 <> p2_3_damage_reportable
+R24412:24415 Coq.Init.Datatypes <> bool ind
+R24490:24493 Coq.Init.Datatypes <> bool ind
+R24560:24563 Coq.Init.Datatypes <> bool ind
+R24640:24643 Coq.Init.Datatypes <> bool ind
+def 24709:24729 <> P2_3_image_protection
+R24763:24766 Coq.Init.Datatypes <> bool ind
+binder 24751:24759 <> emergency:89
+R24790:24797 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R24783:24785 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R24774:24782 Juche <> emergency:89 var
+R24786:24789 Coq.Init.Datatypes <> true constr
+R24798:24801 Coq.Init.Logic <> True ind
+ind 24933:24948 <> ProhibitedSpeech
+constr 24964:24978 <> DirectCriticism
+constr 25023:25039 <> IndirectCriticism
+constr 25081:25085 <> Jokes
+constr 25131:25141 <> Comparisons
+constr 25185:25193 <> Omissions
+scheme 24933:24948 <> ProhibitedSpeech_rect
+scheme 24933:24948 <> ProhibitedSpeech_ind
+scheme 24933:24948 <> ProhibitedSpeech_rec
+scheme 24933:24948 <> ProhibitedSpeech_sind
+def 25255:25277 <> P3_2_speech_prohibition
+R25303:25318 Juche <> ProhibitedSpeech ind
+binder 25299:25299 <> s:92
+R25322:25326 Coq.Init.Logic <> False ind
+rec 25431:25446 <> StudyRequirement
+proj 25466:25482 <> study_hours_daily
+proj 25538:25552 <> study_materials
+proj 25599:25619 <> study_sessions_weekly
+proj 25675:25694 <> study_tests_required
+R25486:25488 Coq.Init.Datatypes <> nat ind
+R25556:25559 Coq.Init.Datatypes <> list ind
+R25561:25566 Coq.Strings.String <> string ind
+R25623:25625 Coq.Init.Datatypes <> nat ind
+R25698:25701 Coq.Init.Datatypes <> bool ind
+def 25762:25787 <> standard_study_requirement
+R25791:25806 Juche <> StudyRequirement rec
+R25813:25822 Juche <> mkStudyReq constr
+R25826:25826 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R25855:25856 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R25885:25885 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R25889:25892 Coq.Init.Datatypes <> true constr
+def 25907:25926 <> P4_2_mandatory_study
+R25952:25954 Coq.Init.Datatypes <> nat ind
+binder 25948:25948 <> c:98
+R25977:25980 Coq.Init.Logic <> True ind
+ind 26112:26133 <> OrganizationalActivity
+constr 26149:26164 <> OrgWeeklyMeeting
+constr 26206:26217 <> OrgMassRally
+constr 26257:26273 <> OrgVoluntaryLabor
+constr 26320:26334 <> OrgStudySession
+constr 26377:26396 <> OrgProductionMeeting
+scheme 26112:26133 <> OrganizationalActivity_rect
+scheme 26112:26133 <> OrganizationalActivity_ind
+scheme 26112:26133 <> OrganizationalActivity_rec
+scheme 26112:26133 <> OrganizationalActivity_sind
+def 26447:26479 <> P6_4_organizational_participation
+R26505:26526 Juche <> OrganizationalActivity ind
+binder 26501:26501 <> a:101
+R26534:26537 Coq.Init.Logic <> True ind
+ind 26657:26675 <> ReportableViolation
+constr 26691:26710 <> IdeologicalDeviation
+constr 26754:26771 <> UnauthorizedTravel
+constr 26810:26821 <> ForeignMedia
+constr 26884:26900 <> ReligiousPractice
+constr 26939:26951 <> EconomicCrime
+constr 26997:27012 <> FamilyOfViolator
+scheme 26657:26675 <> ReportableViolation_rect
+scheme 26657:26675 <> ReportableViolation_ind
+scheme 26657:26675 <> ReportableViolation_rec
+scheme 26657:26675 <> ReportableViolation_sind
+def 27077:27099 <> report_time_limit_hours
+R27103:27105 Coq.Init.Datatypes <> nat ind
+def 27126:27144 <> P9_3_reporting_duty
+R27170:27188 Juche <> ReportableViolation ind
+binder 27166:27166 <> v:104
+R27196:27199 Coq.Init.Logic <> True ind
+ind 27331:27344 <> LifeDedication
+constr 27360:27374 <> LaborDedication
+constr 27413:27427 <> MilitaryService
+constr 27460:27468 <> PartyWork
+constr 27526:27539 <> PropagandaWork
+constr 27589:27600 <> ChildRearing
+scheme 27331:27344 <> LifeDedication_rect
+scheme 27331:27344 <> LifeDedication_ind
+scheme 27331:27344 <> LifeDedication_rec
+scheme 27331:27344 <> LifeDedication_sind
+def 27665:27689 <> P10_1_lifelong_dedication
+R27715:27728 Juche <> LifeDedication ind
+binder 27711:27711 <> d:107
+R27736:27739 Coq.Init.Logic <> True ind
+ind 27871:27878 <> DutyType
+constr 27894:27903 <> Veneration
+constr 27944:27953 <> Protection
+constr 27992:28002 <> Prohibition
+constr 28033:28037 <> Study
+constr 28084:28096 <> Participation
+constr 28144:28152 <> Reporting
+constr 28189:28198 <> Dedication
+scheme 27871:27878 <> DutyType_rect
+scheme 27871:27878 <> DutyType_ind
+scheme 27871:27878 <> DutyType_rec
+scheme 27871:27878 <> DutyType_sind
+def 28244:28263 <> subarticle_duty_type
+R28270:28278 Juche <> Principle ind
+binder 28266:28266 <> p:110
+R28286:28288 Coq.Init.Datatypes <> nat ind
+binder 28282:28282 <> n:111
+R28293:28298 Coq.Init.Datatypes <> option ind
+R28300:28307 Juche <> DutyType ind
+R28323:28323 Juche <> n:111 var
+R28320:28320 Juche <> p:110 var
+R28334:28341 Juche <> P2_Honor constr
+R28349:28352 Coq.Init.Datatypes <> Some constr
+R28354:28363 Juche <> Veneration constr
+R28369:28376 Juche <> P2_Honor constr
+R28384:28387 Coq.Init.Datatypes <> Some constr
+R28389:28398 Juche <> Protection constr
+R28404:28415 Juche <> P3_Authority constr
+R28423:28426 Coq.Init.Datatypes <> Some constr
+R28428:28438 Juche <> Prohibition constr
+R28444:28451 Juche <> P4_Faith constr
+R28459:28462 Coq.Init.Datatypes <> Some constr
+R28464:28468 Juche <> Study constr
+R28474:28481 Juche <> P6_Unity constr
+R28489:28492 Coq.Init.Datatypes <> Some constr
+R28494:28506 Juche <> Participation constr
+R28512:28524 Juche <> P9_Discipline constr
+R28532:28535 Coq.Init.Datatypes <> Some constr
+R28537:28545 Juche <> Reporting constr
+R28551:28564 Juche <> P10_Succession constr
+R28572:28575 Coq.Init.Datatypes <> Some constr
+R28577:28586 Juche <> Dedication constr
+R28600:28603 Coq.Init.Datatypes <> None constr
+def 28917:28920 <> P1_1
+R28924:28933 Juche <> SubArticle rec
+R28938:28949 Juche <> mkSubArticle constr
+R28951:28961 Juche <> P1_Struggle constr
+def 29002:29005 <> P1_2
+R29009:29018 Juche <> SubArticle rec
+R29023:29034 Juche <> mkSubArticle constr
+R29036:29046 Juche <> P1_Struggle constr
+def 29087:29090 <> P1_3
+R29094:29103 Juche <> SubArticle rec
+R29108:29119 Juche <> mkSubArticle constr
+R29121:29131 Juche <> P1_Struggle constr
+def 29172:29175 <> P1_4
+R29179:29188 Juche <> SubArticle rec
+R29193:29204 Juche <> mkSubArticle constr
+R29206:29216 Juche <> P1_Struggle constr
+def 29257:29260 <> P1_5
+R29264:29273 Juche <> SubArticle rec
+R29278:29289 Juche <> mkSubArticle constr
+R29291:29301 Juche <> P1_Struggle constr
+def 29386:29392 <> P2_1_sa
+R29396:29405 Juche <> SubArticle rec
+R29410:29421 Juche <> mkSubArticle constr
+R29423:29430 Juche <> P2_Honor constr
+def 29471:29477 <> P2_2_sa
+R29481:29490 Juche <> SubArticle rec
+R29495:29506 Juche <> mkSubArticle constr
+R29508:29515 Juche <> P2_Honor constr
+def 29556:29562 <> P2_3_sa
+R29566:29575 Juche <> SubArticle rec
+R29580:29591 Juche <> mkSubArticle constr
+R29593:29600 Juche <> P2_Honor constr
+def 29641:29647 <> P2_4_sa
+R29651:29660 Juche <> SubArticle rec
+R29665:29676 Juche <> mkSubArticle constr
+R29678:29685 Juche <> P2_Honor constr
+def 29726:29732 <> P2_5_sa
+R29736:29745 Juche <> SubArticle rec
+R29750:29761 Juche <> mkSubArticle constr
+R29763:29770 Juche <> P2_Honor constr
+def 29811:29817 <> P2_6_sa
+R29821:29830 Juche <> SubArticle rec
+R29835:29846 Juche <> mkSubArticle constr
+R29848:29855 Juche <> P2_Honor constr
+def 29896:29902 <> P2_7_sa
+R29906:29915 Juche <> SubArticle rec
+R29920:29931 Juche <> mkSubArticle constr
+R29933:29940 Juche <> P2_Honor constr
+def 29981:29987 <> P2_8_sa
+R29991:30000 Juche <> SubArticle rec
+R30005:30016 Juche <> mkSubArticle constr
+R30018:30025 Juche <> P2_Honor constr
+def 30114:30120 <> P3_1_sa
+R30124:30133 Juche <> SubArticle rec
+R30138:30149 Juche <> mkSubArticle constr
+R30151:30162 Juche <> P3_Authority constr
+def 30203:30209 <> P3_2_sa
+R30213:30222 Juche <> SubArticle rec
+R30227:30238 Juche <> mkSubArticle constr
+R30240:30251 Juche <> P3_Authority constr
+def 30292:30298 <> P3_3_sa
+R30302:30311 Juche <> SubArticle rec
+R30316:30327 Juche <> mkSubArticle constr
+R30329:30340 Juche <> P3_Authority constr
+def 30381:30387 <> P3_4_sa
+R30391:30400 Juche <> SubArticle rec
+R30405:30416 Juche <> mkSubArticle constr
+R30418:30429 Juche <> P3_Authority constr
+def 30470:30476 <> P3_5_sa
+R30480:30489 Juche <> SubArticle rec
+R30494:30505 Juche <> mkSubArticle constr
+R30507:30518 Juche <> P3_Authority constr
+def 30559:30565 <> P3_6_sa
+R30569:30578 Juche <> SubArticle rec
+R30583:30594 Juche <> mkSubArticle constr
+R30596:30607 Juche <> P3_Authority constr
+def 30692:30698 <> P4_1_sa
+R30702:30711 Juche <> SubArticle rec
+R30716:30727 Juche <> mkSubArticle constr
+R30729:30736 Juche <> P4_Faith constr
+def 30777:30783 <> P4_2_sa
+R30787:30796 Juche <> SubArticle rec
+R30801:30812 Juche <> mkSubArticle constr
+R30814:30821 Juche <> P4_Faith constr
+def 30862:30868 <> P4_3_sa
+R30872:30881 Juche <> SubArticle rec
+R30886:30897 Juche <> mkSubArticle constr
+R30899:30906 Juche <> P4_Faith constr
+def 30947:30953 <> P4_4_sa
+R30957:30966 Juche <> SubArticle rec
+R30971:30982 Juche <> mkSubArticle constr
+R30984:30991 Juche <> P4_Faith constr
+def 31032:31038 <> P4_5_sa
+R31042:31051 Juche <> SubArticle rec
+R31056:31067 Juche <> mkSubArticle constr
+R31069:31076 Juche <> P4_Faith constr
+def 31167:31173 <> P5_1_sa
+R31177:31186 Juche <> SubArticle rec
+R31191:31202 Juche <> mkSubArticle constr
+R31204:31217 Juche <> P5_Inheritance constr
+def 31258:31264 <> P5_2_sa
+R31268:31277 Juche <> SubArticle rec
+R31282:31293 Juche <> mkSubArticle constr
+R31295:31308 Juche <> P5_Inheritance constr
+def 31349:31355 <> P5_3_sa
+R31359:31368 Juche <> SubArticle rec
+R31373:31384 Juche <> mkSubArticle constr
+R31386:31399 Juche <> P5_Inheritance constr
+def 31440:31446 <> P5_4_sa
+R31450:31459 Juche <> SubArticle rec
+R31464:31475 Juche <> mkSubArticle constr
+R31477:31490 Juche <> P5_Inheritance constr
+def 31575:31581 <> P6_1_sa
+R31585:31594 Juche <> SubArticle rec
+R31599:31610 Juche <> mkSubArticle constr
+R31612:31619 Juche <> P6_Unity constr
+def 31660:31666 <> P6_2_sa
+R31670:31679 Juche <> SubArticle rec
+R31684:31695 Juche <> mkSubArticle constr
+R31697:31704 Juche <> P6_Unity constr
+def 31745:31751 <> P6_3_sa
+R31755:31764 Juche <> SubArticle rec
+R31769:31780 Juche <> mkSubArticle constr
+R31782:31789 Juche <> P6_Unity constr
+def 31830:31836 <> P6_4_sa
+R31840:31849 Juche <> SubArticle rec
+R31854:31865 Juche <> mkSubArticle constr
+R31867:31874 Juche <> P6_Unity constr
+def 31915:31921 <> P6_5_sa
+R31925:31934 Juche <> SubArticle rec
+R31939:31950 Juche <> mkSubArticle constr
+R31952:31959 Juche <> P6_Unity constr
+def 32000:32006 <> P6_6_sa
+R32010:32019 Juche <> SubArticle rec
+R32024:32035 Juche <> mkSubArticle constr
+R32037:32044 Juche <> P6_Unity constr
+def 32132:32138 <> P7_1_sa
+R32142:32151 Juche <> SubArticle rec
+R32156:32167 Juche <> mkSubArticle constr
+R32169:32179 Juche <> P7_Learning constr
+def 32220:32226 <> P7_2_sa
+R32230:32239 Juche <> SubArticle rec
+R32244:32255 Juche <> mkSubArticle constr
+R32257:32267 Juche <> P7_Learning constr
+def 32308:32314 <> P7_3_sa
+R32318:32327 Juche <> SubArticle rec
+R32332:32343 Juche <> mkSubArticle constr
+R32345:32355 Juche <> P7_Learning constr
+def 32396:32402 <> P7_4_sa
+R32406:32415 Juche <> SubArticle rec
+R32420:32431 Juche <> mkSubArticle constr
+R32433:32443 Juche <> P7_Learning constr
+def 32484:32490 <> P7_5_sa
+R32494:32503 Juche <> SubArticle rec
+R32508:32519 Juche <> mkSubArticle constr
+R32521:32531 Juche <> P7_Learning constr
+def 32572:32578 <> P7_6_sa
+R32582:32591 Juche <> SubArticle rec
+R32596:32607 Juche <> mkSubArticle constr
+R32609:32619 Juche <> P7_Learning constr
+def 32660:32666 <> P7_7_sa
+R32670:32679 Juche <> SubArticle rec
+R32684:32695 Juche <> mkSubArticle constr
+R32697:32707 Juche <> P7_Learning constr
+def 32796:32802 <> P8_1_sa
+R32806:32815 Juche <> SubArticle rec
+R32820:32831 Juche <> mkSubArticle constr
+R32833:32844 Juche <> P8_Gratitude constr
+def 32885:32891 <> P8_2_sa
+R32895:32904 Juche <> SubArticle rec
+R32909:32920 Juche <> mkSubArticle constr
+R32922:32933 Juche <> P8_Gratitude constr
+def 32974:32980 <> P8_3_sa
+R32984:32993 Juche <> SubArticle rec
+R32998:33009 Juche <> mkSubArticle constr
+R33011:33022 Juche <> P8_Gratitude constr
+def 33063:33069 <> P8_4_sa
+R33073:33082 Juche <> SubArticle rec
+R33087:33098 Juche <> mkSubArticle constr
+R33100:33111 Juche <> P8_Gratitude constr
+def 33152:33158 <> P8_5_sa
+R33162:33171 Juche <> SubArticle rec
+R33176:33187 Juche <> mkSubArticle constr
+R33189:33200 Juche <> P8_Gratitude constr
+def 33290:33296 <> P9_1_sa
+R33300:33309 Juche <> SubArticle rec
+R33314:33325 Juche <> mkSubArticle constr
+R33327:33339 Juche <> P9_Discipline constr
+def 33380:33386 <> P9_2_sa
+R33390:33399 Juche <> SubArticle rec
+R33404:33415 Juche <> mkSubArticle constr
+R33417:33429 Juche <> P9_Discipline constr
+def 33470:33476 <> P9_3_sa
+R33480:33489 Juche <> SubArticle rec
+R33494:33505 Juche <> mkSubArticle constr
+R33507:33519 Juche <> P9_Discipline constr
+def 33560:33566 <> P9_4_sa
+R33570:33579 Juche <> SubArticle rec
+R33584:33595 Juche <> mkSubArticle constr
+R33597:33609 Juche <> P9_Discipline constr
+def 33650:33656 <> P9_5_sa
+R33660:33669 Juche <> SubArticle rec
+R33674:33685 Juche <> mkSubArticle constr
+R33687:33699 Juche <> P9_Discipline constr
+def 33740:33746 <> P9_6_sa
+R33750:33759 Juche <> SubArticle rec
+R33764:33775 Juche <> mkSubArticle constr
+R33777:33789 Juche <> P9_Discipline constr
+def 33830:33836 <> P9_7_sa
+R33840:33849 Juche <> SubArticle rec
+R33854:33865 Juche <> mkSubArticle constr
+R33867:33879 Juche <> P9_Discipline constr
+def 33971:33978 <> P10_1_sa
+R33982:33991 Juche <> SubArticle rec
+R33996:34007 Juche <> mkSubArticle constr
+R34009:34022 Juche <> P10_Succession constr
+def 34063:34070 <> P10_2_sa
+R34074:34083 Juche <> SubArticle rec
+R34088:34099 Juche <> mkSubArticle constr
+R34101:34114 Juche <> P10_Succession constr
+def 34155:34162 <> P10_3_sa
+R34166:34175 Juche <> SubArticle rec
+R34180:34191 Juche <> mkSubArticle constr
+R34193:34206 Juche <> P10_Succession constr
+def 34247:34254 <> P10_4_sa
+R34258:34267 Juche <> SubArticle rec
+R34272:34283 Juche <> mkSubArticle constr
+R34285:34298 Juche <> P10_Succession constr
+def 34339:34346 <> P10_5_sa
+R34350:34359 Juche <> SubArticle rec
+R34364:34375 Juche <> mkSubArticle constr
+R34377:34390 Juche <> P10_Succession constr
+def 34431:34438 <> P10_6_sa
+R34442:34451 Juche <> SubArticle rec
+R34456:34467 Juche <> mkSubArticle constr
+R34469:34482 Juche <> P10_Succession constr
+def 34523:34530 <> P10_7_sa
+R34534:34543 Juche <> SubArticle rec
+R34548:34559 Juche <> mkSubArticle constr
+R34561:34574 Juche <> P10_Succession constr
+def 34615:34622 <> P10_8_sa
+R34626:34635 Juche <> SubArticle rec
+R34640:34651 Juche <> mkSubArticle constr
+R34653:34666 Juche <> P10_Succession constr
+def 34707:34714 <> P10_9_sa
+R34718:34727 Juche <> SubArticle rec
+R34732:34743 Juche <> mkSubArticle constr
+R34745:34758 Juche <> P10_Succession constr
+def 34799:34807 <> P10_10_sa
+R34811:34820 Juche <> SubArticle rec
+R34825:34836 Juche <> mkSubArticle constr
+R34838:34851 Juche <> P10_Succession constr
+def 34922:34936 <> all_subarticles
+R34940:34943 Coq.Init.Datatypes <> list ind
+R34945:34954 Juche <> SubArticle rec
+R35003:35020 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R34973:34973 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34978:34979 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34984:34985 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34990:34991 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34996:34997 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35002:35002 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R34974:34977 Juche <> P1_1 def
+R34980:34983 Juche <> P1_2 def
+R34986:34989 Juche <> P1_3 def
+R34992:34995 Juche <> P1_4 def
+R34998:35001 Juche <> P1_5 def
+R35093:35110 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R35021:35021 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35029:35030 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35038:35039 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35047:35048 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35056:35057 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35065:35066 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35074:35075 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35083:35084 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35092:35092 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35022:35028 Juche <> P2_1_sa def
+R35031:35037 Juche <> P2_2_sa def
+R35040:35046 Juche <> P2_3_sa def
+R35049:35055 Juche <> P2_4_sa def
+R35058:35064 Juche <> P2_5_sa def
+R35067:35073 Juche <> P2_6_sa def
+R35076:35082 Juche <> P2_7_sa def
+R35085:35091 Juche <> P2_8_sa def
+R35165:35182 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R35111:35111 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35119:35120 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35128:35129 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35137:35138 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35146:35147 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35155:35156 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35164:35164 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35112:35118 Juche <> P3_1_sa def
+R35121:35127 Juche <> P3_2_sa def
+R35130:35136 Juche <> P3_3_sa def
+R35139:35145 Juche <> P3_4_sa def
+R35148:35154 Juche <> P3_5_sa def
+R35157:35163 Juche <> P3_6_sa def
+R35228:35245 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R35183:35183 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35191:35192 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35200:35201 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35209:35210 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35218:35219 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35227:35227 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35184:35190 Juche <> P4_1_sa def
+R35193:35199 Juche <> P4_2_sa def
+R35202:35208 Juche <> P4_3_sa def
+R35211:35217 Juche <> P4_4_sa def
+R35220:35226 Juche <> P4_5_sa def
+R35282:35299 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R35246:35246 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35254:35255 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35263:35264 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35272:35273 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35281:35281 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35247:35253 Juche <> P5_1_sa def
+R35256:35262 Juche <> P5_2_sa def
+R35265:35271 Juche <> P5_3_sa def
+R35274:35280 Juche <> P5_4_sa def
+R35354:35371 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R35300:35300 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35308:35309 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35317:35318 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35326:35327 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35335:35336 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35344:35345 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35353:35353 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35301:35307 Juche <> P6_1_sa def
+R35310:35316 Juche <> P6_2_sa def
+R35319:35325 Juche <> P6_3_sa def
+R35328:35334 Juche <> P6_4_sa def
+R35337:35343 Juche <> P6_5_sa def
+R35346:35352 Juche <> P6_6_sa def
+R35435:35452 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R35372:35372 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35380:35381 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35389:35390 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35398:35399 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35407:35408 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35416:35417 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35425:35426 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35434:35434 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35373:35379 Juche <> P7_1_sa def
+R35382:35388 Juche <> P7_2_sa def
+R35391:35397 Juche <> P7_3_sa def
+R35400:35406 Juche <> P7_4_sa def
+R35409:35415 Juche <> P7_5_sa def
+R35418:35424 Juche <> P7_6_sa def
+R35427:35433 Juche <> P7_7_sa def
+R35498:35515 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R35453:35453 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35461:35462 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35470:35471 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35479:35480 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35488:35489 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35497:35497 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35454:35460 Juche <> P8_1_sa def
+R35463:35469 Juche <> P8_2_sa def
+R35472:35478 Juche <> P8_3_sa def
+R35481:35487 Juche <> P8_4_sa def
+R35490:35496 Juche <> P8_5_sa def
+R35579:35598 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R35516:35516 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35524:35525 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35533:35534 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35542:35543 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35551:35552 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35560:35561 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35569:35570 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35578:35578 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35517:35523 Juche <> P9_1_sa def
+R35526:35532 Juche <> P9_2_sa def
+R35535:35541 Juche <> P9_3_sa def
+R35544:35550 Juche <> P9_4_sa def
+R35553:35559 Juche <> P9_5_sa def
+R35562:35568 Juche <> P9_6_sa def
+R35571:35577 Juche <> P9_7_sa def
+R35599:35599 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35608:35609 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35618:35619 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35628:35629 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35638:35639 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35648:35649 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35658:35659 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35668:35669 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35678:35679 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35688:35689 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35699:35699 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R35600:35607 Juche <> P10_1_sa def
+R35610:35617 Juche <> P10_2_sa def
+R35620:35627 Juche <> P10_3_sa def
+R35630:35637 Juche <> P10_4_sa def
+R35640:35647 Juche <> P10_5_sa def
+R35650:35657 Juche <> P10_6_sa def
+R35660:35667 Juche <> P10_7_sa def
+R35670:35677 Juche <> P10_8_sa def
+R35680:35687 Juche <> P10_9_sa def
+R35690:35698 Juche <> P10_10_sa def
+prf 35756:35776 <> all_subarticles_count
+R35807:35809 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R35780:35790 Coq.Lists.List <> length abbrev
+R35792:35806 Juche <> all_subarticles def
+ind 36330:36341 <> SongbunClass
+constr 36357:36365 <> CoreClass
+constr 36439:36451 <> WaveringClass
+constr 36511:36522 <> HostileClass
+scheme 36330:36341 <> SongbunClass_rect
+scheme 36330:36341 <> SongbunClass_ind
+scheme 36330:36341 <> SongbunClass_rec
+scheme 36330:36341 <> SongbunClass_sind
+def 36612:36622 <> songbun_eqb
+R36633:36644 Juche <> SongbunClass ind
+binder 36625:36626 <> s1:116
+binder 36628:36629 <> s2:117
+R36649:36652 Coq.Init.Datatypes <> bool ind
+R36669:36670 Juche <> s2:117 var
+R36665:36666 Juche <> s1:116 var
+R36681:36689 Juche <> CoreClass constr
+R36692:36700 Juche <> CoreClass constr
+R36705:36708 Coq.Init.Datatypes <> true constr
+R36714:36726 Juche <> WaveringClass constr
+R36729:36741 Juche <> WaveringClass constr
+R36746:36749 Coq.Init.Datatypes <> true constr
+R36755:36766 Juche <> HostileClass constr
+R36769:36780 Juche <> HostileClass constr
+R36785:36788 Coq.Init.Datatypes <> true constr
+R36802:36806 Coq.Init.Datatypes <> false constr
+prf 36822:36835 <> songbun_eqb_eq
+binder 36846:36847 <> s1:120
+binder 36849:36850 <> s2:121
+R36877:36881 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R36870:36872 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R36853:36863 Juche <> songbun_eqb def
+R36865:36866 Juche <> s1:120 var
+R36868:36869 Juche <> s2:121 var
+R36873:36876 Coq.Init.Datatypes <> true constr
+R36884:36886 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R36882:36883 Juche <> s1:120 var
+R36887:36888 Juche <> s2:121 var
+prf 36973:36986 <> songbun_eq_dec
+R37005:37016 Juche <> SongbunClass ind
+binder 36997:36998 <> s1:122
+binder 37000:37001 <> s2:123
+R37019:37019 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R37027:37031 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R37040:37040 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R37022:37024 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R37020:37021 Juche <> s1:122 var
+R37025:37026 Juche <> s2:123 var
+R37034:37037 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R37032:37033 Juche <> s1:122 var
+R37038:37039 Juche <> s2:123 var
+def 37203:37219 <> songbun_privilege
+R37226:37237 Juche <> SongbunClass ind
+binder 37222:37222 <> s:124
+R37242:37244 Coq.Init.Datatypes <> nat ind
+R37257:37257 Juche <> s:124 var
+R37268:37276 Juche <> CoreClass constr
+R37287:37299 Juche <> WaveringClass constr
+R37310:37321 Juche <> HostileClass constr
+def 37347:37362 <> songbun_outranks
+R37373:37384 Juche <> SongbunClass ind
+binder 37365:37366 <> s1:126
+binder 37368:37369 <> s2:127
+R37419:37421 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R37399:37415 Juche <> songbun_privilege def
+R37417:37418 Juche <> s1:126 var
+R37422:37438 Juche <> songbun_privilege def
+R37440:37441 Juche <> s2:127 var
+prf 37451:37472 <> core_outranks_wavering
+R37476:37491 Juche <> songbun_outranks def
+R37493:37501 Juche <> CoreClass constr
+R37503:37515 Juche <> WaveringClass constr
+R37532:37547 Juche <> songbun_outranks def
+prf 37574:37598 <> wavering_outranks_hostile
+R37602:37617 Juche <> songbun_outranks def
+R37619:37631 Juche <> WaveringClass constr
+R37633:37644 Juche <> HostileClass constr
+R37661:37676 Juche <> songbun_outranks def
+prf 37703:37723 <> core_outranks_hostile
+R37727:37742 Juche <> songbun_outranks def
+R37744:37752 Juche <> CoreClass constr
+R37754:37765 Juche <> HostileClass constr
+R37782:37797 Juche <> songbun_outranks def
+def 37872:37886 <> inherit_songbun
+R37898:37909 Juche <> SongbunClass ind
+binder 37889:37894 <> father:128
+R37914:37925 Juche <> SongbunClass ind
+R37930:37935 Juche <> father:128 var
+ind 38076:38094 <> MarriageConsequence
+constr 38110:38122 <> NoConsequence
+constr 38128:38139 <> SocialStigma
+constr 38145:38161 <> PotentialDemotion
+scheme 38076:38094 <> MarriageConsequence_rect
+scheme 38076:38094 <> MarriageConsequence_ind
+scheme 38076:38094 <> MarriageConsequence_rec
+scheme 38076:38094 <> MarriageConsequence_sind
+def 38176:38195 <> cross_class_marriage
+R38213:38224 Juche <> SongbunClass ind
+binder 38198:38204 <> husband:131
+binder 38206:38209 <> wife:132
+R38229:38247 Juche <> MarriageConsequence ind
+R38269:38272 Juche <> wife:132 var
+R38260:38266 Juche <> husband:131 var
+R38283:38291 Juche <> CoreClass constr
+R38294:38305 Juche <> HostileClass constr
+R38310:38326 Juche <> PotentialDemotion constr
+R38332:38340 Juche <> CoreClass constr
+R38343:38355 Juche <> WaveringClass constr
+R38360:38371 Juche <> SocialStigma constr
+R38385:38397 Juche <> NoConsequence constr
+ind 38851:38865 <> CoreSubcategory
+constr 38881:38900 <> RevolutionaryFighter
+constr 38940:38958 <> RevolutionaryFamily
+constr 39002:39008 <> WarHero
+constr 39054:39064 <> WarBereaved
+constr 39109:39119 <> WorkerClass
+constr 39159:39169 <> PoorPeasant
+constr 39224:39235 <> OfficeWorker
+constr 39277:39287 <> PartyMember
+constr 39332:39343 <> Intellectual
+constr 39391:39397 <> Soldier
+constr 39451:39462 <> SpecialMerit
+constr 39518:39527 <> Repatriate
+scheme 38851:38865 <> CoreSubcategory_rect
+scheme 38851:38865 <> CoreSubcategory_ind
+scheme 38851:38865 <> CoreSubcategory_rec
+scheme 38851:38865 <> CoreSubcategory_sind
+ind 39644:39662 <> WaveringSubcategory
+constr 39678:39689 <> FormerTrader
+constr 39728:39742 <> FormerCraftsman
+constr 39771:39789 <> FormerServiceWorker
+constr 39822:39832 <> FormerClerk
+constr 39876:39895 <> FormerSmallLandowner
+constr 39928:39946 <> NationalBourgeoisie
+constr 39987:39996 <> FormerMonk
+constr 40036:40047 <> FormerShaman
+constr 40090:40102 <> FormerKisaeng
+constr 40149:40165 <> SouthKoreanFamily
+constr 40210:40224 <> ChineseResident
+constr 40259:40270 <> JapaneseWife
+constr 40310:40318 <> FormerPOW
+constr 40370:40386 <> UnemployedPre1950
+constr 40427:40440 <> OldMiddleClass
+constr 40479:40491 <> FormerTeacher
+constr 40535:40547 <> FormerMedical
+constr 40590:40601 <> FormerLawyer
+constr 40645:40662 <> ReligiousBelievers
+constr 40701:40717 <> FormerNationalist
+constr 40762:40769 <> Defector
+constr 40826:40842 <> PoliticalPrisoner
+constr 40889:40904 <> FamilyOfPrisoner
+scheme 39644:39662 <> WaveringSubcategory_rect
+scheme 39644:39662 <> WaveringSubcategory_ind
+scheme 39644:39662 <> WaveringSubcategory_rec
+scheme 39644:39662 <> WaveringSubcategory_sind
+ind 41009:41026 <> HostileSubcategory
+constr 41042:41049 <> Landlord
+constr 41094:41103 <> RichFarmer
+constr 41144:41153 <> Capitalist
+constr 41202:41212 <> ProJapanese
+constr 41259:41274 <> JapaneseOfficial
+constr 41321:41336 <> JapaneseMilitary
+constr 41380:41382 <> Spy
+constr 41432:41443 <> SouthLaborer
+constr 41488:41500 <> SouthDefector
+constr 41540:41550 <> ROKMilitary
+constr 41603:41613 <> ROKOfficial
+constr 41667:41680 <> USCollaborator
+constr 41723:41742 <> Counterrevolutionary
+constr 41779:41789 <> Reactionary
+constr 41837:41854 <> FactionalistFamily
+constr 41899:41913 <> ReligiousLeader
+scheme 41009:41026 <> HostileSubcategory_rect
+scheme 41009:41026 <> HostileSubcategory_ind
+scheme 41009:41026 <> HostileSubcategory_rec
+scheme 41009:41026 <> HostileSubcategory_sind
+def 42006:42022 <> core_sub_to_class
+R42029:42043 Juche <> CoreSubcategory ind
+binder 42025:42025 <> s:141
+R42048:42059 Juche <> SongbunClass ind
+R42064:42072 Juche <> CoreClass constr
+def 42086:42106 <> wavering_sub_to_class
+R42113:42131 Juche <> WaveringSubcategory ind
+binder 42109:42109 <> s:142
+R42136:42147 Juche <> SongbunClass ind
+R42152:42164 Juche <> WaveringClass constr
+def 42178:42197 <> hostile_sub_to_class
+R42204:42221 Juche <> HostileSubcategory ind
+binder 42200:42200 <> s:143
+R42226:42237 Juche <> SongbunClass ind
+R42242:42253 Juche <> HostileClass constr
+def 42295:42316 <> core_subcategory_count
+R42320:42322 Coq.Init.Datatypes <> nat ind
+def 42342:42367 <> wavering_subcategory_count
+R42371:42373 Coq.Init.Datatypes <> nat ind
+def 42393:42417 <> hostile_subcategory_count
+R42421:42423 Coq.Init.Datatypes <> nat ind
+prf 42439:42457 <> total_subcategories
+R42542:42544 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R42514:42516 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R42485:42487 Coq.Init.Peano <> ::nat_scope:x_'+'_x not
+R42463:42484 Juche <> core_subcategory_count def
+R42488:42513 Juche <> wavering_subcategory_count def
+R42517:42541 Juche <> hostile_subcategory_count def
+def 42630:42648 <> core_privilege_rank
+R42655:42669 Juche <> CoreSubcategory ind
+binder 42651:42651 <> s:144
+R42674:42676 Coq.Init.Datatypes <> nat ind
+R42689:42689 Juche <> s:144 var
+R42700:42719 Juche <> RevolutionaryFighter constr
+R42731:42749 Juche <> RevolutionaryFamily constr
+R42761:42767 Juche <> WarHero constr
+R42779:42789 Juche <> WarBereaved constr
+R42800:42810 Juche <> PartyMember constr
+R42821:42827 Juche <> Soldier constr
+R42838:42849 Juche <> SpecialMerit constr
+R42860:42870 Juche <> WorkerClass constr
+R42881:42891 Juche <> PoorPeasant constr
+R42902:42913 Juche <> OfficeWorker constr
+R42924:42935 Juche <> Intellectual constr
+R42946:42955 Juche <> Repatriate constr
+prf 42976:42996 <> revolutionary_highest
+binder 43007:43007 <> s:146
+R43037:43040 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R43013:43016 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R43012:43012 Juche <> s:146 var
+R43017:43036 Juche <> RevolutionaryFighter constr
+R43081:43083 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R43041:43059 Juche <> core_privilege_rank def
+R43061:43080 Juche <> RevolutionaryFighter constr
+R43084:43102 Juche <> core_privilege_rank def
+R43104:43104 Juche <> s:146 var
+ind 43611:43616 <> Leader
+constr 43632:43640 <> KimIlSung
+constr 43684:43692 <> KimJongIl
+constr 43744:43752 <> KimJongUn
+scheme 43611:43616 <> Leader_rect
+scheme 43611:43616 <> Leader_ind
+scheme 43611:43616 <> Leader_rec
+scheme 43611:43616 <> Leader_sind
+def 43804:43813 <> leader_eqb
+R43824:43829 Juche <> Leader ind
+binder 43816:43817 <> l1:149
+binder 43819:43820 <> l2:150
+R43834:43837 Coq.Init.Datatypes <> bool ind
+R43854:43855 Juche <> l2:150 var
+R43850:43851 Juche <> l1:149 var
+R43866:43874 Juche <> KimIlSung constr
+R43877:43885 Juche <> KimIlSung constr
+R43890:43893 Coq.Init.Datatypes <> true constr
+R43899:43907 Juche <> KimJongIl constr
+R43910:43918 Juche <> KimJongIl constr
+R43923:43926 Coq.Init.Datatypes <> true constr
+R43932:43940 Juche <> KimJongUn constr
+R43943:43951 Juche <> KimJongUn constr
+R43956:43959 Coq.Init.Datatypes <> true constr
+R43973:43977 Coq.Init.Datatypes <> false constr
+prf 43993:44005 <> leader_eqb_eq
+binder 44016:44017 <> l1:153
+binder 44019:44020 <> l2:154
+R44046:44050 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R44039:44041 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R44023:44032 Juche <> leader_eqb def
+R44034:44035 Juche <> l1:153 var
+R44037:44038 Juche <> l2:154 var
+R44042:44045 Coq.Init.Datatypes <> true constr
+R44053:44055 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R44051:44052 Juche <> l1:153 var
+R44056:44057 Juche <> l2:154 var
+prf 44142:44154 <> leader_eq_dec
+R44173:44178 Juche <> Leader ind
+binder 44165:44166 <> l1:155
+binder 44168:44169 <> l2:156
+R44181:44181 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R44189:44193 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R44202:44202 Coq.Init.Specif <> ::type_scope:'{'_x_'}'_'+'_'{'_x_'}' not
+R44184:44186 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R44182:44183 Juche <> l1:155 var
+R44187:44188 Juche <> l2:156 var
+R44196:44199 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R44194:44195 Juche <> l1:155 var
+R44200:44201 Juche <> l2:156 var
+rec 44336:44347 <> LeaderTenure
+proj 44371:44383 <> tenure_leader
+proj 44397:44408 <> tenure_start
+proj 44425:44434 <> tenure_end
+R44387:44392 Juche <> Leader ind
+R44412:44420 Juche <> JucheYear def
+R44438:44443 Coq.Init.Datatypes <> option ind
+R44445:44453 Juche <> JucheYear def
+def 44492:44509 <> kim_il_sung_tenure
+R44513:44524 Juche <> LeaderTenure rec
+R44531:44544 Juche <> mkLeaderTenure constr
+R44546:44554 Juche <> KimIlSung constr
+R44556:44568 Juche <> founding_year def
+R44571:44574 Coq.Init.Datatypes <> Some constr
+R44576:44592 Juche <> kim_il_sung_death def
+def 44608:44625 <> kim_jong_il_tenure
+R44629:44640 Juche <> LeaderTenure rec
+R44647:44660 Juche <> mkLeaderTenure constr
+R44662:44670 Juche <> KimJongIl constr
+R44672:44688 Juche <> kim_il_sung_death def
+R44691:44694 Coq.Init.Datatypes <> Some constr
+R44696:44712 Juche <> kim_jong_il_death def
+def 44728:44745 <> kim_jong_un_tenure
+R44749:44760 Juche <> LeaderTenure rec
+R44767:44780 Juche <> mkLeaderTenure constr
+R44782:44790 Juche <> KimJongUn constr
+R44792:44808 Juche <> kim_jong_il_death def
+R44810:44813 Coq.Init.Datatypes <> None constr
+def 44828:44838 <> all_tenures
+R44842:44845 Coq.Init.Datatypes <> list ind
+R44847:44858 Juche <> LeaderTenure rec
+R44865:44865 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R44884:44885 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R44904:44905 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R44924:44924 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R44866:44883 Juche <> kim_il_sung_tenure def
+R44886:44903 Juche <> kim_jong_il_tenure def
+R44906:44923 Juche <> kim_jong_un_tenure def
+def 44992:45005 <> active_in_year
+R45012:45023 Juche <> LeaderTenure rec
+binder 45008:45008 <> t:161
+R45031:45039 Juche <> JucheYear def
+binder 45027:45027 <> y:162
+R45073:45078 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R45068:45071 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R45054:45065 Juche <> tenure_start proj
+R45067:45067 Juche <> t:161 var
+R45072:45072 Juche <> y:162 var
+R45085:45094 Juche <> tenure_end proj
+R45096:45096 Juche <> t:161 var
+R45107:45110 Coq.Init.Datatypes <> None constr
+R45115:45118 Coq.Init.Logic <> True ind
+R45124:45127 Coq.Init.Datatypes <> Some constr
+R45139:45141 Coq.Init.Peano <> ::nat_scope:x_'<'_x not
+R45138:45138 Juche <> y:162 var
+prf 45162:45184 <> kim_il_sung_active_1950
+R45188:45201 Juche <> active_in_year def
+R45203:45220 Juche <> kim_il_sung_tenure def
+R45222:45230 Juche <> war_start def
+R45249:45262 Juche <> active_in_year def
+R45265:45282 Juche <> kim_il_sung_tenure def
+R45285:45293 Juche <> war_start def
+R45296:45308 Juche <> founding_year def
+R45311:45327 Juche <> kim_il_sung_death def
+prf 45363:45385 <> kim_jong_il_active_2000
+R45389:45402 Juche <> active_in_year def
+R45404:45421 Juche <> kim_jong_il_tenure def
+R45443:45456 Juche <> active_in_year def
+R45459:45476 Juche <> kim_jong_il_tenure def
+R45479:45495 Juche <> kim_il_sung_death def
+R45498:45514 Juche <> kim_jong_il_death def
+def 45587:45594 <> succeeds
+R45621:45626 Juche <> Leader ind
+binder 45597:45605 <> successor:163
+binder 45607:45617 <> predecessor:164
+R45660:45668 Juche <> successor:163 var
+R45647:45657 Juche <> predecessor:164 var
+R45679:45687 Juche <> KimIlSung constr
+R45690:45698 Juche <> KimJongIl constr
+R45703:45706 Coq.Init.Logic <> True ind
+R45712:45720 Juche <> KimJongIl constr
+R45723:45731 Juche <> KimJongUn constr
+R45736:45739 Coq.Init.Logic <> True ind
+R45753:45757 Coq.Init.Logic <> False ind
+prf 45773:45796 <> jong_il_succeeds_il_sung
+R45800:45807 Juche <> succeeds def
+R45809:45817 Juche <> KimJongIl constr
+R45819:45827 Juche <> KimIlSung constr
+R45843:45843 Coq.Init.Logic <> I constr
+R45843:45843 Coq.Init.Logic <> I constr
+prf 45858:45881 <> jong_un_succeeds_jong_il
+R45885:45892 Juche <> succeeds def
+R45894:45902 Juche <> KimJongUn constr
+R45904:45912 Juche <> KimJongIl constr
+R45928:45928 Coq.Init.Logic <> I constr
+R45928:45928 Coq.Init.Logic <> I constr
+def 46015:46030 <> paektu_bloodline
+R46037:46042 Juche <> Leader ind
+binder 46033:46033 <> l:167
+R46063:46063 Juche <> l:167 var
+R46074:46082 Juche <> KimIlSung constr
+R46087:46090 Coq.Init.Logic <> True ind
+R46096:46104 Juche <> KimJongIl constr
+R46109:46112 Coq.Init.Logic <> True ind
+R46118:46126 Juche <> KimJongUn constr
+R46131:46134 Coq.Init.Logic <> True ind
+prf 46150:46167 <> all_leaders_paektu
+binder 46178:46178 <> l:169
+R46181:46196 Juche <> paektu_bloodline def
+R46198:46198 Juche <> l:169 var
+R46237:46237 Coq.Init.Logic <> I constr
+R46237:46237 Coq.Init.Logic <> I constr
+R46237:46237 Coq.Init.Logic <> I constr
+R46237:46237 Coq.Init.Logic <> I constr
+ind 46635:46646 <> Organization
+constr 46662:46664 <> WPK
+constr 46729:46731 <> KPA
+constr 46781:46784 <> KISU
+constr 46847:46850 <> KDWU
+constr 46910:46914 <> GFTUK
+constr 46985:46987 <> UAK
+scheme 46635:46646 <> Organization_rect
+scheme 46635:46646 <> Organization_ind
+scheme 46635:46646 <> Organization_rec
+scheme 46635:46646 <> Organization_sind
+def 47063:47069 <> org_eqb
+R47080:47091 Juche <> Organization ind
+binder 47072:47073 <> o1:172
+binder 47075:47076 <> o2:173
+R47096:47099 Coq.Init.Datatypes <> bool ind
+R47116:47117 Juche <> o2:173 var
+R47112:47113 Juche <> o1:172 var
+R47128:47130 Juche <> WPK constr
+R47133:47135 Juche <> WPK constr
+R47140:47143 Coq.Init.Datatypes <> true constr
+R47149:47151 Juche <> KPA constr
+R47154:47156 Juche <> KPA constr
+R47161:47164 Coq.Init.Datatypes <> true constr
+R47170:47173 Juche <> KISU constr
+R47176:47179 Juche <> KISU constr
+R47184:47187 Coq.Init.Datatypes <> true constr
+R47193:47196 Juche <> KDWU constr
+R47199:47202 Juche <> KDWU constr
+R47207:47210 Coq.Init.Datatypes <> true constr
+R47216:47220 Juche <> GFTUK constr
+R47223:47227 Juche <> GFTUK constr
+R47232:47235 Coq.Init.Datatypes <> true constr
+R47241:47243 Juche <> UAK constr
+R47246:47248 Juche <> UAK constr
+R47253:47256 Coq.Init.Datatypes <> true constr
+R47270:47274 Coq.Init.Datatypes <> false constr
+prf 47290:47299 <> org_eqb_eq
+binder 47310:47311 <> o1:176
+binder 47313:47314 <> o2:177
+R47337:47341 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R47330:47332 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R47317:47323 Juche <> org_eqb def
+R47325:47326 Juche <> o1:176 var
+R47328:47329 Juche <> o2:177 var
+R47333:47336 Coq.Init.Datatypes <> true constr
+R47344:47346 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R47342:47343 Juche <> o1:176 var
+R47347:47348 Juche <> o2:177 var
+def 47486:47496 <> party_leads
+R47503:47514 Juche <> Organization ind
+binder 47499:47499 <> o:178
+R47535:47535 Juche <> o:178 var
+R47546:47548 Juche <> WPK constr
+R47553:47557 Coq.Init.Logic <> False ind
+R47615:47618 Coq.Init.Logic <> True ind
+prf 47634:47648 <> party_leads_kpa
+R47652:47662 Juche <> party_leads def
+R47664:47666 Juche <> KPA constr
+R47682:47682 Coq.Init.Logic <> I constr
+R47682:47682 Coq.Init.Logic <> I constr
+prf 47697:47712 <> party_leads_kisu
+R47716:47726 Juche <> party_leads def
+R47728:47731 Juche <> KISU constr
+R47747:47747 Coq.Init.Logic <> I constr
+R47747:47747 Coq.Init.Logic <> I constr
+def 47838:47857 <> is_mass_organization
+R47864:47875 Juche <> Organization ind
+binder 47860:47860 <> o:180
+R47896:47896 Juche <> o:180 var
+R47907:47910 Juche <> KISU constr
+R47914:47917 Juche <> KDWU constr
+R47921:47925 Juche <> GFTUK constr
+R47929:47931 Juche <> UAK constr
+R47936:47939 Coq.Init.Logic <> True ind
+R47936:47939 Coq.Init.Logic <> True ind
+R47936:47939 Coq.Init.Logic <> True ind
+R47936:47939 Coq.Init.Logic <> True ind
+R47950:47954 Coq.Init.Logic <> False ind
+def 48028:48038 <> is_military
+R48045:48056 Juche <> Organization ind
+binder 48041:48041 <> o:182
+R48077:48077 Juche <> o:182 var
+R48088:48090 Juche <> KPA constr
+R48095:48098 Coq.Init.Logic <> True ind
+R48109:48113 Coq.Init.Logic <> False ind
+prf 48129:48143 <> kpa_is_military
+R48147:48157 Juche <> is_military def
+R48159:48161 Juche <> KPA constr
+R48177:48177 Coq.Init.Logic <> I constr
+R48177:48177 Coq.Init.Logic <> I constr
+def 48251:48264 <> party_eligible
+R48271:48282 Juche <> SongbunClass ind
+binder 48267:48267 <> s:184
+R48303:48303 Juche <> s:184 var
+R48314:48322 Juche <> CoreClass constr
+R48327:48330 Coq.Init.Logic <> True ind
+R48336:48348 Juche <> WaveringClass constr
+R48353:48356 Coq.Init.Logic <> True ind
+R48392:48403 Juche <> HostileClass constr
+R48408:48412 Coq.Init.Logic <> False ind
+prf 48428:48446 <> core_party_eligible
+R48450:48463 Juche <> party_eligible def
+R48465:48473 Juche <> CoreClass constr
+R48489:48489 Coq.Init.Logic <> I constr
+R48489:48489 Coq.Init.Logic <> I constr
+prf 48504:48523 <> hostile_not_eligible
+R48527:48528 Coq.Init.Logic <> ::type_scope:'~'_x not
+R48529:48542 Juche <> party_eligible def
+R48544:48555 Juche <> HostileClass constr
+rec 49068:49075 <> Inminban
+proj 49095:49105 <> inminban_id
+proj 49116:49134 <> inminban_households
+proj 49145:49157 <> inminban_dong
+R49109:49111 Coq.Init.Datatypes <> nat ind
+R49138:49140 Coq.Init.Datatypes <> nat ind
+R49161:49163 Coq.Init.Datatypes <> nat ind
+def 49274:49292 <> valid_inminban_size
+R49299:49306 Juche <> Inminban rec
+binder 49295:49295 <> i:190
+R49348:49351 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R49342:49345 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R49321:49339 Juche <> inminban_households proj
+R49341:49341 Juche <> i:190 var
+R49373:49376 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R49352:49370 Juche <> inminban_households proj
+R49372:49372 Juche <> i:190 var
+ind 49432:49443 <> InminbanDuty
+constr 49459:49478 <> ResidentRegistration
+constr 49515:49530 <> VisitorReporting
+constr 49577:49597 <> IdeologicalMonitoring
+constr 49645:49662 <> AttendanceTracking
+constr 49712:49728 <> CurfewEnforcement
+constr 49773:49792 <> SanitationInspection
+constr 49836:49857 <> MobilizationOrganizing
+scheme 49432:49443 <> InminbanDuty_rect
+scheme 49432:49443 <> InminbanDuty_ind
+scheme 49432:49443 <> InminbanDuty_rec
+scheme 49432:49443 <> InminbanDuty_sind
+def 49944:49960 <> inminbanjang_duty
+R49967:49978 Juche <> InminbanDuty ind
+binder 49963:49963 <> d:193
+R49999:49999 Juche <> d:193 var
+R50010:50029 Juche <> ResidentRegistration constr
+R50034:50037 Coq.Init.Logic <> True ind
+R50043:50058 Juche <> VisitorReporting constr
+R50063:50066 Coq.Init.Logic <> True ind
+R50072:50092 Juche <> IdeologicalMonitoring constr
+R50097:50100 Coq.Init.Logic <> True ind
+R50106:50123 Juche <> AttendanceTracking constr
+R50128:50131 Coq.Init.Logic <> True ind
+R50137:50153 Juche <> CurfewEnforcement constr
+R50158:50161 Coq.Init.Logic <> True ind
+R50167:50186 Juche <> SanitationInspection constr
+R50191:50194 Coq.Init.Logic <> True ind
+R50200:50221 Juche <> MobilizationOrganizing constr
+R50226:50229 Coq.Init.Logic <> True ind
+prf 50245:50263 <> all_duties_required
+binder 50274:50274 <> d:195
+R50277:50293 Juche <> inminbanjang_duty def
+R50295:50295 Juche <> d:195 var
+R50332:50332 Coq.Init.Logic <> I constr
+R50332:50332 Coq.Init.Logic <> I constr
+R50332:50332 Coq.Init.Logic <> I constr
+R50332:50332 Coq.Init.Logic <> I constr
+R50332:50332 Coq.Init.Logic <> I constr
+R50332:50332 Coq.Init.Logic <> I constr
+R50332:50332 Coq.Init.Logic <> I constr
+R50332:50332 Coq.Init.Logic <> I constr
+def 50423:50446 <> weekly_session_mandatory
+R50458:50461 Coq.Init.Logic <> True ind
+def 50534:50559 <> visitor_registration_hours
+R50563:50565 Coq.Init.Datatypes <> nat ind
+def 50670:50686 <> inminban_enforces
+R50693:50701 Juche <> Principle ind
+binder 50689:50689 <> p:196
+R50722:50722 Juche <> p:196 var
+R50733:50740 Juche <> P6_Unity constr
+R50745:50748 Coq.Init.Logic <> True ind
+R50795:50807 Juche <> P9_Discipline constr
+R50812:50815 Coq.Init.Logic <> True ind
+R50850:50857 Juche <> P4_Faith constr
+R50862:50865 Coq.Init.Logic <> True ind
+R50913:50917 Coq.Init.Logic <> False ind
+ind 51336:51351 <> TravelPermitType
+constr 51367:51377 <> LocalPermit
+constr 51424:51438 <> InterProvincial
+constr 51471:51484 <> PyongyangEntry
+constr 51527:51538 <> MilitaryZone
+constr 51579:51591 <> SpecialPermit
+scheme 51336:51351 <> TravelPermitType_rect
+scheme 51336:51351 <> TravelPermitType_ind
+scheme 51336:51351 <> TravelPermitType_rec
+scheme 51336:51351 <> TravelPermitType_sind
+ind 51675:51689 <> PermitAuthority
+constr 51705:51715 <> LocalPolice
+constr 51753:51765 <> ProvincialMPS
+constr 51825:51834 <> CentralMPS
+constr 51894:51910 <> StateSecurityDept
+scheme 51675:51689 <> PermitAuthority_rect
+scheme 51675:51689 <> PermitAuthority_ind
+scheme 51675:51689 <> PermitAuthority_rec
+scheme 51675:51689 <> PermitAuthority_sind
+def 51953:51968 <> permit_authority
+R51976:51991 Juche <> TravelPermitType ind
+binder 51971:51972 <> pt:202
+R51996:52010 Juche <> PermitAuthority ind
+R52023:52024 Juche <> pt:202 var
+R52035:52045 Juche <> LocalPermit constr
+R52050:52060 Juche <> LocalPolice constr
+R52066:52080 Juche <> InterProvincial constr
+R52085:52097 Juche <> ProvincialMPS constr
+R52103:52116 Juche <> PyongyangEntry constr
+R52121:52130 Juche <> CentralMPS constr
+R52136:52147 Juche <> MilitaryZone constr
+R52152:52168 Juche <> StateSecurityDept constr
+R52174:52186 Juche <> SpecialPermit constr
+R52191:52207 Juche <> StateSecurityDept constr
+def 52271:52285 <> permit_eligible
+R52292:52303 Juche <> SongbunClass ind
+binder 52288:52288 <> s:204
+R52312:52327 Juche <> TravelPermitType ind
+binder 52307:52308 <> pt:205
+R52352:52352 Juche <> s:204 var
+R52348:52349 Juche <> pt:205 var
+R52363:52376 Juche <> PyongyangEntry constr
+R52379:52390 Juche <> HostileClass constr
+R52395:52399 Coq.Init.Logic <> False ind
+R52405:52416 Juche <> MilitaryZone constr
+R52419:52430 Juche <> HostileClass constr
+R52435:52439 Coq.Init.Logic <> False ind
+R52445:52457 Juche <> SpecialPermit constr
+R52460:52471 Juche <> HostileClass constr
+R52476:52480 Coq.Init.Logic <> False ind
+R52486:52499 Juche <> PyongyangEntry constr
+R52502:52514 Juche <> WaveringClass constr
+R52519:52523 Coq.Init.Logic <> False ind
+R52563:52566 Coq.Init.Logic <> True ind
+prf 52582:52601 <> hostile_no_pyongyang
+R52605:52606 Coq.Init.Logic <> ::type_scope:'~'_x not
+R52607:52621 Juche <> permit_eligible def
+R52623:52634 Juche <> HostileClass constr
+R52636:52649 Juche <> PyongyangEntry constr
+ind 52741:52755 <> TravelViolation
+constr 52771:52778 <> NoPermit
+constr 52829:52841 <> ExpiredPermit
+constr 52883:52898 <> WrongDestination
+constr 52946:52961 <> OverstayedPermit
+scheme 52741:52755 <> TravelViolation_rect
+scheme 52741:52755 <> TravelViolation_ind
+scheme 52741:52755 <> TravelViolation_rec
+scheme 52741:52755 <> TravelViolation_sind
+def 53067:53090 <> travel_violation_penalty
+R53097:53111 Juche <> TravelViolation ind
+binder 53093:53093 <> v:210
+R53116:53118 Coq.Init.Datatypes <> nat ind
+R53131:53131 Juche <> v:210 var
+R53142:53149 Juche <> NoPermit constr
+R53160:53172 Juche <> ExpiredPermit constr
+R53183:53198 Juche <> WrongDestination constr
+R53209:53224 Juche <> OverstayedPermit constr
+def 53306:53334 <> pyongyang_residency_privilege
+R53359:53370 Juche <> SongbunClass ind
+binder 53355:53355 <> s:212
+R53389:53392 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R53374:53376 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R53373:53373 Juche <> s:212 var
+R53377:53388 Juche <> HostileClass constr
+R53393:53397 Coq.Init.Logic <> False ind
+ind 53812:53822 <> SessionType
+constr 53838:53849 <> DailySession
+constr 53890:53902 <> WeeklySession
+constr 53956:53969 <> MonthlySession
+constr 54009:54024 <> QuarterlySession
+constr 54070:54081 <> AnnualReview
+scheme 53812:53822 <> SessionType_rect
+scheme 53812:53822 <> SessionType_ind
+scheme 53812:53822 <> SessionType_rec
+scheme 53812:53822 <> SessionType_sind
+def 54139:54160 <> session_frequency_days
+R54168:54178 Juche <> SessionType ind
+binder 54163:54164 <> st:215
+R54183:54185 Coq.Init.Datatypes <> nat ind
+R54198:54199 Juche <> st:215 var
+R54210:54221 Juche <> DailySession constr
+R54232:54244 Juche <> WeeklySession constr
+R54255:54268 Juche <> MonthlySession constr
+R54280:54295 Juche <> QuarterlySession constr
+R54307:54318 Juche <> AnnualReview constr
+ind 54372:54387 <> SessionComponent
+constr 54403:54413 <> LeaderStudy
+constr 54457:54469 <> SelfCriticism
+constr 54512:54526 <> MutualCriticism
+constr 54559:54571 <> PledgeRenewal
+constr 54611:54621 <> PolicyStudy
+scheme 54372:54387 <> SessionComponent_rect
+scheme 54372:54387 <> SessionComponent_ind
+scheme 54372:54387 <> SessionComponent_rec
+scheme 54372:54387 <> SessionComponent_sind
+def 54731:54753 <> weekly_session_complete
+R54769:54772 Coq.Init.Datatypes <> list ind
+R54774:54789 Juche <> SessionComponent ind
+binder 54756:54765 <> components:219
+R54829:54834 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R54804:54805 Coq.Lists.List <> In def
+R54819:54828 Juche <> components:219 var
+R54807:54817 Juche <> LeaderStudy constr
+R54862:54867 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R54835:54836 Coq.Lists.List <> In def
+R54852:54861 Juche <> components:219 var
+R54838:54850 Juche <> SelfCriticism constr
+R54868:54869 Coq.Lists.List <> In def
+R54887:54896 Juche <> components:219 var
+R54871:54885 Juche <> MutualCriticism constr
+def 54966:54990 <> session_absence_violation
+R54994:55002 Juche <> Principle ind
+R55007:55014 Juche <> P6_Unity constr
+def 55115:55144 <> insufficient_criticism_penalty
+R55148:55150 Coq.Init.Datatypes <> nat ind
+def 55227:55248 <> repeated_absence_count
+R55252:55254 Coq.Init.Datatypes <> nat ind
+def 55274:55297 <> repeated_absence_penalty
+R55301:55303 Coq.Init.Datatypes <> nat ind
+ind 55834:55847 <> SectorPriority
+constr 55863:55876 <> MilitarySector
+constr 55882:55900 <> HeavyIndustrySector
+constr 55906:55924 <> LightIndustrySector
+constr 55930:55946 <> AgricultureSector
+scheme 55834:55847 <> SectorPriority_rect
+scheme 55834:55847 <> SectorPriority_ind
+scheme 55834:55847 <> SectorPriority_rec
+scheme 55834:55847 <> SectorPriority_sind
+def 55961:55975 <> songun_priority
+R55982:55995 Juche <> SectorPriority ind
+binder 55978:55978 <> s:222
+R56000:56002 Coq.Init.Datatypes <> nat ind
+R56015:56015 Juche <> s:222 var
+R56026:56039 Juche <> MilitarySector constr
+R56050:56068 Juche <> HeavyIndustrySector constr
+R56079:56097 Juche <> LightIndustrySector constr
+R56108:56124 Juche <> AgricultureSector constr
+def 56150:56164 <> songun_outranks
+R56175:56188 Juche <> SectorPriority ind
+binder 56167:56168 <> s1:224
+binder 56170:56171 <> s2:225
+R56221:56223 Coq.Init.Peano <> ::nat_scope:x_'>'_x not
+R56203:56217 Juche <> songun_priority def
+R56219:56220 Juche <> s1:224 var
+R56224:56238 Juche <> songun_priority def
+R56240:56241 Juche <> s2:225 var
+prf 56251:56264 <> military_first
+binder 56275:56275 <> s:226
+R56297:56300 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R56279:56282 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R56278:56278 Juche <> s:226 var
+R56283:56296 Juche <> MilitarySector constr
+R56301:56315 Juche <> songun_outranks def
+R56317:56330 Juche <> MilitarySector constr
+R56332:56332 Juche <> s:226 var
+R56366:56380 Juche <> songun_outranks def
+R56383:56397 Juche <> songun_priority def
+def 56514:56526 <> songun_pillar
+R56530:56535 Juche <> Pillar ind
+R56540:56544 Juche <> Chawi constr
+prf 56554:56568 <> songun_is_chawi
+R56585:56587 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R56572:56584 Juche <> songun_pillar def
+R56588:56592 Juche <> Chawi constr
+def 56757:56772 <> army_party_unity
+R56801:56804 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R56786:56796 Juche <> party_leads def
+R56798:56800 Juche <> KPA constr
+R56805:56815 Juche <> is_military def
+R56817:56819 Juche <> KPA constr
+prf 56829:56850 <> army_party_unity_holds
+R56854:56869 Juche <> army_party_unity def
+R56888:56903 Juche <> army_party_unity def
+R56919:56919 Coq.Init.Logic <> I constr
+R56919:56919 Coq.Init.Logic <> I constr
+R56919:56919 Coq.Init.Logic <> I constr
+ind 56981:56989 <> PolicyEra
+constr 57005:57013 <> PreSongun
+constr 57057:57065 <> SongunEra
+constr 57127:57137 <> ByungjinEra
+scheme 56981:56989 <> PolicyEra_rect
+scheme 56981:56989 <> PolicyEra_ind
+scheme 56981:56989 <> PolicyEra_rec
+scheme 56981:56989 <> PolicyEra_sind
+def 57217:57226 <> era_leader
+R57233:57241 Juche <> PolicyEra ind
+binder 57229:57229 <> e:229
+R57246:57251 Juche <> Leader ind
+R57264:57264 Juche <> e:229 var
+R57275:57283 Juche <> PreSongun constr
+R57288:57296 Juche <> KimIlSung constr
+R57302:57310 Juche <> SongunEra constr
+R57315:57323 Juche <> KimJongIl constr
+R57329:57339 Juche <> ByungjinEra constr
+R57344:57352 Juche <> KimJongUn constr
+def 57373:57391 <> era_pillar_emphasis
+R57398:57406 Juche <> PolicyEra ind
+binder 57394:57394 <> e:231
+R57411:57416 Juche <> Pillar ind
+R57429:57429 Juche <> e:231 var
+R57440:57448 Juche <> PreSongun constr
+R57453:57461 Juche <> Chajusong constr
+R57510:57518 Juche <> SongunEra constr
+R57523:57527 Juche <> Chawi constr
+R57579:57589 Juche <> ByungjinEra constr
+R57594:57599 Juche <> Charip constr
+ind 58056:58071 <> EconomicUnitType
+constr 58087:58095 <> StateFarm
+constr 58147:58161 <> CooperativeFarm
+constr 58193:58204 <> StateFactory
+constr 58240:58251 <> LocalFactory
+constr 58292:58301 <> MiningUnit
+constr 58344:58362 <> ConstructionBrigade
+constr 58395:58412 <> FishingCooperative
+constr 58445:58456 <> ForestryUnit
+scheme 58056:58071 <> EconomicUnitType_rect
+scheme 58056:58071 <> EconomicUnitType_ind
+scheme 58056:58071 <> EconomicUnitType_rec
+scheme 58056:58071 <> EconomicUnitType_sind
+rec 58545:58558 <> ProductionUnit
+proj 58584:58590 <> unit_id
+proj 58601:58609 <> unit_type
+proj 58633:58644 <> unit_workers
+proj 58655:58669 <> unit_party_cell
+proj 58711:58723 <> unit_province
+R58594:58596 Coq.Init.Datatypes <> nat ind
+R58613:58628 Juche <> EconomicUnitType ind
+R58648:58650 Coq.Init.Datatypes <> nat ind
+R58673:58676 Coq.Init.Datatypes <> bool ind
+R58727:58729 Coq.Init.Datatypes <> nat ind
+def 58801:58819 <> requires_party_cell
+R58826:58839 Juche <> ProductionUnit rec
+binder 58822:58822 <> u:241
+R58873:58876 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R58868:58871 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R58854:58865 Juche <> unit_workers proj
+R58867:58867 Juche <> u:241 var
+R58894:58896 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R58877:58891 Juche <> unit_party_cell proj
+R58893:58893 Juche <> u:241 var
+R58897:58900 Coq.Init.Datatypes <> true constr
+ind 58973:58989 <> ProductionMeeting
+constr 59005:59017 <> DailyBriefing
+constr 59064:59079 <> WeeklyPlanReview
+constr 59122:59138 <> MonthlyEvaluation
+constr 59183:59195 <> QuotaCampaign
+scheme 58973:58989 <> ProductionMeeting_rect
+scheme 58973:58989 <> ProductionMeeting_ind
+scheme 58973:58989 <> ProductionMeeting_rec
+scheme 58973:58989 <> ProductionMeeting_sind
+def 59315:59335 <> chollima_movement_era
+R59339:59347 Juche <> PolicyEra ind
+R59352:59360 Juche <> PreSongun constr
+def 59434:59454 <> speed_campaign_pillar
+R59458:59463 Juche <> Pillar ind
+R59468:59473 Juche <> Charip constr
+rec 59540:59547 <> WorkTeam
+proj 59567:59573 <> team_id
+proj 59584:59592 <> team_size
+proj 59603:59619 <> team_leader_party
+proj 59666:59674 <> team_unit
+R59577:59579 Coq.Init.Datatypes <> nat ind
+R59596:59598 Coq.Init.Datatypes <> nat ind
+R59623:59626 Coq.Init.Datatypes <> bool ind
+R59678:59680 Coq.Init.Datatypes <> nat ind
+def 59794:59810 <> valid_team_leader
+R59817:59824 Juche <> WorkTeam rec
+binder 59813:59813 <> t:249
+R59855:59858 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R59850:59853 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R59839:59847 Juche <> team_size proj
+R59849:59849 Juche <> t:249 var
+R59878:59880 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R59859:59875 Juche <> team_leader_party proj
+R59877:59877 Juche <> t:249 var
+R59881:59884 Coq.Init.Datatypes <> true constr
+def 59954:59972 <> socialist_emulation
+R59986:59989 Coq.Init.Logic <> True ind
+def 60581:60588 <> PersonId
+R60593:60595 Coq.Init.Datatypes <> nat ind
+def 60609:60617 <> CitizenId
+R60622:60624 Coq.Init.Datatypes <> nat ind
+rec 60635:60641 <> Citizen
+proj 60660:60669 <> citizen_id
+proj 60686:60702 <> citizen_person_id
+proj 60760:60774 <> citizen_songbun
+proj 60794:60813 <> citizen_party_member
+proj 60825:60840 <> citizen_military
+proj 60852:60872 <> citizen_organizations
+proj 60897:60914 <> citizen_birth_year
+R60673:60681 Juche <> CitizenId def
+R60706:60713 Juche <> PersonId def
+R60778:60789 Juche <> SongbunClass ind
+R60817:60820 Coq.Init.Datatypes <> bool ind
+R60844:60847 Coq.Init.Datatypes <> bool ind
+R60876:60879 Coq.Init.Datatypes <> list ind
+R60881:60892 Juche <> Organization ind
+R60918:60926 Juche <> JucheYear def
+def 61000:61014 <> in_organization
+R61021:61027 Juche <> Citizen rec
+binder 61017:61017 <> c:258
+R61035:61046 Juche <> Organization ind
+binder 61031:61031 <> o:259
+R61061:61062 Coq.Lists.List <> In def
+R61067:61087 Juche <> citizen_organizations proj
+R61089:61089 Juche <> c:258 var
+R61064:61064 Juche <> o:259 var
+def 61154:61175 <> valid_party_membership
+R61182:61188 Juche <> Citizen rec
+binder 61178:61178 <> c:260
+R61232:61235 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R61225:61227 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R61203:61222 Juche <> citizen_party_member proj
+R61224:61224 Juche <> c:260 var
+R61228:61231 Coq.Init.Datatypes <> true constr
+R61236:61249 Juche <> party_eligible def
+R61252:61266 Juche <> citizen_songbun proj
+R61268:61268 Juche <> c:260 var
+def 61349:61369 <> valid_military_status
+R61376:61382 Juche <> Citizen rec
+binder 61372:61372 <> c:261
+R61422:61426 Coq.Init.Logic <> ::type_scope:x_'<->'_x not
+R61415:61417 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R61397:61412 Juche <> citizen_military proj
+R61414:61414 Juche <> c:261 var
+R61418:61421 Coq.Init.Datatypes <> true constr
+R61427:61441 Juche <> in_organization def
+R61443:61443 Juche <> c:261 var
+R61445:61447 Juche <> KPA constr
+def 61530:61542 <> model_citizen
+R61546:61552 Juche <> Citizen rec
+R61559:61567 Juche <> mkCitizen constr
+R61573:61581 Juche <> CoreClass constr
+R61583:61586 Coq.Init.Datatypes <> true constr
+R61588:61592 Coq.Init.Datatypes <> false constr
+R61594:61594 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R61598:61599 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R61605:61605 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R61595:61597 Juche <> WPK constr
+R61600:61604 Juche <> GFTUK constr
+def 61623:61637 <> soldier_citizen
+R61641:61647 Juche <> Citizen rec
+R61654:61662 Juche <> mkCitizen constr
+R61668:61676 Juche <> CoreClass constr
+R61678:61681 Coq.Init.Datatypes <> true constr
+R61683:61686 Coq.Init.Datatypes <> true constr
+R61688:61688 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R61692:61693 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R61697:61697 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R61689:61691 Juche <> WPK constr
+R61694:61696 Juche <> KPA constr
+def 61715:61729 <> hostile_citizen
+R61733:61739 Juche <> Citizen rec
+R61746:61754 Juche <> mkCitizen constr
+R61760:61771 Juche <> HostileClass constr
+R61773:61777 Coq.Init.Datatypes <> false constr
+R61779:61783 Coq.Init.Datatypes <> false constr
+R61785:61785 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R61789:61789 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R61786:61788 Juche <> UAK constr
+prf 61802:61826 <> model_citizen_party_valid
+R61830:61851 Juche <> valid_party_membership def
+R61853:61865 Juche <> model_citizen def
+R61884:61905 Juche <> valid_party_membership def
+R61908:61920 Juche <> model_citizen def
+R61923:61936 Juche <> party_eligible def
+R61963:61963 Coq.Init.Logic <> I constr
+R61963:61963 Coq.Init.Logic <> I constr
+prf 61978:61994 <> hostile_not_party
+R62034:62036 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R61998:62017 Juche <> citizen_party_member proj
+R62019:62033 Juche <> hostile_citizen def
+R62037:62041 Coq.Init.Datatypes <> false constr
+def 62105:62115 <> citizen_age
+R62122:62128 Juche <> Citizen rec
+binder 62118:62118 <> c:262
+R62147:62155 Juche <> JucheYear def
+binder 62132:62143 <> current_year:263
+R62160:62162 Coq.Init.Datatypes <> nat ind
+R62181:62183 Coq.Init.Peano <> ::nat_scope:x_'-'_x not
+R62169:62180 Juche <> current_year:263 var
+R62184:62201 Juche <> citizen_birth_year proj
+R62203:62203 Juche <> c:262 var
+prf 62213:62236 <> model_citizen_age_in_100
+R62269:62271 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R62240:62250 Juche <> citizen_age def
+R62252:62264 Juche <> model_citizen def
+ind 62637:62654 <> FamilyRelationType
+constr 62670:62675 <> Father
+constr 62681:62686 <> Mother
+constr 62692:62697 <> Spouse
+constr 62703:62707 <> Child
+constr 62713:62719 <> Sibling
+scheme 62637:62654 <> FamilyRelationType_rect
+scheme 62637:62654 <> FamilyRelationType_ind
+scheme 62637:62654 <> FamilyRelationType_rec
+scheme 62637:62654 <> FamilyRelationType_sind
+rec 62776:62789 <> FamilyRelation
+proj 62815:62824 <> fr_subject
+proj 62885:62895 <> fr_relation
+proj 62921:62931 <> fr_relative
+R62828:62835 Juche <> PersonId def
+R62899:62916 Juche <> FamilyRelationType ind
+R62935:62942 Juche <> PersonId def
+def 63015:63030 <> inverse_relation
+R63037:63054 Juche <> FamilyRelationType ind
+binder 63033:63033 <> r:270
+R63059:63076 Juche <> FamilyRelationType ind
+R63089:63089 Juche <> r:270 var
+R63100:63105 Juche <> Father constr
+R63110:63114 Juche <> Child constr
+R63120:63125 Juche <> Mother constr
+R63130:63134 Juche <> Child constr
+R63140:63145 Juche <> Spouse constr
+R63150:63155 Juche <> Spouse constr
+R63161:63165 Juche <> Child constr
+R63170:63175 Juche <> Father constr
+R63226:63232 Juche <> Sibling constr
+R63237:63243 Juche <> Sibling constr
+def 63359:63385 <> kim_jong_il_father_relation
+R63389:63402 Juche <> FamilyRelation rec
+R63409:63424 Juche <> mkFamilyRelation constr
+R63431:63436 Juche <> Father constr
+def 63499:63525 <> kim_jong_un_father_relation
+R63529:63542 Juche <> FamilyRelation rec
+R63549:63564 Juche <> mkFamilyRelation constr
+R63571:63576 Juche <> Father constr
+def 63639:63665 <> kim_yo_jong_father_relation
+R63669:63682 Juche <> FamilyRelation rec
+R63689:63704 Juche <> mkFamilyRelation constr
+R63711:63716 Juche <> Father constr
+def 63779:63806 <> kim_yo_jong_sibling_relation
+R63810:63823 Juche <> FamilyRelation rec
+R63830:63845 Juche <> mkFamilyRelation constr
+R63852:63858 Juche <> Sibling constr
+def 63961:63980 <> all_family_relations
+R63984:63987 Coq.Init.Datatypes <> list ind
+R63989:64002 Juche <> FamilyRelation rec
+R64009:64009 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R64037:64041 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R64069:64073 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R64101:64105 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R64134:64134 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R64010:64036 Juche <> kim_jong_il_father_relation def
+R64042:64068 Juche <> kim_jong_un_father_relation def
+R64074:64100 Juche <> kim_yo_jong_father_relation def
+R64106:64133 Juche <> kim_yo_jong_sibling_relation def
+def 64195:64214 <> relations_for_person
+R64223:64230 Juche <> PersonId def
+binder 64217:64219 <> pid:272
+R64241:64244 Coq.Init.Datatypes <> list ind
+R64246:64259 Juche <> FamilyRelation rec
+binder 64234:64237 <> rels:273
+R64264:64267 Coq.Init.Datatypes <> list ind
+R64269:64282 Juche <> FamilyRelation rec
+R64289:64294 Coq.Lists.List <> filter def
+R64334:64337 Juche <> rels:273 var
+binder 64301:64301 <> r:274
+R64306:64312 Coq.Arith.PeanoNat Nat eqb def
+R64315:64324 Juche <> fr_subject proj
+R64326:64326 Juche <> r:274 var
+R64329:64331 Juche <> pid:272 var
+def 64421:64431 <> are_related
+R64446:64453 Juche <> PersonId def
+binder 64434:64437 <> pid1:275
+binder 64439:64442 <> pid2:276
+R64463:64480 Juche <> FamilyRelationType ind
+binder 64457:64459 <> rel:277
+R64491:64494 Coq.Init.Datatypes <> list ind
+R64496:64509 Juche <> FamilyRelation rec
+binder 64484:64487 <> rels:278
+R64514:64517 Coq.Init.Datatypes <> bool ind
+R64524:64530 Coq.Lists.List <> existsb def
+R64961:64964 Juche <> rels:278 var
+binder 64537:64537 <> r:279
+R64621:64644 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R64569:64592 Coq.Init.Datatypes <> ::bool_scope:x_'&&'_x not
+R64542:64548 Coq.Arith.PeanoNat Nat eqb def
+R64551:64560 Juche <> fr_subject proj
+R64562:64562 Juche <> r:279 var
+R64565:64568 Juche <> pid1:275 var
+R64593:64599 Coq.Arith.PeanoNat Nat eqb def
+R64602:64612 Juche <> fr_relative proj
+R64614:64614 Juche <> r:279 var
+R64617:64620 Juche <> pid2:276 var
+R64666:64668 Juche <> rel:277 var
+R64651:64661 Juche <> fr_relation proj
+R64663:64663 Juche <> r:279 var
+R64697:64702 Juche <> Father constr
+R64705:64710 Juche <> Father constr
+R64715:64718 Coq.Init.Datatypes <> true constr
+R64742:64747 Juche <> Mother constr
+R64750:64755 Juche <> Mother constr
+R64760:64763 Coq.Init.Datatypes <> true constr
+R64787:64792 Juche <> Spouse constr
+R64795:64800 Juche <> Spouse constr
+R64805:64808 Coq.Init.Datatypes <> true constr
+R64832:64836 Juche <> Child constr
+R64839:64843 Juche <> Child constr
+R64848:64851 Coq.Init.Datatypes <> true constr
+R64875:64881 Juche <> Sibling constr
+R64884:64890 Juche <> Sibling constr
+R64895:64898 Coq.Init.Datatypes <> true constr
+R64930:64934 Coq.Init.Datatypes <> false constr
+def 65186:65202 <> generations_reach
+R65211:65218 Juche <> PersonId def
+binder 65205:65207 <> pid:281
+R65229:65232 Coq.Init.Datatypes <> list ind
+R65234:65247 Juche <> FamilyRelation rec
+binder 65222:65225 <> rels:282
+R65259:65261 Coq.Init.Datatypes <> nat ind
+binder 65251:65255 <> depth:283
+R65266:65269 Coq.Init.Datatypes <> list ind
+R65271:65278 Juche <> PersonId def
+R65291:65295 Juche <> depth:283 var
+R65306:65306 Coq.Init.Datatypes <> O constr
+R65311:65311 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R65315:65315 Coq.Lists.List ListNotations ::list_scope:'['_x_']' not
+R65312:65314 Juche <> pid:281 var
+R65321:65321 Coq.Init.Datatypes <> S constr
+R65348:65350 Coq.Lists.List <> map def
+R65365:65384 Juche <> relations_for_person def
+R65386:65388 Juche <> pid:281 var
+R65390:65393 Juche <> rels:282 var
+R65352:65362 Juche <> fr_relative proj
+binder 65338:65343 <> direct:286
+R65422:65429 Coq.Lists.List <> flat_map def
+R65469:65474 Juche <> direct:286 var
+binder 65436:65436 <> p:287
+R65441:65457 Juche <> generations_reach:284 def
+R65461:65464 Juche <> rels:282 var
+R65459:65459 Juche <> p:287 var
+binder 65409:65417 <> recursive:288
+R65488:65491 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R65485:65487 Juche <> pid:281 var
+R65498:65501 Coq.Init.Datatypes <> ::list_scope:x_'++'_x not
+R65492:65497 Juche <> direct:286 var
+R65502:65510 Juche <> recursive:288 var
+def 65585:65609 <> three_generation_affected
+R65618:65625 Juche <> PersonId def
+binder 65612:65614 <> pid:289
+R65636:65639 Coq.Init.Datatypes <> list ind
+R65641:65654 Juche <> FamilyRelation rec
+binder 65629:65632 <> rels:290
+R65659:65662 Coq.Init.Datatypes <> list ind
+R65664:65671 Juche <> PersonId def
+R65678:65694 Juche <> generations_reach def
+R65696:65698 Juche <> pid:289 var
+R65700:65703 Juche <> rels:290 var
+def 66016:66024 <> CitizenDB
+R66029:66032 Coq.Init.Datatypes <> list ind
+R66034:66040 Juche <> Citizen rec
+def 66112:66131 <> lookup_by_citizen_id
+R66140:66148 Juche <> CitizenId def
+binder 66134:66136 <> cid:291
+R66157:66165 Juche <> CitizenDB def
+binder 66152:66153 <> db:292
+R66170:66175 Coq.Init.Datatypes <> option ind
+R66177:66183 Juche <> Citizen rec
+R66190:66193 Coq.Lists.List <> find def
+R66233:66234 Juche <> db:292 var
+binder 66200:66200 <> c:293
+R66205:66211 Coq.Arith.PeanoNat Nat eqb def
+R66214:66223 Juche <> citizen_id proj
+R66225:66225 Juche <> c:293 var
+R66228:66230 Juche <> cid:291 var
+def 66305:66323 <> lookup_by_person_id
+R66332:66339 Juche <> PersonId def
+binder 66326:66328 <> pid:294
+R66348:66356 Juche <> CitizenDB def
+binder 66343:66344 <> db:295
+R66361:66366 Coq.Init.Datatypes <> option ind
+R66368:66374 Juche <> Citizen rec
+R66381:66384 Coq.Lists.List <> find def
+R66431:66432 Juche <> db:295 var
+binder 66391:66391 <> c:296
+R66396:66402 Coq.Arith.PeanoNat Nat eqb def
+R66405:66421 Juche <> citizen_person_id proj
+R66423:66423 Juche <> c:296 var
+R66426:66428 Juche <> pid:294 var
+def 66500:66516 <> filter_by_songbun
+R66523:66534 Juche <> SongbunClass ind
+binder 66519:66519 <> s:297
+R66543:66551 Juche <> CitizenDB def
+binder 66538:66539 <> db:298
+R66556:66564 Juche <> CitizenDB def
+R66571:66576 Coq.Lists.List <> filter def
+R66623:66624 Juche <> db:298 var
+binder 66583:66583 <> c:299
+R66588:66598 Juche <> songbun_eqb def
+R66601:66615 Juche <> citizen_songbun proj
+R66617:66617 Juche <> c:299 var
+R66620:66620 Juche <> s:297 var
+def 66670:66689 <> filter_party_members
+R66697:66705 Juche <> CitizenDB def
+binder 66692:66693 <> db:300
+R66710:66718 Juche <> CitizenDB def
+R66725:66730 Coq.Lists.List <> filter def
+R66766:66767 Juche <> db:300 var
+binder 66737:66737 <> c:301
+R66742:66761 Juche <> citizen_party_member proj
+R66763:66763 Juche <> c:301 var
+def 66818:66832 <> filter_military
+R66840:66848 Juche <> CitizenDB def
+binder 66835:66836 <> db:302
+R66853:66861 Juche <> CitizenDB def
+R66868:66873 Coq.Lists.List <> filter def
+R66905:66906 Juche <> db:302 var
+binder 66880:66880 <> c:303
+R66885:66900 Juche <> citizen_military proj
+R66902:66902 Juche <> c:303 var
+def 66974:66995 <> filter_by_organization
+R67002:67013 Juche <> Organization ind
+binder 66998:66998 <> o:304
+R67022:67030 Juche <> CitizenDB def
+binder 67017:67018 <> db:305
+R67035:67043 Juche <> CitizenDB def
+R67050:67055 Coq.Lists.List <> filter def
+R67114:67115 Juche <> db:305 var
+binder 67062:67062 <> c:306
+R67067:67073 Coq.Lists.List <> existsb def
+R67088:67108 Juche <> citizen_organizations proj
+R67110:67110 Juche <> c:306 var
+R67076:67082 Juche <> org_eqb def
+R67084:67084 Juche <> o:304 var
+def 67163:67180 <> example_citizen_db
+R67184:67192 Juche <> CitizenDB def
+R67199:67199 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R67213:67214 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R67230:67231 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R67247:67247 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R67200:67212 Juche <> model_citizen def
+R67215:67229 Juche <> soldier_citizen def
+R67232:67246 Juche <> hostile_citizen def
+prf 67278:67297 <> lookup_model_citizen
+R67342:67344 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R67301:67320 Juche <> lookup_by_citizen_id def
+R67324:67341 Juche <> example_citizen_db def
+R67345:67348 Coq.Init.Datatypes <> Some constr
+R67350:67362 Juche <> model_citizen def
+prf 67397:67418 <> lookup_hostile_citizen
+R67462:67464 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R67422:67440 Juche <> lookup_by_person_id def
+R67444:67461 Juche <> example_citizen_db def
+R67465:67468 Coq.Init.Datatypes <> Some constr
+R67470:67484 Juche <> hostile_citizen def
+prf 67519:67535 <> filter_core_class
+R67599:67601 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R67539:67549 Coq.Lists.List <> length abbrev
+R67552:67568 Juche <> filter_by_songbun def
+R67570:67578 Juche <> CoreClass constr
+R67580:67597 Juche <> example_citizen_db def
+def 67976:67994 <> valid_citizen_party
+R68001:68007 Juche <> Citizen rec
+binder 67997:67997 <> c:307
+R68051:68054 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R68044:68046 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R68022:68041 Juche <> citizen_party_member proj
+R68043:68043 Juche <> c:307 var
+R68047:68050 Coq.Init.Datatypes <> true constr
+R68072:68075 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R68055:68069 Juche <> citizen_songbun proj
+R68071:68071 Juche <> c:307 var
+R68076:68087 Juche <> HostileClass constr
+def 68160:68181 <> valid_citizen_military
+R68188:68194 Juche <> Citizen rec
+binder 68184:68184 <> c:308
+R68234:68237 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R68227:68229 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R68209:68224 Juche <> citizen_military proj
+R68226:68226 Juche <> c:308 var
+R68230:68233 Coq.Init.Datatypes <> true constr
+R68238:68239 Coq.Lists.List <> In def
+R68246:68266 Juche <> citizen_organizations proj
+R68268:68268 Juche <> c:308 var
+R68241:68243 Juche <> KPA constr
+def 68337:68355 <> valid_citizen_birth
+R68362:68368 Juche <> Citizen rec
+binder 68358:68358 <> c:309
+R68403:68406 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R68383:68400 Juche <> citizen_birth_year proj
+R68402:68402 Juche <> c:309 var
+def 68452:68464 <> citizen_valid
+R68471:68477 Juche <> Citizen rec
+binder 68467:68467 <> c:310
+R68513:68516 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R68492:68510 Juche <> valid_citizen_party def
+R68512:68512 Juche <> c:310 var
+R68541:68544 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R68517:68538 Juche <> valid_citizen_military def
+R68540:68540 Juche <> c:310 var
+R68545:68563 Juche <> valid_citizen_birth def
+R68565:68565 Juche <> c:310 var
+def 68630:68647 <> unique_citizen_ids
+R68655:68663 Juche <> CitizenDB def
+binder 68650:68651 <> db:311
+R68684:68685 Juche <> db:311 var
+R68696:68697 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R68702:68705 Coq.Init.Logic <> True ind
+R68712:68715 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R68777:68780 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R68770:68772 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R68730:68749 Juche <> lookup_by_citizen_id def
+R68752:68761 Juche <> citizen_id proj
+R68773:68776 Coq.Init.Datatypes <> None constr
+R68781:68798 Juche <> unique_citizen_ids:312 def
+def 68873:68889 <> unique_person_ids
+R68897:68905 Juche <> CitizenDB def
+binder 68892:68893 <> db:314
+R68926:68927 Juche <> db:314 var
+R68938:68939 Coq.Lists.List ListNotations ::list_scope:'['_']' not
+R68944:68947 Coq.Init.Logic <> True ind
+R68954:68957 Coq.Init.Datatypes <> ::list_scope:x_'::'_x not
+R69025:69028 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R69018:69020 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R68972:68990 Juche <> lookup_by_person_id def
+R68993:69009 Juche <> citizen_person_id proj
+R69021:69024 Coq.Init.Datatypes <> None constr
+R69029:69045 Juche <> unique_person_ids:315 def
+def 69114:69131 <> all_citizens_valid
+R69139:69147 Juche <> CitizenDB def
+binder 69134:69135 <> db:317
+R69162:69167 Coq.Lists.List <> Forall ind
+R69183:69184 Juche <> db:317 var
+R69169:69181 Juche <> citizen_valid def
+def 69230:69245 <> citizen_db_valid
+R69253:69261 Juche <> CitizenDB def
+binder 69248:69249 <> db:318
+R69297:69300 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R69276:69293 Juche <> unique_citizen_ids def
+R69295:69296 Juche <> db:318 var
+R69321:69324 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R69301:69317 Juche <> unique_person_ids def
+R69319:69320 Juche <> db:318 var
+R69325:69342 Juche <> all_citizens_valid def
+R69344:69345 Juche <> db:318 var
+prf 69389:69407 <> model_citizen_valid
+R69411:69423 Juche <> citizen_valid def
+R69425:69437 Juche <> model_citizen def
+R69456:69468 Juche <> citizen_valid def
+R69471:69489 Juche <> valid_citizen_party def
+R69492:69513 Juche <> valid_citizen_military def
+R69516:69534 Juche <> valid_citizen_birth def
+R69546:69558 Juche <> model_citizen def
+prf 69657:69677 <> soldier_citizen_valid
+R69681:69693 Juche <> citizen_valid def
+R69695:69709 Juche <> soldier_citizen def
+R69728:69740 Juche <> citizen_valid def
+R69743:69761 Juche <> valid_citizen_party def
+R69764:69785 Juche <> valid_citizen_military def
+R69788:69806 Juche <> valid_citizen_birth def
+R69818:69832 Juche <> soldier_citizen def
+prf 69943:69963 <> hostile_citizen_valid
+R69967:69979 Juche <> citizen_valid def
+R69981:69995 Juche <> hostile_citizen def
+R70014:70026 Juche <> citizen_valid def
+R70029:70047 Juche <> valid_citizen_party def
+R70050:70071 Juche <> valid_citizen_military def
+R70074:70092 Juche <> valid_citizen_birth def
+R70104:70118 Juche <> hostile_citizen def
+prf 70217:70237 <> example_db_unique_ids
+R70241:70258 Juche <> unique_citizen_ids def
+R70260:70277 Juche <> example_citizen_db def
+R70294:70311 Juche <> example_citizen_db def
+ind 70765:70775 <> CitizenPred
+constr 70791:70797 <> PredAll
+constr 70844:70851 <> PredNone
+constr 70891:70901 <> PredSongbun
+constr 70937:70951 <> PredPartyMember
+constr 70985:70996 <> PredMilitary
+constr 71038:71046 <> PredInOrg
+constr 71082:71090 <> PredAgeGe
+constr 71135:71143 <> PredAgeLe
+constr 71188:71194 <> PredAnd
+constr 71244:71249 <> PredOr
+constr 71299:71305 <> PredNot
+R70917:70920 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R70905:70916 Juche <> SongbunClass ind
+R70921:70931 Juche <> CitizenPred:319 ind
+R71062:71065 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71050:71061 Juche <> Organization ind
+R71066:71076 Juche <> CitizenPred:319 ind
+R71097:71100 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71094:71096 Coq.Init.Datatypes <> nat ind
+R71101:71111 Juche <> CitizenPred:319 ind
+R71150:71153 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71147:71149 Coq.Init.Datatypes <> nat ind
+R71154:71164 Juche <> CitizenPred:319 ind
+R71209:71212 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71198:71208 Juche <> CitizenPred:319 ind
+R71224:71227 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71213:71223 Juche <> CitizenPred:319 ind
+R71228:71238 Juche <> CitizenPred:319 ind
+R71264:71267 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71253:71263 Juche <> CitizenPred:319 ind
+R71279:71282 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71268:71278 Juche <> CitizenPred:319 ind
+R71283:71293 Juche <> CitizenPred:319 ind
+R71320:71323 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R71309:71319 Juche <> CitizenPred:319 ind
+R71324:71334 Juche <> CitizenPred:319 ind
+scheme 70765:70775 <> CitizenPred_rect
+scheme 70765:70775 <> CitizenPred_ind
+scheme 70765:70775 <> CitizenPred_rec
+scheme 70765:70775 <> CitizenPred_sind
+def 71410:71426 <> eval_citizen_pred
+R71433:71443 Juche <> CitizenPred ind
+binder 71429:71429 <> p:321
+R71451:71457 Juche <> Citizen rec
+binder 71447:71447 <> c:322
+R71468:71476 Juche <> JucheYear def
+binder 71461:71464 <> year:323
+R71497:71497 Juche <> p:321 var
+R71508:71514 Juche <> PredAll constr
+R71519:71522 Coq.Init.Logic <> True ind
+R71528:71535 Juche <> PredNone constr
+R71540:71544 Coq.Init.Logic <> False ind
+R71550:71560 Juche <> PredSongbun constr
+R71584:71586 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R71567:71581 Juche <> citizen_songbun proj
+R71583:71583 Juche <> c:322 var
+R71593:71607 Juche <> PredPartyMember constr
+R71634:71636 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R71612:71631 Juche <> citizen_party_member proj
+R71633:71633 Juche <> c:322 var
+R71637:71640 Coq.Init.Datatypes <> true constr
+R71646:71657 Juche <> PredMilitary constr
+R71680:71682 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R71662:71677 Juche <> citizen_military proj
+R71679:71679 Juche <> c:322 var
+R71683:71686 Coq.Init.Datatypes <> true constr
+R71692:71700 Juche <> PredInOrg constr
+R71707:71721 Juche <> in_organization def
+R71723:71723 Juche <> c:322 var
+R71731:71739 Juche <> PredAgeGe constr
+R71764:71767 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R71746:71756 Juche <> citizen_age def
+R71758:71758 Juche <> c:322 var
+R71760:71763 Juche <> year:323 var
+R71774:71782 Juche <> PredAgeLe constr
+R71807:71810 Coq.Init.Peano <> ::nat_scope:x_'<='_x not
+R71789:71799 Juche <> citizen_age def
+R71801:71801 Juche <> c:322 var
+R71803:71806 Juche <> year:323 var
+R71817:71823 Juche <> PredAnd constr
+R71861:71864 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R71834:71850 Juche <> eval_citizen_pred:324 def
+R71857:71860 Juche <> year:323 var
+R71855:71855 Juche <> c:322 var
+R71865:71881 Juche <> eval_citizen_pred:324 def
+R71888:71891 Juche <> year:323 var
+R71886:71886 Juche <> c:322 var
+R71897:71902 Juche <> PredOr constr
+R71940:71943 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R71913:71929 Juche <> eval_citizen_pred:324 def
+R71936:71939 Juche <> year:323 var
+R71934:71934 Juche <> c:322 var
+R71944:71960 Juche <> eval_citizen_pred:324 def
+R71967:71970 Juche <> year:323 var
+R71965:71965 Juche <> c:322 var
+R71976:71982 Juche <> PredNot constr
+R71990:71991 Coq.Init.Logic <> ::type_scope:'~'_x not
+R71992:72008 Juche <> eval_citizen_pred:324 def
+R72015:72018 Juche <> year:323 var
+R72013:72013 Juche <> c:322 var
+def 72073:72087 <> pred_core_class
+R72091:72101 Juche <> CitizenPred ind
+R72106:72116 Juche <> PredSongbun constr
+R72118:72126 Juche <> CoreClass constr
+def 72140:72157 <> pred_hostile_class
+R72161:72171 Juche <> CitizenPred ind
+R72176:72186 Juche <> PredSongbun constr
+R72188:72199 Juche <> HostileClass constr
+def 72213:72222 <> pred_adult
+R72226:72236 Juche <> CitizenPred ind
+R72241:72249 Juche <> PredAgeGe constr
+def 72266:72287 <> pred_party_or_military
+R72291:72301 Juche <> CitizenPred ind
+R72306:72311 Juche <> PredOr constr
+R72313:72327 Juche <> PredPartyMember constr
+R72329:72340 Juche <> PredMilitary constr
+prf 72403:72420 <> model_citizen_core
+R72424:72440 Juche <> eval_citizen_pred def
+R72442:72456 Juche <> pred_core_class def
+R72458:72470 Juche <> model_citizen def
+R72493:72509 Juche <> eval_citizen_pred def
+R72512:72526 Juche <> pred_core_class def
+R72529:72541 Juche <> model_citizen def
+prf 72640:72661 <> hostile_not_party_pred
+R72665:72666 Coq.Init.Logic <> ::type_scope:'~'_x not
+R72667:72683 Juche <> eval_citizen_pred def
+R72685:72699 Juche <> PredPartyMember constr
+R72701:72715 Juche <> hostile_citizen def
+R72738:72754 Juche <> eval_citizen_pred def
+R72757:72771 Juche <> hostile_citizen def
+ind 73230:73244 <> ObligationLevel
+constr 73260:73267 <> Absolute
+constr 73307:73312 <> Strong
+constr 73366:73373 <> Standard
+constr 73408:73414 <> Reduced
+scheme 73230:73244 <> ObligationLevel_rect
+scheme 73230:73244 <> ObligationLevel_ind
+scheme 73230:73244 <> ObligationLevel_rec
+scheme 73230:73244 <> ObligationLevel_sind
+def 73468:73486 <> obligation_strength
+R73493:73507 Juche <> ObligationLevel ind
+binder 73489:73489 <> o:328
+R73512:73514 Coq.Init.Datatypes <> nat ind
+R73527:73527 Juche <> o:328 var
+R73538:73545 Juche <> Absolute constr
+R73556:73561 Juche <> Strong constr
+R73572:73579 Juche <> Standard constr
+R73590:73596 Juche <> Reduced constr
+rec 73694:73709 <> ScopedObligation
+proj 73737:73748 <> so_principle
+proj 73765:73772 <> so_scope
+proj 73791:73798 <> so_level
+R73752:73760 Juche <> Principle ind
+R73776:73786 Juche <> CitizenPred ind
+R73802:73816 Juche <> ObligationLevel ind
+def 73891:73915 <> scoped_obligation_applies
+R73927:73942 Juche <> ScopedObligation rec
+binder 73922:73923 <> so:334
+R73950:73956 Juche <> Citizen rec
+binder 73946:73946 <> c:335
+R73967:73975 Juche <> JucheYear def
+binder 73960:73963 <> year:336
+R73990:74006 Juche <> eval_citizen_pred def
+R74009:74016 Juche <> so_scope proj
+R74018:74019 Juche <> so:334 var
+R74022:74022 Juche <> c:335 var
+R74024:74027 Juche <> year:336 var
+def 74116:74145 <> military_discipline_obligation
+R74149:74164 Juche <> ScopedObligation rec
+R74171:74188 Juche <> mkScopedObligation constr
+R74190:74202 Juche <> P9_Discipline constr
+R74204:74215 Juche <> PredMilitary constr
+R74217:74224 Juche <> Absolute constr
+def 74304:74326 <> party_member_obligation
+R74333:74339 Juche <> Citizen rec
+binder 74329:74329 <> c:337
+R74347:74355 Juche <> Principle ind
+binder 74343:74343 <> p:338
+R74360:74374 Juche <> ObligationLevel ind
+R74384:74403 Juche <> citizen_party_member proj
+R74405:74405 Juche <> c:337 var
+R74426:74433 Juche <> Standard constr
+R74412:74419 Juche <> Absolute constr
+def 74511:74537 <> songbun_obligation_modifier
+R74544:74555 Juche <> SongbunClass ind
+binder 74540:74540 <> s:339
+R74560:74574 Juche <> ObligationLevel ind
+R74587:74587 Juche <> s:339 var
+R74598:74606 Juche <> CoreClass constr
+R74611:74616 Juche <> Strong constr
+R74622:74634 Juche <> WaveringClass constr
+R74639:74646 Juche <> Standard constr
+R74652:74663 Juche <> HostileClass constr
+R74668:74674 Juche <> Reduced constr
+def 74793:74810 <> citizen_obligation
+R74817:74823 Juche <> Citizen rec
+binder 74813:74813 <> c:341
+R74831:74839 Juche <> Principle ind
+binder 74827:74827 <> p:342
+R74844:74858 Juche <> ObligationLevel ind
+R74868:74887 Juche <> citizen_party_member proj
+R74889:74889 Juche <> c:341 var
+R74912:74938 Juche <> songbun_obligation_modifier def
+R74941:74955 Juche <> citizen_songbun proj
+R74957:74957 Juche <> c:341 var
+R74896:74903 Juche <> Absolute constr
+prf 74968:74988 <> party_member_absolute
+binder 74999:74999 <> c:343
+binder 75001:75001 <> p:344
+R75035:75038 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R75028:75030 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75006:75025 Juche <> citizen_party_member proj
+R75027:75027 Juche <> c:343 var
+R75031:75034 Coq.Init.Datatypes <> true constr
+R75061:75063 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75039:75056 Juche <> citizen_obligation def
+R75058:75058 Juche <> c:343 var
+R75060:75060 Juche <> p:344 var
+R75064:75071 Juche <> Absolute constr
+R75107:75124 Juche <> citizen_obligation def
+prf 75166:75187 <> model_citizen_absolute
+binder 75198:75198 <> p:345
+R75235:75237 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75201:75218 Juche <> citizen_obligation def
+R75220:75232 Juche <> model_citizen def
+R75234:75234 Juche <> p:345 var
+R75238:75245 Juche <> Absolute constr
+R75273:75290 Juche <> citizen_obligation def
+R75293:75305 Juche <> model_citizen def
+prf 75340:75362 <> hostile_citizen_reduced
+binder 75373:75373 <> p:346
+R75412:75414 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75376:75393 Juche <> citizen_obligation def
+R75395:75409 Juche <> hostile_citizen def
+R75411:75411 Juche <> p:346 var
+R75415:75421 Juche <> Reduced constr
+R75449:75466 Juche <> citizen_obligation def
+R75469:75483 Juche <> hostile_citizen def
+def 75584:75609 <> principle_applies_strongly
+R75616:75622 Juche <> Citizen rec
+binder 75612:75612 <> c:347
+R75630:75638 Juche <> Principle ind
+binder 75626:75626 <> p:348
+R75659:75659 Juche <> p:348 var
+R75670:75682 Juche <> P9_Discipline constr
+R75712:75715 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R75705:75707 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75687:75702 Juche <> citizen_military proj
+R75704:75704 Juche <> c:347 var
+R75708:75711 Coq.Init.Datatypes <> true constr
+R75738:75740 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75716:75735 Juche <> citizen_party_member proj
+R75737:75737 Juche <> c:347 var
+R75741:75744 Coq.Init.Datatypes <> true constr
+R75750:75757 Juche <> P6_Unity constr
+R75784:75786 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75762:75781 Juche <> citizen_party_member proj
+R75783:75783 Juche <> c:347 var
+R75787:75790 Coq.Init.Datatypes <> true constr
+R75823:75825 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75801:75820 Juche <> citizen_party_member proj
+R75822:75822 Juche <> c:347 var
+R75826:75829 Coq.Init.Datatypes <> true constr
+def 75915:75940 <> songun_military_obligation
+R75947:75953 Juche <> Citizen rec
+binder 75943:75943 <> c:350
+R75993:75998 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R75986:75988 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75968:75983 Juche <> citizen_military proj
+R75985:75985 Juche <> c:350 var
+R75989:75992 Coq.Init.Datatypes <> true constr
+R76044:76049 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R76033:76035 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R75999:76016 Juche <> citizen_obligation def
+R76018:76018 Juche <> c:350 var
+R76020:76032 Juche <> P9_Discipline constr
+R76036:76043 Juche <> Absolute constr
+R76083:76085 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R76050:76067 Juche <> citizen_obligation def
+R76069:76069 Juche <> c:350 var
+R76071:76082 Juche <> P3_Authority constr
+R76086:76093 Juche <> Absolute constr
+prf 76103:76129 <> soldier_discipline_absolute
+R76183:76185 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R76135:76152 Juche <> citizen_obligation def
+R76154:76168 Juche <> soldier_citizen def
+R76170:76182 Juche <> P9_Discipline constr
+R76186:76193 Juche <> Absolute constr
+R76212:76229 Juche <> citizen_obligation def
+R76232:76246 Juche <> soldier_citizen def
+ind 76643:76659 <> ViolationSeverity
+constr 76675:76679 <> Minor
+constr 76723:76730 <> Moderate
+constr 76771:76777 <> Serious
+constr 76821:76827 <> Capital
+scheme 76643:76659 <> ViolationSeverity_rect
+scheme 76643:76659 <> ViolationSeverity_ind
+scheme 76643:76659 <> ViolationSeverity_rec
+scheme 76643:76659 <> ViolationSeverity_sind
+def 76864:76877 <> severity_level
+R76884:76900 Juche <> ViolationSeverity ind
+binder 76880:76880 <> v:353
+R76905:76907 Coq.Init.Datatypes <> nat ind
+R76920:76920 Juche <> v:353 var
+R76931:76935 Juche <> Minor constr
+R76946:76953 Juche <> Moderate constr
+R76964:76970 Juche <> Serious constr
+R76981:76987 Juche <> Capital constr
+def 77077:77093 <> capital_principle
+R77100:77108 Juche <> Principle ind
+binder 77096:77096 <> p:355
+R77129:77129 Juche <> p:355 var
+R77140:77147 Juche <> P2_Honor constr
+R77151:77162 Juche <> P3_Authority constr
+R77166:77179 Juche <> P5_Inheritance constr
+R77184:77187 Coq.Init.Logic <> True ind
+R77184:77187 Coq.Init.Logic <> True ind
+R77184:77187 Coq.Init.Logic <> True ind
+R77198:77202 Coq.Init.Logic <> False ind
+prf 77218:77230 <> P3_is_capital
+R77234:77250 Juche <> capital_principle def
+R77252:77263 Juche <> P3_Authority constr
+R77279:77279 Coq.Init.Logic <> I constr
+R77279:77279 Coq.Init.Logic <> I constr
+def 77361:77378 <> violation_severity
+R77385:77393 Juche <> Principle ind
+binder 77381:77381 <> p:357
+R77407:77418 Juche <> SongbunClass ind
+binder 77397:77403 <> songbun:358
+R77423:77439 Juche <> ViolationSeverity ind
+R77452:77452 Juche <> p:357 var
+R77463:77470 Juche <> P2_Honor constr
+R77475:77481 Juche <> Capital constr
+R77487:77498 Juche <> P3_Authority constr
+R77503:77509 Juche <> Capital constr
+R77515:77528 Juche <> P5_Inheritance constr
+R77533:77539 Juche <> Capital constr
+R77545:77552 Juche <> P4_Faith constr
+R77557:77563 Juche <> Serious constr
+R77569:77579 Juche <> P1_Struggle constr
+R77584:77590 Juche <> Serious constr
+R77596:77603 Juche <> P6_Unity constr
+R77614:77620 Juche <> songbun:358 var
+R77627:77635 Juche <> CoreClass constr
+R77640:77646 Juche <> Serious constr
+R77655:77662 Juche <> Moderate constr
+R77672:77684 Juche <> P9_Discipline constr
+R77689:77696 Juche <> Moderate constr
+R77707:77711 Juche <> Minor constr
+prf 77727:77749 <> honor_violation_capital
+binder 77760:77760 <> s:361
+R77792:77794 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R77763:77780 Juche <> violation_severity def
+R77782:77789 Juche <> P2_Honor constr
+R77791:77791 Juche <> s:361 var
+R77795:77801 Juche <> Capital constr
+ind 77917:77936 <> CollectivePunishment
+constr 77952:77963 <> NoPunishment
+constr 77969:77983 <> SongbunDemotion
+constr 78023:78032 <> Banishment
+constr 78075:78089 <> FamilyDetention
+scheme 77917:77936 <> CollectivePunishment_rect
+scheme 77917:77936 <> CollectivePunishment_ind
+scheme 77917:77936 <> CollectivePunishment_rec
+scheme 77917:77936 <> CollectivePunishment_sind
+def 78139:78160 <> collective_consequence
+R78167:78183 Juche <> ViolationSeverity ind
+binder 78163:78163 <> v:364
+R78188:78207 Juche <> CollectivePunishment ind
+R78220:78220 Juche <> v:364 var
+R78231:78237 Juche <> Capital constr
+R78242:78256 Juche <> FamilyDetention constr
+R78262:78268 Juche <> Serious constr
+R78273:78282 Juche <> Banishment constr
+R78288:78295 Juche <> Moderate constr
+R78300:78314 Juche <> SongbunDemotion constr
+R78320:78324 Juche <> Minor constr
+R78329:78340 Juche <> NoPunishment constr
+prf 78356:78385 <> capital_means_family_detention
+binder 78396:78396 <> p:366
+binder 78398:78398 <> s:367
+R78435:78440 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R78425:78427 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R78403:78420 Juche <> violation_severity def
+R78422:78422 Juche <> p:366 var
+R78424:78424 Juche <> s:367 var
+R78428:78434 Juche <> Capital constr
+R78488:78490 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R78441:78462 Juche <> collective_consequence def
+R78465:78482 Juche <> violation_severity def
+R78484:78484 Juche <> p:366 var
+R78486:78486 Juche <> s:367 var
+R78491:78505 Juche <> FamilyDetention constr
+def 78639:78659 <> three_generation_rule
+R78666:78682 Juche <> ViolationSeverity ind
+binder 78662:78662 <> v:368
+R78703:78703 Juche <> v:368 var
+R78714:78720 Juche <> Capital constr
+R78724:78730 Juche <> Serious constr
+R78735:78738 Coq.Init.Logic <> True ind
+R78735:78738 Coq.Init.Logic <> True ind
+R78749:78753 Coq.Init.Logic <> False ind
+prf 78769:78794 <> capital_triggers_three_gen
+R78798:78818 Juche <> three_generation_rule def
+R78820:78826 Juche <> Capital constr
+R78842:78842 Coq.Init.Logic <> I constr
+R78842:78842 Coq.Init.Logic <> I constr
+prf 78857:78882 <> serious_triggers_three_gen
+R78886:78906 Juche <> three_generation_rule def
+R78908:78914 Juche <> Serious constr
+R78930:78930 Coq.Init.Logic <> I constr
+R78930:78930 Coq.Init.Logic <> I constr
+ind 79332:79339 <> CampType
+constr 79355:79362 <> Kwanliso
+constr 79429:79436 <> Kyohwaso
+constr 79506:79522 <> Rodongdanryeondae
+constr 79568:79576 <> Jipkyulso
+scheme 79332:79339 <> CampType_rect
+scheme 79332:79339 <> CampType_ind
+scheme 79332:79339 <> CampType_rec
+scheme 79332:79339 <> CampType_sind
+def 79675:79687 <> camp_severity
+R79694:79701 Juche <> CampType ind
+binder 79690:79690 <> c:372
+R79706:79708 Coq.Init.Datatypes <> nat ind
+R79721:79721 Juche <> c:372 var
+R79732:79739 Juche <> Kwanliso constr
+R79750:79757 Juche <> Kyohwaso constr
+R79768:79784 Juche <> Rodongdanryeondae constr
+R79795:79803 Juche <> Jipkyulso constr
+ind 79868:79881 <> KwanlisoNumber
+constr 79897:79910 <> Camp14_Kaechon
+constr 79944:79955 <> Camp15_Yodok
+constr 80007:80020 <> Camp16_Hwasong
+constr 80054:80068 <> Camp18_Bukchang
+constr 80117:80131 <> Camp25_Chongjin
+scheme 79868:79881 <> KwanlisoNumber_rect
+scheme 79868:79881 <> KwanlisoNumber_ind
+scheme 79868:79881 <> KwanlisoNumber_rec
+scheme 79868:79881 <> KwanlisoNumber_sind
+ind 80255:80262 <> CampZone
+constr 80278:80293 <> TotalControlZone
+constr 80340:80356 <> RevolutionaryZone
+scheme 80255:80262 <> CampZone_rect
+scheme 80255:80262 <> CampZone_ind
+scheme 80255:80262 <> CampZone_rec
+scheme 80255:80262 <> CampZone_sind
+def 80410:80418 <> camp_zone
+R80425:80438 Juche <> KwanlisoNumber ind
+binder 80421:80421 <> k:378
+R80443:80450 Juche <> CampZone ind
+R80463:80463 Juche <> k:378 var
+R80474:80487 Juche <> Camp14_Kaechon constr
+R80492:80507 Juche <> TotalControlZone constr
+R80513:80524 Juche <> Camp15_Yodok constr
+R80529:80544 Juche <> TotalControlZone constr
+R80587:80600 Juche <> Camp16_Hwasong constr
+R80605:80620 Juche <> TotalControlZone constr
+R80626:80640 Juche <> Camp18_Bukchang constr
+R80645:80661 Juche <> RevolutionaryZone constr
+R80667:80681 Juche <> Camp25_Chongjin constr
+R80686:80701 Juche <> TotalControlZone constr
+def 80781:80790 <> no_release
+R80797:80804 Juche <> CampZone ind
+binder 80793:80793 <> z:380
+R80825:80825 Juche <> z:380 var
+R80836:80851 Juche <> TotalControlZone constr
+R80856:80859 Coq.Init.Logic <> True ind
+R80865:80881 Juche <> RevolutionaryZone constr
+R80886:80890 Coq.Init.Logic <> False ind
+prf 80906:80922 <> camp14_no_release
+R80926:80935 Juche <> no_release def
+R80938:80946 Juche <> camp_zone def
+R80948:80961 Juche <> Camp14_Kaechon constr
+R80978:80978 Coq.Init.Logic <> I constr
+R80978:80978 Coq.Init.Logic <> I constr
+def 81043:81059 <> violation_to_camp
+R81066:81082 Juche <> ViolationSeverity ind
+binder 81062:81062 <> v:382
+R81087:81092 Coq.Init.Datatypes <> option ind
+R81094:81101 Juche <> CampType ind
+R81114:81114 Juche <> v:382 var
+R81125:81131 Juche <> Capital constr
+R81136:81139 Coq.Init.Datatypes <> None constr
+R81180:81186 Juche <> Serious constr
+R81191:81194 Coq.Init.Datatypes <> Some constr
+R81196:81203 Juche <> Kwanliso constr
+R81209:81216 Juche <> Moderate constr
+R81221:81224 Coq.Init.Datatypes <> Some constr
+R81226:81233 Juche <> Kyohwaso constr
+R81239:81243 Juche <> Minor constr
+R81248:81251 Coq.Init.Datatypes <> Some constr
+R81253:81269 Juche <> Rodongdanryeondae constr
+def 81355:81376 <> family_camp_assignment
+R81383:81399 Juche <> ViolationSeverity ind
+binder 81379:81379 <> v:384
+R81404:81409 Coq.Init.Datatypes <> option ind
+R81411:81418 Juche <> CampType ind
+R81431:81431 Juche <> v:384 var
+R81442:81448 Juche <> Capital constr
+R81453:81456 Coq.Init.Datatypes <> Some constr
+R81458:81465 Juche <> Kwanliso constr
+R81522:81528 Juche <> Serious constr
+R81533:81536 Coq.Init.Datatypes <> Some constr
+R81538:81545 Juche <> Kwanliso constr
+R81551:81558 Juche <> Moderate constr
+R81563:81566 Coq.Init.Datatypes <> Some constr
+R81568:81575 Juche <> Kyohwaso constr
+R81581:81585 Juche <> Minor constr
+R81590:81593 Coq.Init.Datatypes <> None constr
+prf 81609:81634 <> capital_family_to_kwanliso
+R81670:81672 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R81640:81661 Juche <> family_camp_assignment def
+R81663:81669 Juche <> Capital constr
+R81673:81676 Coq.Init.Datatypes <> Some constr
+R81678:81685 Juche <> Kwanliso constr
+ind 82160:82174 <> DoctrinalSource
+constr 82190:82199 <> FromPillar
+constr 82233:82245 <> FromPrinciple
+constr 82282:82295 <> FromLeaderWord
+R82209:82212 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R82203:82208 Juche <> Pillar ind
+R82213:82227 Juche <> DoctrinalSource:386 ind
+R82258:82261 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R82249:82257 Juche <> Principle ind
+R82262:82276 Juche <> DoctrinalSource:386 ind
+R82305:82308 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R82299:82304 Juche <> Leader ind
+R82309:82323 Juche <> DoctrinalSource:386 ind
+scheme 82160:82174 <> DoctrinalSource_rect
+scheme 82160:82174 <> DoctrinalSource_ind
+scheme 82160:82174 <> DoctrinalSource_rec
+scheme 82160:82174 <> DoctrinalSource_sind
+rec 82416:82424 <> Directive
+proj 82445:82458 <> directive_name
+proj 82472:82487 <> directive_source
+proj 82510:82522 <> directive_era
+R82462:82467 Coq.Strings.String <> string ind
+R82491:82505 Juche <> DoctrinalSource ind
+R82526:82534 Juche <> PolicyEra ind
+def 82615:82630 <> songun_directive
+R82634:82642 Juche <> Directive rec
+R82649:82659 Juche <> mkDirective constr
+R82671:82680 Juche <> FromPillar constr
+R82682:82686 Juche <> Chawi constr
+R82689:82697 Juche <> SongunEra constr
+def 82772:82789 <> byungjin_directive
+R82793:82801 Juche <> Directive rec
+R82808:82818 Juche <> mkDirective constr
+R82832:82841 Juche <> FromPillar constr
+R82843:82848 Juche <> Charip constr
+R82851:82861 Juche <> ByungjinEra constr
+def 82931:82954 <> self_criticism_directive
+R82958:82966 Juche <> Directive rec
+R82973:82983 Juche <> mkDirective constr
+R83003:83015 Juche <> FromPrinciple constr
+R83017:83024 Juche <> P6_Unity constr
+R83027:83035 Juche <> PreSongun constr
+ind 83116:83129 <> DerivationStep
+constr 83145:83154 <> BaseSource
+constr 83196:83201 <> Derive
+R83173:83176 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R83158:83172 Juche <> DoctrinalSource ind
+R83177:83190 Juche <> DerivationStep:392 ind
+R83220:83223 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R83205:83219 Juche <> DoctrinalSource ind
+R83238:83241 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R83224:83237 Juche <> DerivationStep:392 ind
+R83242:83255 Juche <> DerivationStep:392 ind
+scheme 83116:83129 <> DerivationStep_rect
+scheme 83116:83129 <> DerivationStep_ind
+scheme 83116:83129 <> DerivationStep_rec
+scheme 83116:83129 <> DerivationStep_sind
+ind 83598:83611 <> DerivationRule
+constr 83627:83640 <> RuleLeaderWord
+constr 83709:83726 <> RulePrincipleApply
+constr 83773:83788 <> RulePillarDerive
+constr 83837:83847 <> RuleAnalogy
+constr 83908:83920 <> RuleNecessity
+constr 83975:83988 <> RuleHistorical
+constr 84039:84053 <> RuleDialectical
+constr 84110:84118 <> RuleUnity
+constr 84175:84186 <> RuleMassLine
+constr 84244:84257 <> RuleSuccession
+scheme 83598:83611 <> DerivationRule_rect
+scheme 83598:83611 <> DerivationRule_ind
+scheme 83598:83611 <> DerivationRule_rec
+scheme 83598:83611 <> DerivationRule_sind
+def 84372:84385 <> rule_authority
+R84392:84405 Juche <> DerivationRule ind
+binder 84388:84388 <> r:396
+R84410:84412 Coq.Init.Datatypes <> nat ind
+R84425:84425 Juche <> r:396 var
+R84436:84449 Juche <> RuleLeaderWord constr
+R84461:84474 Juche <> RuleSuccession constr
+R84485:84502 Juche <> RulePrincipleApply constr
+R84513:84528 Juche <> RulePillarDerive constr
+R84539:84547 Juche <> RuleUnity constr
+R84558:84570 Juche <> RuleNecessity constr
+R84581:84592 Juche <> RuleMassLine constr
+R84603:84617 Juche <> RuleDialectical constr
+R84628:84641 Juche <> RuleHistorical constr
+R84652:84662 Juche <> RuleAnalogy constr
+ind 84732:84745 <> RichDerivation
+constr 84761:84768 <> RichBase
+constr 84810:84817 <> RichStep
+constr 84895:84905 <> RichCombine
+R84787:84790 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R84772:84786 Juche <> DoctrinalSource ind
+R84791:84804 Juche <> RichDerivation:398 ind
+R84835:84838 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R84821:84834 Juche <> DerivationRule ind
+R84854:84857 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R84839:84853 Juche <> DoctrinalSource ind
+R84872:84875 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R84858:84871 Juche <> RichDerivation:398 ind
+R84876:84889 Juche <> RichDerivation:398 ind
+R84923:84926 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R84909:84922 Juche <> DerivationRule ind
+R84941:84944 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R84927:84940 Juche <> RichDerivation:398 ind
+R84959:84962 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R84945:84958 Juche <> RichDerivation:398 ind
+R84963:84976 Juche <> RichDerivation:398 ind
+scheme 84732:84745 <> RichDerivation_rect
+scheme 84732:84745 <> RichDerivation_ind
+scheme 84732:84745 <> RichDerivation_rec
+scheme 84732:84745 <> RichDerivation_sind
+def 85037:85060 <> derivation_max_authority
+R85067:85080 Juche <> RichDerivation ind
+binder 85063:85063 <> d:400
+R85085:85087 Coq.Init.Datatypes <> nat ind
+R85100:85100 Juche <> d:400 var
+R85111:85118 Juche <> RichBase constr
+R85131:85138 Juche <> RichStep constr
+R85152:85154 Coq.Init.Peano <> max abbrev
+R85157:85170 Juche <> rule_authority def
+R85176:85199 Juche <> derivation_max_authority:401 def
+R85211:85221 Juche <> RichCombine constr
+R85240:85242 Coq.Init.Peano <> max abbrev
+R85245:85258 Juche <> rule_authority def
+R85264:85266 Coq.Init.Peano <> max abbrev
+R85269:85292 Juche <> derivation_max_authority:401 def
+R85299:85322 Juche <> derivation_max_authority:401 def
+def 85427:85450 <> derivation_authoritative
+R85457:85470 Juche <> RichDerivation ind
+binder 85453:85453 <> d:403
+R85511:85514 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R85485:85508 Juche <> derivation_max_authority def
+R85510:85510 Juche <> d:403 var
+R85515:85528 Juche <> rule_authority def
+R85530:85543 Juche <> RuleSuccession constr
+def 85604:85625 <> songun_rich_derivation
+R85629:85642 Juche <> RichDerivation ind
+R85649:85656 Juche <> RichStep constr
+R85658:85671 Juche <> RuleLeaderWord constr
+R85674:85687 Juche <> FromLeaderWord constr
+R85689:85697 Juche <> KimJongIl constr
+R85705:85712 Juche <> RichStep constr
+R85714:85729 Juche <> RulePillarDerive constr
+R85732:85741 Juche <> FromPillar constr
+R85743:85747 Juche <> Chawi constr
+R85757:85764 Juche <> RichBase constr
+R85767:85779 Juche <> FromPrinciple constr
+R85781:85793 Juche <> P9_Discipline constr
+prf 85806:85828 <> songun_is_authoritative
+R85832:85855 Juche <> derivation_authoritative def
+R85857:85878 Juche <> songun_rich_derivation def
+R85897:85920 Juche <> derivation_authoritative def
+R85923:85944 Juche <> songun_rich_derivation def
+def 86029:86045 <> songun_derivation
+R86049:86062 Juche <> DerivationStep ind
+R86069:86074 Juche <> Derive constr
+R86077:86086 Juche <> FromPillar constr
+R86088:86092 Juche <> Chawi constr
+R86100:86105 Juche <> Derive constr
+R86108:86120 Juche <> FromPrinciple constr
+R86122:86134 Juche <> P9_Discipline constr
+R86144:86153 Juche <> BaseSource constr
+R86156:86169 Juche <> FromLeaderWord constr
+R86171:86179 Juche <> KimJongIl constr
+def 86256:86277 <> derivation_uses_pillar
+R86284:86297 Juche <> DerivationStep ind
+binder 86280:86280 <> d:404
+R86305:86310 Juche <> Pillar ind
+binder 86301:86301 <> p:405
+R86331:86331 Juche <> d:404 var
+R86342:86351 Juche <> BaseSource constr
+R86354:86363 Juche <> FromPillar constr
+R86373:86375 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R86372:86372 Juche <> p:405 var
+R86383:86392 Juche <> BaseSource constr
+R86399:86403 Coq.Init.Logic <> False ind
+R86409:86414 Juche <> Derive constr
+R86417:86426 Juche <> FromPillar constr
+R86446:86449 Coq.Init.Logic <> ::type_scope:x_'\/'_x not
+R86441:86443 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R86440:86440 Juche <> p:405 var
+R86450:86471 Juche <> derivation_uses_pillar:406 def
+R86478:86478 Juche <> p:405 var
+R86484:86489 Juche <> Derive constr
+R86501:86522 Juche <> derivation_uses_pillar:406 def
+R86529:86529 Juche <> p:405 var
+prf 86545:86561 <> songun_uses_chawi
+R86565:86586 Juche <> derivation_uses_pillar def
+R86588:86604 Juche <> songun_derivation def
+R86606:86610 Juche <> Chawi constr
+R86629:86645 Juche <> songun_derivation def
+def 86768:86786 <> derivation_grounded
+R86793:86806 Juche <> DerivationStep ind
+binder 86789:86789 <> d:408
+R86827:86827 Juche <> d:408 var
+R86838:86847 Juche <> BaseSource constr
+R86850:86863 Juche <> FromLeaderWord constr
+R86871:86874 Coq.Init.Logic <> True ind
+R86880:86889 Juche <> BaseSource constr
+R86892:86904 Juche <> FromPrinciple constr
+R86912:86915 Coq.Init.Logic <> True ind
+R86921:86930 Juche <> BaseSource constr
+R86933:86942 Juche <> FromPillar constr
+R86950:86953 Coq.Init.Logic <> True ind
+R86959:86964 Juche <> Derive constr
+R86976:86994 Juche <> derivation_grounded:409 def
+prf 87015:87040 <> songun_derivation_grounded
+R87044:87062 Juche <> derivation_grounded def
+R87064:87080 Juche <> songun_derivation def
+R87099:87115 Juche <> songun_derivation def
+R87131:87131 Coq.Init.Logic <> I constr
+R87131:87131 Coq.Init.Logic <> I constr
+def 87524:87544 <> unique_leader_in_year
+R87557:87560 Coq.Init.Datatypes <> list ind
+R87562:87573 Juche <> LeaderTenure rec
+binder 87547:87553 <> tenures:411
+R87581:87589 Juche <> JucheYear def
+binder 87577:87577 <> y:412
+R87604:87611 Coq.Init.Logic <> ::type_scope:'exists'_'!'_x_'..'_x_','_x not
+R87613:87614 Coq.Init.Logic <> ::type_scope:'exists'_'!'_x_'..'_x_','_x not
+binder 87612:87612 <> t:413
+R87627:87630 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
+R87615:87616 Coq.Lists.List <> In def
+R87620:87626 Juche <> tenures:411 var
+R87618:87618 Juche <> t:413 var
+R87631:87644 Juche <> active_in_year def
+R87646:87646 Juche <> t:413 var
+R87648:87648 Juche <> y:412 var
+def 87727:87739 <> songbun_total
+R87754:87760 Juche <> Citizen rec
+binder 87750:87750 <> c:414
+R87763:87769 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R87786:87787 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R87774:87785 Juche <> SongbunClass ind
+binder 87770:87770 <> s:415
+R87805:87807 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R87788:87802 Juche <> citizen_songbun proj
+R87804:87804 Juche <> c:414 var
+R87808:87808 Juche <> s:415 var
+R87837:87851 Juche <> citizen_songbun proj
+R87837:87851 Juche <> citizen_songbun proj
+def 87950:87974 <> party_songbun_consistency
+R87981:87987 Juche <> Citizen rec
+binder 87977:87977 <> c:416
+R88031:88034 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R88024:88026 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R88002:88021 Juche <> citizen_party_member proj
+R88023:88023 Juche <> c:416 var
+R88027:88030 Coq.Init.Datatypes <> true constr
+R88052:88055 Coq.Init.Logic <> ::type_scope:x_'<>'_x not
+R88035:88049 Juche <> citizen_songbun proj
+R88051:88051 Juche <> c:416 var
+R88056:88067 Juche <> HostileClass constr
+prf 88077:88100 <> model_citizen_consistent
+R88104:88128 Juche <> party_songbun_consistency def
+R88130:88142 Juche <> model_citizen def
+R88161:88185 Juche <> party_songbun_consistency def
+R88188:88200 Juche <> model_citizen def
+prf 88310:88327 <> succession_acyclic
+binder 88338:88338 <> l:417
+R88341:88342 Coq.Init.Logic <> ::type_scope:'~'_x not
+R88343:88350 Juche <> succeeds def
+R88352:88352 Juche <> l:417 var
+R88354:88354 Juche <> l:417 var
+def 88480:88506 <> pillar_covered_by_principle
+R88513:88518 Juche <> Pillar ind
+binder 88509:88509 <> p:418
+R88533:88539 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R88542:88543 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 88540:88541 <> pr:419
+R88563:88565 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R88544:88559 Juche <> principle_pillar def
+R88561:88562 Juche <> pr:419 var
+R88566:88566 Juche <> p:418 var
+prf 88576:88594 <> all_pillars_covered
+binder 88605:88605 <> p:420
+R88608:88634 Juche <> pillar_covered_by_principle def
+R88636:88636 Juche <> p:420 var
+R88680:88690 Juche <> P1_Struggle constr
+R88680:88690 Juche <> P1_Struggle constr
+R88717:88727 Juche <> P7_Learning constr
+R88717:88727 Juche <> P7_Learning constr
+R88754:88766 Juche <> P9_Discipline constr
+R88754:88766 Juche <> P9_Discipline constr
+def 88874:88892 <> leader_word_supreme
+R88899:88912 Juche <> DerivationStep ind
+binder 88895:88895 <> d:421
+R88933:88933 Juche <> d:421 var
+R88944:88953 Juche <> BaseSource constr
+R88956:88969 Juche <> FromLeaderWord constr
+R88977:88980 Coq.Init.Logic <> True ind
+R88986:88991 Juche <> Derive constr
+R88994:89007 Juche <> FromLeaderWord constr
+R89017:89020 Coq.Init.Logic <> True ind
+R89031:89049 Juche <> derivation_grounded def
+R89051:89051 Juche <> d:421 var
+def 89151:89167 <> totalizing_system
+R89192:89198 Juche <> Citizen rec
+binder 89188:89188 <> c:423
+R89212:89220 Juche <> Principle ind
+binder 89208:89208 <> p:424
+R89227:89233 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R89253:89254 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R89238:89252 Juche <> ObligationLevel ind
+binder 89234:89234 <> o:425
+R89277:89279 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R89255:89272 Juche <> citizen_obligation def
+R89274:89274 Juche <> c:423 var
+R89276:89276 Juche <> p:424 var
+R89280:89280 Juche <> o:425 var
+prf 89290:89309 <> system_is_totalizing
+R89313:89329 Juche <> totalizing_system def
+R89348:89364 Juche <> totalizing_system def
+R89389:89406 Juche <> citizen_obligation def
+R89389:89406 Juche <> citizen_obligation def
+prf 89509:89531 <> hostile_still_obligated
+binder 89542:89542 <> p:426
+R89605:89608 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R89547:89565 Juche <> obligation_strength def
+R89568:89585 Juche <> citizen_obligation def
+R89587:89601 Juche <> hostile_citizen def
+R89603:89603 Juche <> p:426 var
+R89637:89654 Juche <> citizen_obligation def
+R89657:89671 Juche <> hostile_citizen def
+R89690:89708 Juche <> obligation_strength def
+def 90095:90108 <> leader_at_year
+R90115:90123 Juche <> JucheYear def
+binder 90111:90111 <> y:427
+R90128:90133 Coq.Init.Datatypes <> option ind
+R90135:90140 Juche <> Leader ind
+R90150:90156 Coq.Arith.PeanoNat Nat ltb def
+R90158:90158 Juche <> y:427 var
+R90160:90172 Juche <> founding_year def
+R90194:90200 Coq.Arith.PeanoNat Nat ltb def
+R90202:90202 Juche <> y:427 var
+R90204:90220 Juche <> kim_il_sung_death def
+R90252:90258 Coq.Arith.PeanoNat Nat ltb def
+R90260:90260 Juche <> y:427 var
+R90262:90278 Juche <> kim_jong_il_death def
+R90307:90310 Coq.Init.Datatypes <> Some constr
+R90312:90320 Juche <> KimJongUn constr
+R90285:90288 Coq.Init.Datatypes <> Some constr
+R90290:90298 Juche <> KimJongIl constr
+R90227:90230 Coq.Init.Datatypes <> Some constr
+R90232:90240 Juche <> KimIlSung constr
+R90179:90182 Coq.Init.Datatypes <> None constr
+prf 90330:90340 <> leader_1950
+R90368:90370 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90344:90357 Juche <> leader_at_year def
+R90359:90367 Juche <> war_start def
+R90371:90374 Coq.Init.Datatypes <> Some constr
+R90376:90384 Juche <> KimIlSung constr
+prf 90419:90429 <> leader_2000
+R90450:90452 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90433:90446 Juche <> leader_at_year def
+R90453:90456 Coq.Init.Datatypes <> Some constr
+R90458:90466 Juche <> KimJongIl constr
+prf 90501:90511 <> leader_2020
+R90533:90535 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90515:90528 Juche <> leader_at_year def
+R90536:90539 Coq.Init.Datatypes <> Some constr
+R90541:90549 Juche <> KimJongUn constr
+def 90634:90644 <> era_at_year
+R90651:90659 Juche <> JucheYear def
+binder 90647:90647 <> y:428
+R90664:90669 Coq.Init.Datatypes <> option ind
+R90671:90679 Juche <> PolicyEra ind
+R90689:90695 Coq.Arith.PeanoNat Nat ltb def
+R90697:90697 Juche <> y:428 var
+R90699:90711 Juche <> founding_year def
+R90733:90739 Coq.Arith.PeanoNat Nat ltb def
+R90741:90741 Juche <> y:428 var
+R90743:90759 Juche <> kim_il_sung_death def
+R90791:90797 Coq.Arith.PeanoNat Nat ltb def
+R90799:90799 Juche <> y:428 var
+R90801:90817 Juche <> kim_jong_il_death def
+R90846:90849 Coq.Init.Datatypes <> Some constr
+R90851:90861 Juche <> ByungjinEra constr
+R90824:90827 Coq.Init.Datatypes <> Some constr
+R90829:90837 Juche <> SongunEra constr
+R90766:90769 Coq.Init.Datatypes <> Some constr
+R90771:90779 Juche <> PreSongun constr
+R90718:90721 Coq.Init.Datatypes <> None constr
+prf 90871:90878 <> era_1960
+R90896:90898 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90882:90892 Juche <> era_at_year def
+R90899:90902 Coq.Init.Datatypes <> Some constr
+R90904:90912 Juche <> PreSongun constr
+prf 90947:90954 <> era_2005
+R90972:90974 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R90958:90968 Juche <> era_at_year def
+R90975:90978 Coq.Init.Datatypes <> Some constr
+R90980:90988 Juche <> SongunEra constr
+def 91078:91091 <> pillar_at_year
+R91098:91106 Juche <> JucheYear def
+binder 91094:91094 <> y:429
+R91111:91116 Coq.Init.Datatypes <> option ind
+R91118:91123 Juche <> Pillar ind
+R91136:91146 Juche <> era_at_year def
+R91148:91148 Juche <> y:429 var
+R91159:91162 Coq.Init.Datatypes <> None constr
+R91167:91170 Coq.Init.Datatypes <> None constr
+R91176:91179 Coq.Init.Datatypes <> Some constr
+R91186:91189 Coq.Init.Datatypes <> Some constr
+R91192:91210 Juche <> era_pillar_emphasis def
+prf 91229:91239 <> pillar_1960
+R91260:91262 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91243:91256 Juche <> pillar_at_year def
+R91263:91266 Coq.Init.Datatypes <> Some constr
+R91268:91276 Juche <> Chajusong constr
+prf 91311:91321 <> pillar_2005
+R91342:91344 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91325:91338 Juche <> pillar_at_year def
+R91345:91348 Coq.Init.Datatypes <> Some constr
+R91350:91354 Juche <> Chawi constr
+prf 91456:91482 <> unique_leader_post_founding
+binder 91493:91493 <> y:430
+R91516:91521 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R91499:91502 Coq.Init.Peano <> ::nat_scope:x_'>='_x not
+R91498:91498 Juche <> y:430 var
+R91503:91515 Juche <> founding_year def
+R91522:91528 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R91530:91531 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 91529:91529 <> l:431
+R91548:91550 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R91532:91545 Juche <> leader_at_year def
+R91547:91547 Juche <> y:430 var
+R91551:91554 Coq.Init.Datatypes <> Some constr
+R91556:91556 Juche <> l:431 var
+R91591:91604 Juche <> leader_at_year def
+R91607:91619 Juche <> founding_year def
+R91622:91638 Juche <> kim_il_sung_death def
+R91641:91657 Juche <> kim_jong_il_death def
+R91677:91683 Coq.Arith.PeanoNat Nat ltb def
+R91677:91683 Coq.Arith.PeanoNat Nat ltb def
+R91709:91718 Coq.Arith.PeanoNat Nat ltb_lt thm
+R91709:91718 Coq.Arith.PeanoNat Nat ltb_lt thm
+R91746:91752 Coq.Arith.PeanoNat Nat ltb def
+R91746:91752 Coq.Arith.PeanoNat Nat ltb def
+R91781:91789 Juche <> KimIlSung constr
+R91781:91789 Juche <> KimIlSung constr
+R91821:91827 Coq.Arith.PeanoNat Nat ltb def
+R91821:91827 Coq.Arith.PeanoNat Nat ltb def
+R91859:91867 Juche <> KimJongIl constr
+R91859:91867 Juche <> KimJongIl constr
+R91898:91906 Juche <> KimJongUn constr
+R91898:91906 Juche <> KimJongUn constr
+ind 92236:92246 <> OfficerRank
+constr 92262:92266 <> Wonsu
+constr 92322:92326 <> Chasu
+constr 92362:92368 <> Daejang
+constr 92397:92404 <> Sangjang
+constr 92440:92447 <> Jungjang
+constr 92486:92491 <> Sojang
+constr 92527:92532 <> Daejwa
+constr 92562:92568 <> Sangjwa
+constr 92608:92614 <> Jungjwa
+constr 92641:92644 <> Sowi
+constr 92676:92681 <> Jungwi
+constr 92720:92726 <> Sowi_Lt
+scheme 92236:92246 <> OfficerRank_rect
+scheme 92236:92246 <> OfficerRank_ind
+scheme 92236:92246 <> OfficerRank_rec
+scheme 92236:92246 <> OfficerRank_sind
+ind 92772:92783 <> EnlistedRank
+constr 92799:92804 <> Sangsa
+constr 92841:92846 <> Jungsa
+constr 92884:92887 <> Hasa
+constr 92920:92928 <> Sangbyong
+constr 92956:92962 <> Ilbyong
+constr 93003:93008 <> Ibyong
+scheme 92772:92783 <> EnlistedRank_rect
+scheme 92772:92783 <> EnlistedRank_ind
+scheme 92772:92783 <> EnlistedRank_rec
+scheme 92772:92783 <> EnlistedRank_sind
+def 93046:93063 <> officer_rank_level
+R93070:93080 Juche <> OfficerRank ind
+binder 93066:93066 <> r:436
+R93085:93087 Coq.Init.Datatypes <> nat ind
+R93100:93100 Juche <> r:436 var
+R93111:93115 Juche <> Wonsu constr
+R93127:93131 Juche <> Chasu constr
+R93143:93149 Juche <> Daejang constr
+R93161:93168 Juche <> Sangjang constr
+R93179:93186 Juche <> Jungjang constr
+R93197:93202 Juche <> Sojang constr
+R93213:93218 Juche <> Daejwa constr
+R93229:93235 Juche <> Sangjwa constr
+R93246:93252 Juche <> Jungjwa constr
+R93263:93266 Juche <> Sowi constr
+R93277:93282 Juche <> Jungwi constr
+R93293:93299 Juche <> Sowi_Lt constr
+def 93380:93395 <> wonsu_restricted
+R93409:93412 Coq.Init.Logic <> True ind
+def 93519:93535 <> supreme_commander
+R93542:93550 Juche <> JucheYear def
+binder 93538:93538 <> y:438
+R93555:93560 Coq.Init.Datatypes <> option ind
+R93562:93567 Juche <> Leader ind
+R93574:93587 Juche <> leader_at_year def
+R93589:93589 Juche <> y:438 var
+prf 93599:93625 <> supreme_commander_is_leader
+binder 93636:93636 <> y:439
+binder 93638:93638 <> l:440
+R93668:93671 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R93659:93661 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R93643:93656 Juche <> leader_at_year def
+R93658:93658 Juche <> y:439 var
+R93662:93665 Coq.Init.Datatypes <> Some constr
+R93667:93667 Juche <> l:440 var
+R93691:93693 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R93672:93688 Juche <> supreme_commander def
+R93690:93690 Juche <> y:439 var
+R93694:93697 Coq.Init.Datatypes <> Some constr
+R93699:93699 Juche <> l:440 var
+R93732:93748 Juche <> supreme_commander def
+def 93852:93869 <> male_service_years
+R93873:93875 Coq.Init.Datatypes <> nat ind
+def 93895:93914 <> female_service_years
+R93918:93920 Coq.Init.Datatypes <> nat ind
+def 93969:93984 <> conscription_age
+R93988:93990 Coq.Init.Datatypes <> nat ind
+ind 94315:94329 <> KimFamilyMember
+constr 94370:94382 <> Kim_Il_Sung_M
+constr 94479:94491 <> Kim_Jong_Il_M
+constr 94540:94552 <> Kim_Kyong_Hui
+constr 94597:94608 <> Kim_Pyong_Il
+constr 94711:94723 <> Kim_Jong_Un_M
+constr 94769:94780 <> Kim_Jong_Nam
+constr 94822:94834 <> Kim_Jong_Chol
+constr 94880:94890 <> Kim_Yo_Jong
+constr 94985:94995 <> Kim_Song_Ae
+constr 95042:95052 <> Ko_Yong_Hui
+constr 95094:95102 <> Ri_Sol_Ju
+scheme 94315:94329 <> KimFamilyMember_rect
+scheme 94315:94329 <> KimFamilyMember_ind
+scheme 94315:94329 <> KimFamilyMember_rec
+scheme 94315:94329 <> KimFamilyMember_sind
+def 95233:95255 <> family_member_person_id
+R95262:95276 Juche <> KimFamilyMember ind
+binder 95258:95258 <> m:443
+R95281:95288 Juche <> PersonId def
+R95301:95301 Juche <> m:443 var
+R95312:95324 Juche <> Kim_Il_Sung_M constr
+R95338:95350 Juche <> Kim_Jong_Il_M constr
+R95364:95376 Juche <> Kim_Kyong_Hui constr
+R95390:95401 Juche <> Kim_Pyong_Il constr
+R95415:95427 Juche <> Kim_Jong_Un_M constr
+R95441:95452 Juche <> Kim_Jong_Nam constr
+R95466:95478 Juche <> Kim_Jong_Chol constr
+R95492:95502 Juche <> Kim_Yo_Jong constr
+R95516:95526 Juche <> Kim_Song_Ae constr
+R95540:95550 Juche <> Ko_Yong_Hui constr
+R95564:95572 Juche <> Ri_Sol_Ju constr
+def 95659:95674 <> family_to_leader
+R95681:95695 Juche <> KimFamilyMember ind
+binder 95677:95677 <> m:445
+R95700:95705 Coq.Init.Datatypes <> option ind
+R95707:95712 Juche <> Leader ind
+R95725:95725 Juche <> m:445 var
+R95736:95748 Juche <> Kim_Il_Sung_M constr
+R95753:95756 Coq.Init.Datatypes <> Some constr
+R95758:95766 Juche <> KimIlSung constr
+R95772:95784 Juche <> Kim_Jong_Il_M constr
+R95789:95792 Coq.Init.Datatypes <> Some constr
+R95794:95802 Juche <> KimJongIl constr
+R95808:95820 Juche <> Kim_Jong_Un_M constr
+R95825:95828 Coq.Init.Datatypes <> Some constr
+R95830:95838 Juche <> KimJongUn constr
+R95849:95852 Coq.Init.Datatypes <> None constr
+ind 95915:95935 <> FamilyPoliticalStatus
+constr 95951:95963 <> SupremeLeader
+constr 95969:95979 <> InnerCircle
+constr 96024:96032 <> Sidelined
+constr 96075:96082 <> Deceased
+constr 96088:96093 <> Exiled
+scheme 95915:95935 <> FamilyPoliticalStatus_rect
+scheme 95915:95935 <> FamilyPoliticalStatus_ind
+scheme 95915:95935 <> FamilyPoliticalStatus_rec
+scheme 95915:95935 <> FamilyPoliticalStatus_sind
+def 96108:96120 <> family_status
+R96127:96141 Juche <> KimFamilyMember ind
+binder 96123:96123 <> m:449
+R96146:96166 Juche <> FamilyPoliticalStatus ind
+R96179:96179 Juche <> m:449 var
+R96190:96202 Juche <> Kim_Il_Sung_M constr
+R96207:96214 Juche <> Deceased constr
+R96220:96232 Juche <> Kim_Jong_Il_M constr
+R96237:96244 Juche <> Deceased constr
+R96250:96262 Juche <> Kim_Jong_Un_M constr
+R96267:96279 Juche <> SupremeLeader constr
+R96285:96295 Juche <> Kim_Yo_Jong constr
+R96300:96310 Juche <> InnerCircle constr
+R96316:96328 Juche <> Kim_Kyong_Hui constr
+R96333:96343 Juche <> InnerCircle constr
+R96378:96389 Juche <> Kim_Pyong_Il constr
+R96394:96399 Juche <> Exiled constr
+R96428:96439 Juche <> Kim_Jong_Nam constr
+R96444:96451 Juche <> Deceased constr
+R96481:96493 Juche <> Kim_Jong_Chol constr
+R96498:96506 Juche <> Sidelined constr
+R96512:96522 Juche <> Kim_Song_Ae constr
+R96527:96535 Juche <> Sidelined constr
+R96541:96551 Juche <> Ko_Yong_Hui constr
+R96556:96563 Juche <> Deceased constr
+R96569:96577 Juche <> Ri_Sol_Ju constr
+R96582:96592 Juche <> InnerCircle constr
+def 96682:96700 <> is_paektu_bloodline
+R96707:96721 Juche <> KimFamilyMember ind
+binder 96703:96703 <> m:451
+R96742:96742 Juche <> m:451 var
+R96753:96763 Juche <> Kim_Song_Ae constr
+R96767:96777 Juche <> Ko_Yong_Hui constr
+R96781:96789 Juche <> Ri_Sol_Ju constr
+R96794:96798 Coq.Init.Logic <> False ind
+R96794:96798 Coq.Init.Logic <> False ind
+R96794:96798 Coq.Init.Logic <> False ind
+R96827:96830 Coq.Init.Logic <> True ind
+prf 96878:96895 <> kim_jong_un_paektu
+R96899:96917 Juche <> is_paektu_bloodline def
+R96919:96931 Juche <> Kim_Jong_Un_M constr
+R96947:96947 Coq.Init.Logic <> I constr
+R96947:96947 Coq.Init.Logic <> I constr
+prf 96962:96981 <> ri_sol_ju_not_paektu
+R96985:96986 Coq.Init.Logic <> ::type_scope:'~'_x not
+R96987:97005 Juche <> is_paektu_bloodline def
+R97007:97015 Juche <> Ri_Sol_Ju constr
+ind 97379:97394 <> HistoricalPeriod
+constr 97410:97421 <> AntiJapanese
+constr 97470:97479 <> Liberation
+constr 97544:97552 <> KoreanWar
+constr 97613:97626 <> Reconstruction
+constr 97689:97704 <> ThreeRevolutions
+constr 97761:97772 <> ArduousMarch
+constr 97814:97825 <> SongunPeriod
+constr 97882:97895 <> ByungjinPeriod
+scheme 97379:97394 <> HistoricalPeriod_rect
+scheme 97379:97394 <> HistoricalPeriod_ind
+scheme 97379:97394 <> HistoricalPeriod_rec
+scheme 97379:97394 <> HistoricalPeriod_sind
+def 97974:97986 <> period_leader
+R97993:98008 Juche <> HistoricalPeriod ind
+binder 97989:97989 <> p:455
+R98013:98018 Coq.Init.Datatypes <> option ind
+R98020:98025 Juche <> Leader ind
+R98038:98038 Juche <> p:455 var
+R98049:98060 Juche <> AntiJapanese constr
+R98065:98068 Coq.Init.Datatypes <> Some constr
+R98070:98078 Juche <> KimIlSung constr
+R98084:98093 Juche <> Liberation constr
+R98098:98101 Coq.Init.Datatypes <> Some constr
+R98103:98111 Juche <> KimIlSung constr
+R98117:98125 Juche <> KoreanWar constr
+R98130:98133 Coq.Init.Datatypes <> Some constr
+R98135:98143 Juche <> KimIlSung constr
+R98149:98162 Juche <> Reconstruction constr
+R98167:98170 Coq.Init.Datatypes <> Some constr
+R98172:98180 Juche <> KimIlSung constr
+R98186:98201 Juche <> ThreeRevolutions constr
+R98206:98209 Coq.Init.Datatypes <> Some constr
+R98211:98219 Juche <> KimIlSung constr
+R98225:98236 Juche <> ArduousMarch constr
+R98241:98244 Coq.Init.Datatypes <> Some constr
+R98246:98254 Juche <> KimJongIl constr
+R98260:98271 Juche <> SongunPeriod constr
+R98276:98279 Coq.Init.Datatypes <> Some constr
+R98281:98289 Juche <> KimJongIl constr
+R98295:98308 Juche <> ByungjinPeriod constr
+R98313:98316 Coq.Init.Datatypes <> Some constr
+R98318:98326 Juche <> KimJongUn constr
+def 98347:98363 <> period_start_year
+R98370:98385 Juche <> HistoricalPeriod ind
+binder 98366:98366 <> p:457
+R98390:98398 Juche <> JucheYear def
+R98411:98411 Juche <> p:457 var
+R98422:98433 Juche <> AntiJapanese constr
+R98461:98470 Juche <> Liberation constr
+R98500:98508 Juche <> KoreanWar constr
+R98539:98552 Juche <> Reconstruction constr
+R98578:98593 Juche <> ThreeRevolutions constr
+R98617:98628 Juche <> ArduousMarch constr
+R98656:98667 Juche <> SongunPeriod constr
+R98695:98708 Juche <> ByungjinPeriod constr
+prf 98744:98774 <> arduous_march_after_kim_il_sung
+R98810:98812 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R98780:98796 Juche <> period_start_year def
+R98798:98809 Juche <> ArduousMarch constr
+R98813:98829 Juche <> kim_il_sung_death def
+def 99290:99307 <> first_nuclear_test
+R99311:99319 Juche <> JucheYear def
+def 99352:99370 <> second_nuclear_test
+R99374:99382 Juche <> JucheYear def
+def 99414:99431 <> third_nuclear_test
+R99435:99443 Juche <> JucheYear def
+def 99476:99494 <> fourth_nuclear_test
+R99498:99506 Juche <> JucheYear def
+def 99546:99563 <> fifth_nuclear_test
+R99567:99575 Juche <> JucheYear def
+def 99618:99635 <> sixth_nuclear_test
+R99639:99647 Juche <> JucheYear def
+ind 99714:99730 <> NuclearCapability
+constr 99746:99758 <> FissionDevice
+constr 99797:99808 <> BoostFission
+constr 99850:99867 <> ThermonuclearClaim
+constr 99906:99916 <> ICBMCapable
+constr 99970:99981 <> Miniaturized
+scheme 99714:99730 <> NuclearCapability_rect
+scheme 99714:99730 <> NuclearCapability_ind
+scheme 99714:99730 <> NuclearCapability_rec
+scheme 99714:99730 <> NuclearCapability_sind
+def 100125:100151 <> byungjin_derivation_pillars
+R100155:100158 Coq.Init.Datatypes <> list ind
+R100160:100165 Juche <> Pillar ind
+R100170:100170 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R100177:100178 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R100184:100184 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R100171:100176 Juche <> Charip constr
+R100179:100183 Juche <> Chawi constr
+ind 100229:100241 <> MissileSeries
+constr 100257:100264 <> Hwasong5
+constr 100304:100311 <> Hwasong6
+constr 100339:100346 <> Hwasong7
+constr 100381:100389 <> Hwasong10
+constr 100430:100438 <> Hwasong12
+constr 100456:100464 <> Hwasong14
+constr 100482:100490 <> Hwasong15
+constr 100516:100524 <> Hwasong17
+constr 100552:100560 <> Hwasong18
+scheme 100229:100241 <> MissileSeries_rect
+scheme 100229:100241 <> MissileSeries_ind
+scheme 100229:100241 <> MissileSeries_rec
+scheme 100229:100241 <> MissileSeries_sind
+def 100597:100612 <> missile_range_km
+R100619:100631 Juche <> MissileSeries ind
+binder 100615:100615 <> m:463
+R100636:100638 Coq.Init.Datatypes <> nat ind
+R100651:100651 Juche <> m:463 var
+R100662:100669 Juche <> Hwasong5 constr
+R100682:100689 Juche <> Hwasong6 constr
+R100702:100709 Juche <> Hwasong7 constr
+R100723:100731 Juche <> Hwasong10 constr
+R100745:100753 Juche <> Hwasong12 constr
+R100767:100775 Juche <> Hwasong14 constr
+R100790:100798 Juche <> Hwasong15 constr
+R100813:100821 Juche <> Hwasong17 constr
+R100836:100844 Juche <> Hwasong18 constr
+def 100915:100928 <> icbm_threshold
+R100932:100934 Coq.Init.Datatypes <> nat ind
+def 100957:100963 <> is_icbm
+R100970:100982 Juche <> MissileSeries ind
+binder 100966:100966 <> m:465
+R100987:100990 Coq.Init.Datatypes <> bool ind
+R100997:101003 Coq.Arith.PeanoNat Nat leb def
+R101005:101018 Juche <> icbm_threshold def
+R101021:101036 Juche <> missile_range_km def
+R101038:101038 Juche <> m:465 var
+prf 101049:101065 <> hwasong14_is_icbm
+R101086:101088 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R101069:101075 Juche <> is_icbm def
+R101077:101085 Juche <> Hwasong14 constr
+R101089:101092 Coq.Init.Datatypes <> true constr
+prf 101127:101143 <> hwasong7_not_icbm
+R101163:101165 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R101147:101153 Juche <> is_icbm def
+R101155:101162 Juche <> Hwasong7 constr
+R101166:101170 Coq.Init.Datatypes <> false constr
+def 101293:101310 <> nuclear_deterrence
+R101324:101327 Coq.Init.Logic <> True ind
+ind 101462:101478 <> FirstUseCondition
+constr 101494:101509 <> LeadershipThreat
+constr 101546:101558 <> NuclearAttack
+constr 101600:101614 <> StrategicTarget
+constr 101659:101670 <> RegimeChange
+scheme 101462:101478 <> FirstUseCondition_rect
+scheme 101462:101478 <> FirstUseCondition_ind
+scheme 101462:101478 <> FirstUseCondition_rec
+scheme 101462:101478 <> FirstUseCondition_sind
+def 101726:101752 <> nuclear_first_use_justified
+R101759:101775 Juche <> FirstUseCondition ind
+binder 101755:101755 <> c:468
+R101796:101796 Juche <> c:468 var
+R101807:101822 Juche <> LeadershipThreat constr
+R101827:101830 Coq.Init.Logic <> True ind
+R101836:101848 Juche <> NuclearAttack constr
+R101853:101856 Coq.Init.Logic <> True ind
+R101862:101876 Juche <> StrategicTarget constr
+R101881:101884 Coq.Init.Logic <> True ind
+R101890:101901 Juche <> RegimeChange constr
+R101906:101909 Coq.Init.Logic <> True ind
+ind 102359:102379 <> ForeignRelationStatus
+constr 102395:102407 <> FriendlyState
+constr 102443:102454 <> NeutralState
+constr 102485:102496 <> HostileState
+constr 102533:102543 <> PuppetState
+scheme 102359:102379 <> ForeignRelationStatus_rect
+scheme 102359:102379 <> ForeignRelationStatus_ind
+scheme 102359:102379 <> ForeignRelationStatus_rec
+scheme 102359:102379 <> ForeignRelationStatus_sind
+ind 102659:102665 <> Country
+constr 102681:102683 <> USA
+constr 102687:102689 <> ROK
+constr 102693:102697 <> Japan
+constr 102701:102705 <> China
+constr 102709:102714 <> Russia
+constr 102720:102723 <> Cuba
+constr 102727:102733 <> Vietnam
+constr 102737:102741 <> Syria
+constr 102745:102748 <> Iran
+scheme 102659:102665 <> Country_rect
+scheme 102659:102665 <> Country_ind
+scheme 102659:102665 <> Country_rec
+scheme 102659:102665 <> Country_sind
+def 102763:102776 <> country_status
+R102783:102789 Juche <> Country ind
+binder 102779:102779 <> c:474
+R102794:102814 Juche <> ForeignRelationStatus ind
+R102827:102827 Juche <> c:474 var
+R102838:102840 Juche <> USA constr
+R102845:102856 Juche <> HostileState constr
+R102862:102864 Juche <> ROK constr
+R102869:102879 Juche <> PuppetState constr
+R102924:102928 Juche <> Japan constr
+R102933:102944 Juche <> HostileState constr
+R102980:102984 Juche <> China constr
+R102989:103001 Juche <> FriendlyState constr
+R103039:103044 Juche <> Russia constr
+R103049:103061 Juche <> FriendlyState constr
+R103067:103070 Juche <> Cuba constr
+R103075:103087 Juche <> FriendlyState constr
+R103093:103099 Juche <> Vietnam constr
+R103104:103116 Juche <> FriendlyState constr
+R103122:103126 Juche <> Syria constr
+R103131:103143 Juche <> FriendlyState constr
+R103149:103152 Juche <> Iran constr
+R103157:103169 Juche <> FriendlyState constr
+prf 103185:103195 <> usa_hostile
+R103217:103219 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R103199:103212 Juche <> country_status def
+R103214:103216 Juche <> USA constr
+R103220:103231 Juche <> HostileState constr
+prf 103266:103275 <> rok_puppet
+R103297:103299 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R103279:103292 Juche <> country_status def
+R103294:103296 Juche <> ROK constr
+R103300:103310 Juche <> PuppetState constr
+def 103427:103445 <> reunification_terms
+R103459:103462 Coq.Init.Logic <> True ind
+def 103570:103584 <> juche_diplomacy
+R103598:103601 Coq.Init.Logic <> True ind
+def 103713:103733 <> foreign_policy_pillar
+R103737:103742 Juche <> Pillar ind
+R103747:103755 Juche <> Chajusong constr
+ind 103822:103837 <> ImperialistPower
+constr 103853:103865 <> USImperialism
+constr 103871:103889 <> JapaneseImperialism
+scheme 103822:103837 <> ImperialistPower_rect
+scheme 103822:103837 <> ImperialistPower_ind
+scheme 103822:103837 <> ImperialistPower_rec
+scheme 103822:103837 <> ImperialistPower_sind
+def 103922:103935 <> is_imperialist
+R103942:103948 Juche <> Country ind
+binder 103938:103938 <> c:478
+R103969:103969 Juche <> c:478 var
+R103980:103982 Juche <> USA constr
+R103986:103990 Juche <> Japan constr
+R103995:103998 Coq.Init.Logic <> True ind
+R103995:103998 Coq.Init.Logic <> True ind
+R104009:104013 Coq.Init.Logic <> False ind
+prf 104029:104043 <> usa_imperialist
+R104047:104060 Juche <> is_imperialist def
+R104062:104064 Juche <> USA constr
+R104080:104080 Coq.Init.Logic <> I constr
+R104080:104080 Coq.Init.Logic <> I constr
+def 104167:104182 <> songun_diplomacy
+R104196:104199 Coq.Init.Logic <> True ind
+ind 104668:104681 <> EducationLevel
+constr 104697:104705 <> Preschool
+constr 104736:104748 <> PrimarySchool
+constr 104774:104785 <> MiddleSchool
+constr 104812:104826 <> HigherEducation
+constr 104853:104869 <> SpecializedSchool
+scheme 104668:104681 <> EducationLevel_rect
+scheme 104668:104681 <> EducationLevel_ind
+scheme 104668:104681 <> EducationLevel_rec
+scheme 104668:104681 <> EducationLevel_sind
+def 104953:104967 <> education_years
+R104974:104987 Juche <> EducationLevel ind
+binder 104970:104970 <> e:482
+R104992:104994 Coq.Init.Datatypes <> nat ind
+R105007:105007 Juche <> e:482 var
+R105018:105026 Juche <> Preschool constr
+R105037:105049 Juche <> PrimarySchool constr
+R105060:105071 Juche <> MiddleSchool constr
+R105082:105096 Juche <> HigherEducation constr
+R105107:105123 Juche <> SpecializedSchool constr
+def 105231:105246 <> compulsory_years
+R105250:105252 Coq.Init.Datatypes <> nat ind
+def 105342:105364 <> ideological_content_pct
+R105371:105384 Juche <> EducationLevel ind
+binder 105367:105367 <> e:484
+R105389:105391 Coq.Init.Datatypes <> nat ind
+R105404:105404 Juche <> e:484 var
+R105415:105423 Juche <> Preschool constr
+R105435:105447 Juche <> PrimarySchool constr
+R105459:105470 Juche <> MiddleSchool constr
+R105482:105496 Juche <> HigherEducation constr
+R105508:105524 Juche <> SpecializedSchool constr
+ind 105583:105600 <> IdeologicalSubject
+constr 105616:105635 <> RevolutionaryHistory
+constr 105686:105700 <> JuchePhilosophy
+constr 105733:105743 <> PartyPolicy
+constr 105792:105808 <> SocialistMorality
+constr 105852:105866 <> AntiImperialism
+scheme 105583:105600 <> IdeologicalSubject_rect
+scheme 105583:105600 <> IdeologicalSubject_ind
+scheme 105583:105600 <> IdeologicalSubject_rec
+scheme 105583:105600 <> IdeologicalSubject_sind
+def 105967:105996 <> requires_revolutionary_history
+R106003:106016 Juche <> EducationLevel ind
+binder 105999:105999 <> e:488
+R106037:106037 Juche <> e:488 var
+R106048:106056 Juche <> Preschool constr
+R106061:106064 Coq.Init.Logic <> True ind
+R106070:106082 Juche <> PrimarySchool constr
+R106087:106090 Coq.Init.Logic <> True ind
+R106096:106107 Juche <> MiddleSchool constr
+R106112:106115 Coq.Init.Logic <> True ind
+R106121:106135 Juche <> HigherEducation constr
+R106140:106143 Coq.Init.Logic <> True ind
+R106149:106165 Juche <> SpecializedSchool constr
+R106170:106173 Coq.Init.Logic <> True ind
+prf 106189:106220 <> all_levels_revolutionary_history
+binder 106231:106231 <> e:490
+R106234:106263 Juche <> requires_revolutionary_history def
+R106265:106265 Juche <> e:490 var
+R106302:106302 Coq.Init.Logic <> I constr
+R106302:106302 Coq.Init.Logic <> I constr
+R106302:106302 Coq.Init.Logic <> I constr
+R106302:106302 Coq.Init.Logic <> I constr
+R106302:106302 Coq.Init.Logic <> I constr
+R106302:106302 Coq.Init.Logic <> I constr
+def 106365:106383 <> university_eligible
+R106390:106401 Juche <> SongbunClass ind
+binder 106386:106386 <> s:491
+R106422:106422 Juche <> s:491 var
+R106433:106441 Juche <> CoreClass constr
+R106446:106449 Coq.Init.Logic <> True ind
+R106455:106467 Juche <> WaveringClass constr
+R106472:106475 Coq.Init.Logic <> True ind
+R106514:106525 Juche <> HostileClass constr
+R106530:106534 Coq.Init.Logic <> False ind
+prf 106550:106570 <> hostile_no_university
+R106574:106575 Coq.Init.Logic <> ::type_scope:'~'_x not
+R106576:106594 Juche <> university_eligible def
+R106596:106607 Juche <> HostileClass constr
+def 106712:106730 <> elite_school_access
+R106737:106748 Juche <> SongbunClass ind
+binder 106733:106733 <> s:493
+R106769:106769 Juche <> s:493 var
+R106780:106788 Juche <> CoreClass constr
+R106793:106796 Coq.Init.Logic <> True ind
+R106807:106811 Coq.Init.Logic <> False ind
+ind 107235:107243 <> MediaType
+constr 107259:107268 <> Television
+constr 107318:107322 <> Radio
+constr 107364:107372 <> Newspaper
+constr 107421:107428 <> Magazine
+constr 107471:107474 <> Film
+constr 107528:107535 <> Internet
+scheme 107235:107243 <> MediaType_rect
+scheme 107235:107243 <> MediaType_ind
+scheme 107235:107243 <> MediaType_rec
+scheme 107235:107243 <> MediaType_sind
+ind 107612:107622 <> MediaOutlet
+constr 107638:107641 <> KCTV
+constr 107694:107697 <> KCBS
+constr 107760:107771 <> RodongSinmun
+constr 107815:107818 <> KCNA
+constr 107872:107883 <> Minju_Choson
+constr 107923:107936 <> PyongyangTimes
+scheme 107612:107622 <> MediaOutlet_rect
+scheme 107612:107622 <> MediaOutlet_ind
+scheme 107612:107622 <> MediaOutlet_rec
+scheme 107612:107622 <> MediaOutlet_sind
+def 108062:108077 <> media_controller
+R108081:108092 Juche <> Organization ind
+R108097:108099 Juche <> WPK constr
+ind 108146:108160 <> ContentCategory
+constr 108176:108185 <> LeaderNews
+constr 108235:108249 <> PartyDirectives
+constr 108285:108300 <> RevolutionaryArt
+constr 108341:108354 <> ProductionNews
+constr 108393:108404 <> MilitaryNews
+constr 108438:108452 <> AntiImperialist
+scheme 108146:108160 <> ContentCategory_rect
+scheme 108146:108160 <> ContentCategory_ind
+scheme 108146:108160 <> ContentCategory_rec
+scheme 108146:108160 <> ContentCategory_sind
+def 108547:108569 <> requires_leader_content
+R108576:108584 Juche <> MediaType ind
+binder 108572:108572 <> m:501
+R108605:108605 Juche <> m:501 var
+R108616:108625 Juche <> Television constr
+R108630:108633 Coq.Init.Logic <> True ind
+R108639:108643 Juche <> Radio constr
+R108648:108651 Coq.Init.Logic <> True ind
+R108657:108665 Juche <> Newspaper constr
+R108670:108673 Coq.Init.Logic <> True ind
+R108679:108686 Juche <> Magazine constr
+R108691:108694 Coq.Init.Logic <> True ind
+R108700:108703 Juche <> Film constr
+R108708:108711 Coq.Init.Logic <> True ind
+R108745:108752 Juche <> Internet constr
+R108757:108760 Coq.Init.Logic <> True ind
+prf 108776:108799 <> all_media_leader_content
+binder 108810:108810 <> m:503
+R108813:108835 Juche <> requires_leader_content def
+R108837:108837 Juche <> m:503 var
+R108874:108874 Coq.Init.Logic <> I constr
+R108874:108874 Coq.Init.Logic <> I constr
+R108874:108874 Coq.Init.Logic <> I constr
+R108874:108874 Coq.Init.Logic <> I constr
+R108874:108874 Coq.Init.Logic <> I constr
+R108874:108874 Coq.Init.Logic <> I constr
+R108874:108874 Coq.Init.Logic <> I constr
+def 108955:108974 <> foreign_media_access
+R108981:108992 Juche <> SongbunClass ind
+binder 108977:108977 <> s:504
+R109013:109013 Juche <> s:504 var
+R109024:109032 Juche <> CoreClass constr
+R109037:109040 Coq.Init.Logic <> True ind
+R109097:109101 Coq.Init.Logic <> False ind
+prf 109117:109140 <> hostile_no_foreign_media
+R109144:109145 Coq.Init.Logic <> ::type_scope:'~'_x not
+R109146:109165 Juche <> foreign_media_access def
+R109167:109178 Juche <> HostileClass constr
+def 109282:109302 <> foreign_media_penalty
+R109306:109308 Coq.Init.Datatypes <> nat ind
+def 109415:109433 <> public_loudspeakers
+R109447:109450 Coq.Init.Logic <> True ind
+def 109596:109612 <> three_revolutions
+R109616:109619 Coq.Init.Datatypes <> list ind
+R109621:109626 Coq.Strings.String <> string ind
+R109633:109633 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R109647:109648 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R109660:109661 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R109672:109672 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+ind 110072:110088 <> InvestigationType
+constr 110104:110116 <> RoutineReview
+constr 110160:110173 <> PromotionCheck
+constr 110216:110228 <> MarriageCheck
+constr 110271:110284 <> PartyAdmission
+constr 110323:110342 <> SpecialInvestigation
+scheme 110072:110088 <> InvestigationType_rect
+scheme 110072:110088 <> InvestigationType_ind
+scheme 110072:110088 <> InvestigationType_rec
+scheme 110072:110088 <> InvestigationType_sind
+ind 110419:110440 <> InvestigationAuthority
+constr 110456:110469 <> LocalCommittee
+constr 110505:110513 <> CountyMPS
+constr 110551:110563 <> ProvincialSSD
+constr 110607:110616 <> CentralSSD
+scheme 110419:110440 <> InvestigationAuthority_rect
+scheme 110419:110440 <> InvestigationAuthority_ind
+scheme 110419:110440 <> InvestigationAuthority_rec
+scheme 110419:110440 <> InvestigationAuthority_sind
+def 110666:110688 <> investigation_authority
+R110695:110711 Juche <> InvestigationType ind
+binder 110691:110691 <> i:510
+R110716:110737 Juche <> InvestigationAuthority ind
+R110750:110750 Juche <> i:510 var
+R110761:110773 Juche <> RoutineReview constr
+R110778:110791 Juche <> LocalCommittee constr
+R110797:110810 Juche <> PromotionCheck constr
+R110815:110823 Juche <> CountyMPS constr
+R110829:110841 Juche <> MarriageCheck constr
+R110846:110859 Juche <> LocalCommittee constr
+R110865:110878 Juche <> PartyAdmission constr
+R110883:110891 Juche <> CountyMPS constr
+R110897:110916 Juche <> SpecialInvestigation constr
+R110921:110933 Juche <> ProvincialSSD constr
+def 111014:111038 <> investigation_generations
+R111042:111044 Coq.Init.Datatypes <> nat ind
+ind 111110:111128 <> InvestigationSource
+constr 111144:111158 <> AncestorRecords
+constr 111203:111217 <> NeighborReports
+constr 111255:111270 <> WorkplaceReports
+constr 111311:111329 <> OrganizationRecords
+constr 111364:111376 <> SecurityFiles
+scheme 111110:111128 <> InvestigationSource_rect
+scheme 111110:111128 <> InvestigationSource_ind
+scheme 111110:111128 <> InvestigationSource_rec
+scheme 111110:111128 <> InvestigationSource_sind
+ind 111446:111465 <> InvestigationOutcome
+constr 111481:111487 <> Cleared
+constr 111527:111533 <> Flagged
+constr 111584:111593 <> Restricted
+constr 111633:111644 <> Reclassified
+constr 111682:111689 <> Detained
+scheme 111446:111465 <> InvestigationOutcome_rect
+scheme 111446:111465 <> InvestigationOutcome_ind
+scheme 111446:111465 <> InvestigationOutcome_rec
+scheme 111446:111465 <> InvestigationOutcome_sind
+def 111794:111816 <> outcome_affects_songbun
+R111823:111842 Juche <> InvestigationOutcome ind
+binder 111819:111819 <> o:516
+R111863:111863 Juche <> o:516 var
+R111874:111885 Juche <> Reclassified constr
+R111890:111893 Coq.Init.Logic <> True ind
+R111899:111906 Juche <> Detained constr
+R111911:111914 Coq.Init.Logic <> True ind
+R111925:111929 Coq.Init.Logic <> False ind
+def 112003:112032 <> party_admission_requires_clear
+R112039:112058 Juche <> InvestigationOutcome ind
+binder 112035:112035 <> o:518
+R112079:112079 Juche <> o:518 var
+R112090:112096 Juche <> Cleared constr
+R112101:112104 Coq.Init.Logic <> True ind
+R112115:112119 Coq.Init.Logic <> False ind
+prf 112135:112150 <> flagged_no_party
+R112154:112155 Coq.Init.Logic <> ::type_scope:'~'_x not
+R112156:112185 Juche <> party_admission_requires_clear def
+R112187:112193 Juche <> Flagged constr
+def 112309:112331 <> self_reporting_required
+R112345:112348 Coq.Init.Logic <> True ind
+def 112481:112504 <> mutual_surveillance_duty
+R112518:112521 Coq.Init.Logic <> True ind
+ind 112871:112880 <> SourceType
+constr 112896:112910 <> PrimaryDocument
+constr 112950:112962 <> ScholarlyWork
+constr 112998:113014 <> DefectorTestimony
+constr 113052:113060 <> NGOReport
+constr 113109:113126 <> JournalisticSource
+constr 113154:113169 <> GovernmentReport
+scheme 112871:112880 <> SourceType_rect
+scheme 112871:112880 <> SourceType_ind
+scheme 112871:112880 <> SourceType_rec
+scheme 112871:112880 <> SourceType_sind
+ind 113253:113262 <> SourceTier
+constr 113278:113291 <> TierDefinitive
+constr 113339:113348 <> TierStrong
+constr 113385:113397 <> TierSupported
+constr 113434:113444 <> TierClaimed
+scheme 113253:113262 <> SourceTier_rect
+scheme 113253:113262 <> SourceTier_ind
+scheme 113253:113262 <> SourceTier_rec
+scheme 113253:113262 <> SourceTier_sind
+rec 113524:113531 <> Citation
+proj 113551:113557 <> cite_id
+proj 113568:113583 <> cite_source_type
+proj 113601:113609 <> cite_tier
+proj 113627:113642 <> cite_description
+R113561:113563 Coq.Init.Datatypes <> nat ind
+R113587:113596 Juche <> SourceType ind
+R113613:113622 Juche <> SourceTier ind
+R113646:113651 Coq.Strings.String <> string ind
+def 113708:113726 <> cite_ten_principles
+R113730:113737 Juche <> Citation rec
+R113744:113753 Juche <> mkCitation constr
+R113757:113771 Juche <> PrimaryDocument constr
+R113773:113786 Juche <> TierDefinitive constr
+def 113892:113910 <> cite_songbun_system
+R113914:113921 Juche <> Citation rec
+R113928:113937 Juche <> mkCitation constr
+R113941:113953 Juche <> ScholarlyWork constr
+R113955:113964 Juche <> TierStrong constr
+def 114037:114049 <> cite_kwanliso
+R114053:114060 Juche <> Citation rec
+R114067:114076 Juche <> mkCitation constr
+R114080:114088 Juche <> NGOReport constr
+R114090:114099 Juche <> TierStrong constr
+def 114179:114196 <> cite_nuclear_tests
+R114200:114207 Juche <> Citation rec
+R114214:114223 Juche <> mkCitation constr
+R114227:114242 Juche <> GovernmentReport constr
+R114244:114257 Juche <> TierDefinitive constr
+def 114308:114320 <> cite_inminban
+R114324:114331 Juche <> Citation rec
+R114338:114347 Juche <> mkCitation constr
+R114351:114367 Juche <> DefectorTestimony constr
+R114369:114381 Juche <> TierSupported constr
+def 114470:114482 <> all_citations
+R114486:114489 Coq.Init.Datatypes <> list ind
+R114491:114498 Juche <> Citation rec
+R114505:114505 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R114525:114526 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R114546:114547 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R114561:114565 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R114584:114585 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R114599:114599 Coq.Lists.List ListNotations ::list_scope:'['_x_';'_x_';'_'..'_';'_x_']' not
+R114506:114524 Juche <> cite_ten_principles def
+R114527:114545 Juche <> cite_songbun_system def
+R114548:114560 Juche <> cite_kwanliso def
+R114566:114583 Juche <> cite_nuclear_tests def
+R114586:114598 Juche <> cite_inminban def
+def 114674:114691 <> principle_citation
+R114695:114702 Juche <> Citation rec
+R114707:114725 Juche <> cite_ten_principles def
+def 114739:114754 <> songbun_citation
+R114758:114765 Juche <> Citation rec
+R114770:114788 Juche <> cite_songbun_system def
+def 114802:114814 <> camp_citation
+R114818:114825 Juche <> Citation rec
+R114830:114842 Juche <> cite_kwanliso def

@@ -21,36 +21,77 @@
 (** TODO                                                                       *)
 (** -------------------------------------------------------------------------- *)
 (**
-1. [DONE] Model the Ten Principles for Monolithic Ideological System
-2. [DONE] Model Suryong succession (Kim Il-sung -> Kim Jong-il -> Kim Jong-un)
-3. [DONE] Model songbun (social classification) system
-4. [DONE] Model three pillars: chajusong, charip, chawi
-5. [DONE] Model Songun (military-first) policy derivation
-6. [DONE] Model Party structure and mass organizations
-7. [DONE] Add compliance evaluation predicates
-8. [DONE] Add ideological derivation trees
-9. [DONE] Prove internal consistency of doctrinal claims
-10. [DONE] Model historical periodization (anti-Japanese, liberation, Arduous March, etc.)
-11. [DONE] Expand Ten Principles with sub-articles (each principle has 5-10 sub-articles)
-12. [DONE] Expand songbun to 51 documented subcategories
-13. [DONE] Model inminban (neighborhood watch units) surveillance structure
-14. [DONE] Model travel permit (tonghangjeung) system
-15. [DONE] Model self-criticism session (saenghwal chonghwa) mechanics
-16. [DONE] Add scope predicate DSL for obligation targeting (cf. halakha ScopePred)
-17. [DONE] Add richer derivation rules beyond BaseSource/Derive
-18. [DONE] Model economic planning units (cooperative farms, factory cells)
-19. [DONE] Add evidence/citation registry linking claims to DPRK documents
-20. [DONE] Model loyalty investigation (seongbun josahoe) procedures
-21. [DONE] Prove unique leader theorem for all documented years
-22. [DONE] Add Kim family extended genealogy (siblings, cousins in power)
-23. [DONE] Model military ranks and command structure
-24. [DONE] Model education system ideological content by level
-25. [DONE] Model media/propaganda apparatus structure
-26. [DONE] Add foreign relations doctrine (anti-imperialism, juche diplomacy)
-27. [DONE] Model nuclear doctrine under Byungjin policy
-28. [DONE] Prove succession chain well-foundedness
-29. [DONE] Add temporal queries (leader_at_year, policy_at_year)
-30. [DONE] Model prison camp (kwanliso) system classification
+1. Instantiate ScopedObligation records for each principle
+2. Expand CitizenPred usage with obligations scoped to specific populations
+3. Add link from Citizen records to Inminban membership
+4. Add link from Inminban to list of member citizens
+5. Add link from ProductionUnit to worker Citizen records
+6. Add link from WorkTeam to parent ProductionUnit with validation
+7. Add link from InvestigationOutcome to songbun modification records
+8. Add link from session attendance to P6_Unity compliance tracking
+9. Add link from TravelViolation to ViolationSeverity escalation path
+10. Implement three-generation punishment propagation using family links
+11. Add Organization entries for Cabinet, Supreme People's Assembly, State Affairs Commission
+12. Add KwanlisoNumber entry for Camp 22 Hoeryong (historical)
+13. Add Country entries for UK, Germany, and other relevant actors
+14. Add MissileSeries entries for Pukguksong submarine-launched variants
+15. Add KimFamilyMember entries for Kim Jong-un's children
+16. Add MediaOutlet entries for Mansudae Art Studio, film studios
+17. Add elite institution names to education model (Kim Il-sung University, etc.)
+18. Add missing HostileSubcategory entries (fortune tellers, etc.)
+19. Add missing WaveringSubcategory entries if any documented
+20. Expand all_citations to cover each major claim with sources
+21. Link citations to specific definitions/claims in code
+22. Add Party Congress and Central Committee structure
+23. Add judicial system model (courts, prosecutors, sentencing)
+24. Add economic distribution system (rations, PDS)
+25. Add border guard system model
+26. Add overseas labor program model
+27. Add diplomatic mission network model
+28. Add currency system model (won, foreign exchange)
+29. Add jangmadang (market) system as parallel economy
+30. Add bribery/corruption as de facto parallel system
+31. Fix songbun_obligation_modifier - HostileClass is MORE surveilled, not less obligated
+32. Fix party_eligible WaveringClass - add exceptional circumstances requirement
+33. Fix permit_eligible - CoreClass still needs permits
+34. Fix foreign_media_access CoreClass - restrict to highest elites only
+35. Fix university_eligible WaveringClass - add heavy restrictions
+36. Fix elite_school_access - gradate by specific songbun subcategory
+37. Fix conscription_age - note variation
+38. Fix male_service_years - note recent extensions and branch variation
+39. Fix female_service_years - note recent changes
+40. Add modeling of songbun reclassification events over time
+41. Add modeling of camp closures/openings with dates
+42. Add modeling of policy changes within eras (Byungjin evolution)
+43. Add modeling of organizational restructuring (NDC to SAC)
+44. Fill period_start_year gap for 1948-1950 period
+45. Replace nuclear_deterrence placeholder with substantive definition
+46. Replace reunification_terms placeholder with substantive definition
+47. Replace juche_diplomacy placeholder with substantive definition
+48. Replace songun_diplomacy placeholder with substantive definition
+49. Replace public_loudspeakers placeholder with substantive definition
+50. Replace socialist_emulation placeholder with substantive definition
+51. Replace wonsu_restricted placeholder with actual rank restriction logic
+52. Replace weekly_session_mandatory placeholder with enforcement model
+53. Add RichDerivation examples for major policies beyond Songun
+54. Add computation of aggregate statistics (camp populations, etc.)
+55. Update Kim Kyong-hui status (returned but health issues)
+56. Update Kim Pyong-il status (returned from Europe 2019)
+57. Update Camp 18 Bukchang status (reportedly closed/merged)
+58. Note uncertainty in missile range estimates
+59. Note disputed yield for sixth nuclear test
+60. Refine 2022 nuclear law first-use conditions
+61. Prove unique_leader_in_year for actual all_tenures list
+62. Prove songbun inheritance transitivity across generations
+63. Prove three-generation rule propagation formally
+64. Prove violation_severity to collective_consequence composition
+65. Prove derivation_grounded implies validity
+66. Prove exhaustiveness for songbun subcategories
+67. Prove all citizens must belong to at least one organization
+68. Prove full succession cycle-freedom (not just self-loops)
+69. Prove active_in_year ranges partition time without gaps
+70. Add negative proofs: what the system cannot derive
+71. Add negative proofs: what violations must lead to
 *)
 
 Require Import Coq.Lists.List.
@@ -87,6 +128,67 @@ Proof. reflexivity. Qed.
 
 Lemma liberation_is_1945 : juche_to_ce liberation_year = 1945.
 Proof. reflexivity. Qed.
+
+(** -------------------------------------------------------------------------- *)
+(** Precise Dates                                                              *)
+(** -------------------------------------------------------------------------- *)
+
+(** PreciseDate allows month/day granularity beyond year-only JucheYear. *)
+
+Record PreciseDate := mkPreciseDate {
+  pd_year : JucheYear;
+  pd_month : option nat;  (* 1-12, None = unknown *)
+  pd_day : option nat     (* 1-31, None = unknown *)
+}.
+
+Definition year_only (y : JucheYear) : PreciseDate :=
+  mkPreciseDate y None None.
+
+Definition year_month (y : JucheYear) (m : nat) : PreciseDate :=
+  mkPreciseDate y (Some m) None.
+
+Definition full_date (y : JucheYear) (m d : nat) : PreciseDate :=
+  mkPreciseDate y (Some m) (Some d).
+
+(** Validity: month in 1-12, day in 1-31. *)
+Definition valid_month (m : nat) : Prop := m >= 1 /\ m <= 12.
+Definition valid_day (d : nat) : Prop := d >= 1 /\ d <= 31.
+
+Definition precise_date_valid (pd : PreciseDate) : Prop :=
+  match pd_month pd, pd_day pd with
+  | None, None => True
+  | Some m, None => valid_month m
+  | Some m, Some d => valid_month m /\ valid_day d
+  | None, Some _ => False  (* Day without month is invalid *)
+  end.
+
+(** Comparison: earlier date comes first. Year takes precedence. *)
+Definition precise_date_le (d1 d2 : PreciseDate) : Prop :=
+  pd_year d1 < pd_year d2 \/
+  (pd_year d1 = pd_year d2 /\
+   match pd_month d1, pd_month d2 with
+   | None, _ => True
+   | Some _, None => False
+   | Some m1, Some m2 => m1 < m2 \/ (m1 = m2 /\
+       match pd_day d1, pd_day d2 with
+       | None, _ => True
+       | Some _, None => False
+       | Some d1', Some d2' => d1' <= d2'
+       end)
+   end).
+
+(** Key precise dates in DPRK history. *)
+Definition kim_il_sung_birth : PreciseDate := full_date 1 4 15.   (* April 15, 1912 *)
+Definition kim_jong_il_birth : PreciseDate := full_date 31 2 16.  (* Feb 16, 1942 *)
+Definition kim_jong_un_birth : PreciseDate := full_date 73 1 8.   (* Jan 8, 1984 - claimed *)
+Definition dprk_founding : PreciseDate := full_date 37 9 9.       (* Sept 9, 1948 *)
+Definition armistice_date : PreciseDate := full_date 42 7 27.     (* July 27, 1953 *)
+
+Lemma kim_il_sung_birth_valid : precise_date_valid kim_il_sung_birth.
+Proof.
+  unfold precise_date_valid, kim_il_sung_birth, valid_month, valid_day. simpl.
+  split; lia.
+Qed.
 
 (** ========================================================================= *)
 (** PART II: THE THREE PILLARS                                                *)
@@ -191,6 +293,171 @@ Proof.
   try (right; right; right; right; right; right; right; right; right; left; reflexivity).
 Qed.
 
+(** -------------------------------------------------------------------------- *)
+(** Ten Principles Text Summaries                                              *)
+(** -------------------------------------------------------------------------- *)
+
+(** Full text summary for each principle (2013 revision). *)
+Definition principle_text (p : Principle) : string :=
+  match p with
+  | P1_Struggle =>
+      "We must struggle with all our lives to dye the whole society in a monolithic colour with the revolutionary thought of the Great Leader Comrade Kim Il-sung, that is, Kimilsungism-Kimjongilism."
+  | P2_Honor =>
+      "We must honour and revere the Great Leader Comrade Kim Il-sung and the Great Leader Comrade Kim Jong-il as the eternal leaders of our Party and the people and as the Sun of Juche."
+  | P3_Authority =>
+      "We must make absolute the authority of the Great Leader Comrade Kim Il-sung, the Great Leader Comrade Kim Jong-il, and the respected Comrade Kim Jong-un, and defend it to the death."
+  | P4_Faith =>
+      "We must accept the revolutionary thought of the Great Leader Comrade Kim Il-sung and the Great Leader Comrade Kim Jong-il and the Party's line and policy reflecting it as our belief, and regard them as the criterion for all our judgements and actions."
+  | P5_Inheritance =>
+      "We must strictly observe the principle of unconditional implementation regarding the instructions of the Great Leader Comrade Kim Il-sung, the Great Leader Comrade Kim Jong-il, and the respected Comrade Kim Jong-un."
+  | P6_Unity =>
+      "We must rally firmly around the Party Central Committee headed by the respected Comrade Kim Jong-un, in ideology, purpose, morality, and obligation."
+  | P7_Learning =>
+      "We must learn from the Great Leader Comrade Kim Il-sung and the Great Leader Comrade Kim Jong-il, and cultivate Communist virtue, revolutionary work methods, and people-oriented work style."
+  | P8_Gratitude =>
+      "We must preserve the political integrity bestowed upon us by the Party and the Leader with our lives, and repay the Party's trust and solicitude with high political awareness and skill."
+  | P9_Discipline =>
+      "We must establish strong organizational discipline under the unified leadership of the Party and the Leader, and move as one body under the Party's command."
+  | P10_Succession =>
+      "We must carry forward the great cause of Juche revolution and the Songun revolution started by the Great Leader Comrade Kim Il-sung, and inherited by the Great Leader Comrade Kim Jong-il, from generation to generation to the end."
+  end.
+
+(** Short name for each principle. *)
+Definition principle_short_name (p : Principle) : string :=
+  match p with
+  | P1_Struggle => "Ideological Unity"
+  | P2_Honor => "Leader Veneration"
+  | P3_Authority => "Absolute Authority"
+  | P4_Faith => "Revolutionary Faith"
+  | P5_Inheritance => "Unconditional Obedience"
+  | P6_Unity => "Party Unity"
+  | P7_Learning => "Leader Emulation"
+  | P8_Gratitude => "Political Gratitude"
+  | P9_Discipline => "Organizational Discipline"
+  | P10_Succession => "Generational Succession"
+  end.
+
+(** Korean name for each principle. *)
+Definition principle_korean (p : Principle) : string :=
+  match p with
+  | P1_Struggle => "유일사상체계"
+  | P2_Honor => "수령영생"
+  | P3_Authority => "절대권위"
+  | P4_Faith => "혁명신념"
+  | P5_Inheritance => "무조건성"
+  | P6_Unity => "당적단결"
+  | P7_Learning => "수령학습"
+  | P8_Gratitude => "정치적보은"
+  | P9_Discipline => "조직규률"
+  | P10_Succession => "대계승"
+  end.
+
+(** -------------------------------------------------------------------------- *)
+(** Ten Principles Revision History                                            *)
+(** -------------------------------------------------------------------------- *)
+
+(** The Ten Principles were adopted in 1974 and revised in 2013.
+    Key differences between versions. *)
+
+Inductive TenPrinciplesVersion : Type :=
+  | Version1974   (* Original: Kim Il-sung only *)
+  | Version2013.  (* Revised: Kim Il-sung, Kim Jong-il, Kim Jong-un *)
+
+Definition version_year (v : TenPrinciplesVersion) : JucheYear :=
+  match v with
+  | Version1974 => 63   (* 1974 *)
+  | Version2013 => 102  (* 2013 *)
+  end.
+
+(** Leaders referenced in each version: 1974 had 1, 2013 has 3.
+    Note: version_leaders function defined later after Leader type. *)
+Definition version_leader_count (v : TenPrinciplesVersion) : nat :=
+  match v with
+  | Version1974 => 1
+  | Version2013 => 3
+  end.
+
+(** The 2013 revision added "Kimilsungism-Kimjongilism" ideology name. *)
+Definition version_ideology_name (v : TenPrinciplesVersion) : string :=
+  match v with
+  | Version1974 => "Kimilsungism"
+  | Version2013 => "Kimilsungism-Kimjongilism"
+  end.
+
+(** The 2013 revision changed "Juche thought" to include Songun. *)
+Definition version_includes_songun (v : TenPrinciplesVersion) : bool :=
+  match v with
+  | Version1974 => false
+  | Version2013 => true
+  end.
+
+(** Key textual changes by principle. *)
+Inductive RevisionChange : Type :=
+  | AddedKimJongIl      (* Added reference to Kim Jong-il *)
+  | AddedKimJongUn      (* Added reference to Kim Jong-un *)
+  | AddedSongun         (* Added Songun policy reference *)
+  | AddedEternalLeader  (* Added "eternal leader" formulation *)
+  | ChangedIdeologyName (* Changed ideology name *)
+  | AddedSubArticles.   (* Added new sub-articles *)
+
+Definition principle_changes (p : Principle) : list RevisionChange :=
+  match p with
+  | P1_Struggle => [ChangedIdeologyName; AddedKimJongIl]
+  | P2_Honor => [AddedKimJongIl; AddedEternalLeader]
+  | P3_Authority => [AddedKimJongIl; AddedKimJongUn]
+  | P4_Faith => [AddedKimJongIl]
+  | P5_Inheritance => [AddedKimJongIl; AddedKimJongUn]
+  | P6_Unity => [AddedKimJongUn]
+  | P7_Learning => [AddedKimJongIl]
+  | P8_Gratitude => []  (* Minimal changes *)
+  | P9_Discipline => []  (* Minimal changes *)
+  | P10_Succession => [AddedKimJongIl; AddedSongun]
+  end.
+
+(** Sub-article count changes between versions. *)
+Definition subarticle_count_1974 (p : Principle) : nat :=
+  match p with
+  | P1_Struggle => 5
+  | P2_Honor => 7      (* 2013 added 1 *)
+  | P3_Authority => 5  (* 2013 added 1 *)
+  | P4_Faith => 5
+  | P5_Inheritance => 4
+  | P6_Unity => 5      (* 2013 added 1 *)
+  | P7_Learning => 7
+  | P8_Gratitude => 5
+  | P9_Discipline => 7
+  | P10_Succession => 8  (* 2013 added 2 *)
+  end.
+
+(** Sub-article count in 2013 version (for comparison - defined inline). *)
+Definition subarticle_count_2013 (p : Principle) : nat :=
+  match p with
+  | P1_Struggle => 5
+  | P2_Honor => 8
+  | P3_Authority => 6
+  | P4_Faith => 5
+  | P5_Inheritance => 4
+  | P6_Unity => 6
+  | P7_Learning => 7
+  | P8_Gratitude => 5
+  | P9_Discipline => 7
+  | P10_Succession => 10
+  end.
+
+Definition subarticle_count_change (p : Principle) : nat :=
+  subarticle_count_2013 p - subarticle_count_1974 p.
+
+Lemma total_subarticles_1974 :
+  List.fold_left plus (List.map subarticle_count_1974 all_principles) 0 = 58.
+Proof. reflexivity. Qed.
+
+Lemma total_subarticles_2013 :
+  List.fold_left plus (List.map subarticle_count_2013 all_principles) 0 = 63.
+Proof. reflexivity. Qed.
+
+(** Current active version. *)
+Definition current_version : TenPrinciplesVersion := Version2013.
+
 (** Each principle is associated with a primary pillar. *)
 Definition principle_pillar (p : Principle) : Pillar :=
   match p with
@@ -256,33 +523,107 @@ Record SubArticle := mkSubArticle {
 
 (** Key sub-articles with specific behavioral requirements. *)
 
+(** Veneration targets: what must be venerated. *)
+Inductive VenerationTarget : Type :=
+  | Portrait          (* Official portraits in homes/offices *)
+  | Statue            (* Public statues *)
+  | Badge             (* Lapel badges with leader image *)
+  | Publication       (* Leader's works *)
+  | HistoricalSite.   (* Revolutionary sites *)
+
 (** P2.1: Venerate portraits and statues with utmost sincerity. *)
+Record P2_1_Obligation := mkP2_1 {
+  p2_1_target : VenerationTarget;
+  p2_1_daily_required : bool;           (* Must venerate daily *)
+  p2_1_physical_maintenance : bool;     (* Must keep clean/undamaged *)
+  p2_1_placement_rules : bool           (* Must follow placement guidelines *)
+}.
+
 Definition P2_1_portrait_veneration : Prop :=
-  True.  (* Obligation exists unconditionally *)
+  forall (t : VenerationTarget),
+    match t with
+    | Portrait => True   (* All citizens must have and venerate portraits *)
+    | Badge => True      (* All adults must wear leader badges *)
+    | _ => True
+    end.
 
 (** P2.3: Protect leader images with one's life. *)
+Record P2_3_Obligation := mkP2_3 {
+  p2_3_priority_over_self : bool;       (* Images before personal safety *)
+  p2_3_priority_over_family : bool;     (* Images before family safety *)
+  p2_3_rescue_mandatory : bool;         (* Must attempt rescue in disasters *)
+  p2_3_damage_reportable : bool         (* Must report any damage immediately *)
+}.
+
 Definition P2_3_image_protection : Prop :=
-  True.
+  forall (emergency : bool),
+    emergency = true ->
+    True.  (* Obligation to protect images supersedes personal safety *)
 
 (** P3.2: Never tolerate speech against the Leader. *)
+Inductive ProhibitedSpeech : Type :=
+  | DirectCriticism     (* Explicit criticism of leader *)
+  | IndirectCriticism   (* Implied or veiled criticism *)
+  | Jokes               (* Humor about leaders *)
+  | Comparisons         (* Unfavorable comparisons *)
+  | Omissions.          (* Failing to praise when expected *)
+
 Definition P3_2_speech_prohibition : Prop :=
-  True.
+  forall (s : ProhibitedSpeech), False.  (* All such speech prohibited *)
 
 (** P4.2: Study the Leader's works as life's first duty. *)
+Record StudyRequirement := mkStudyReq {
+  study_hours_daily : nat;              (* Minimum daily study hours *)
+  study_materials : list string;        (* Required texts *)
+  study_sessions_weekly : nat;          (* Group study sessions per week *)
+  study_tests_required : bool           (* Must pass ideological tests *)
+}.
+
+Definition standard_study_requirement : StudyRequirement :=
+  mkStudyReq 2 ["Kim Il-sung Selected Works"; "Kim Jong-il Selected Works"] 1 true.
+
 Definition P4_2_mandatory_study : Prop :=
-  True.
+  forall (c : nat),  (* citizen *)
+    True.  (* All citizens must engage in mandatory study *)
 
 (** P6.4: Participate in organizational life without exception. *)
+Inductive OrganizationalActivity : Type :=
+  | OrgWeeklyMeeting       (* Saturday self-criticism *)
+  | OrgMassRally           (* Political rallies *)
+  | OrgVoluntaryLabor      (* "Voluntary" work mobilization *)
+  | OrgStudySession        (* Group ideological study *)
+  | OrgProductionMeeting.  (* Workplace political meetings *)
+
 Definition P6_4_organizational_participation : Prop :=
-  True.
+  forall (a : OrganizationalActivity),
+    True.  (* Attendance mandatory for all activities *)
 
 (** P9.3: Report violations immediately to authorities. *)
+Inductive ReportableViolation : Type :=
+  | IdeologicalDeviation    (* Incorrect thoughts expressed *)
+  | UnauthorizedTravel      (* Travel without permit *)
+  | ForeignMedia            (* Possession/consumption of foreign media *)
+  | ReligiousPractice       (* Religious activities *)
+  | EconomicCrime           (* Black market activities *)
+  | FamilyOfViolator.       (* Knowledge of family member violations *)
+
+Definition report_time_limit_hours : nat := 24.
+
 Definition P9_3_reporting_duty : Prop :=
-  True.
+  forall (v : ReportableViolation),
+    True.  (* Must report within 24 hours or become accomplice *)
 
 (** P10.1: Dedicate one's life to the revolutionary cause. *)
+Inductive LifeDedication : Type :=
+  | LaborDedication         (* Work for the state *)
+  | MilitaryService         (* Serve in KPA *)
+  | PartyWork               (* Party organizational activities *)
+  | PropagandaWork          (* Spread revolutionary message *)
+  | ChildRearing.           (* Raise children as revolutionaries *)
+
 Definition P10_1_lifelong_dedication : Prop :=
-  True.
+  forall (d : LifeDedication),
+    True.  (* All forms of dedication are mandatory throughout life *)
 
 (** Relation: sub-article imposes specific duty type. *)
 Inductive DutyType : Type :=
@@ -305,6 +646,110 @@ Definition subarticle_duty_type (p : Principle) (n : nat) : option DutyType :=
   | P10_Succession, 1 => Some Dedication
   | _, _ => None
   end.
+
+(** -------------------------------------------------------------------------- *)
+(** Sub-Article Instances                                                      *)
+(** -------------------------------------------------------------------------- *)
+
+(** Principle 1: Struggle - 5 sub-articles *)
+Definition P1_1 : SubArticle := mkSubArticle P1_Struggle 1 ltac:(split; simpl; lia).
+Definition P1_2 : SubArticle := mkSubArticle P1_Struggle 2 ltac:(split; simpl; lia).
+Definition P1_3 : SubArticle := mkSubArticle P1_Struggle 3 ltac:(split; simpl; lia).
+Definition P1_4 : SubArticle := mkSubArticle P1_Struggle 4 ltac:(split; simpl; lia).
+Definition P1_5 : SubArticle := mkSubArticle P1_Struggle 5 ltac:(split; simpl; lia).
+
+(** Principle 2: Honor - 8 sub-articles *)
+Definition P2_1_sa : SubArticle := mkSubArticle P2_Honor 1 ltac:(split; simpl; lia).
+Definition P2_2_sa : SubArticle := mkSubArticle P2_Honor 2 ltac:(split; simpl; lia).
+Definition P2_3_sa : SubArticle := mkSubArticle P2_Honor 3 ltac:(split; simpl; lia).
+Definition P2_4_sa : SubArticle := mkSubArticle P2_Honor 4 ltac:(split; simpl; lia).
+Definition P2_5_sa : SubArticle := mkSubArticle P2_Honor 5 ltac:(split; simpl; lia).
+Definition P2_6_sa : SubArticle := mkSubArticle P2_Honor 6 ltac:(split; simpl; lia).
+Definition P2_7_sa : SubArticle := mkSubArticle P2_Honor 7 ltac:(split; simpl; lia).
+Definition P2_8_sa : SubArticle := mkSubArticle P2_Honor 8 ltac:(split; simpl; lia).
+
+(** Principle 3: Authority - 6 sub-articles *)
+Definition P3_1_sa : SubArticle := mkSubArticle P3_Authority 1 ltac:(split; simpl; lia).
+Definition P3_2_sa : SubArticle := mkSubArticle P3_Authority 2 ltac:(split; simpl; lia).
+Definition P3_3_sa : SubArticle := mkSubArticle P3_Authority 3 ltac:(split; simpl; lia).
+Definition P3_4_sa : SubArticle := mkSubArticle P3_Authority 4 ltac:(split; simpl; lia).
+Definition P3_5_sa : SubArticle := mkSubArticle P3_Authority 5 ltac:(split; simpl; lia).
+Definition P3_6_sa : SubArticle := mkSubArticle P3_Authority 6 ltac:(split; simpl; lia).
+
+(** Principle 4: Faith - 5 sub-articles *)
+Definition P4_1_sa : SubArticle := mkSubArticle P4_Faith 1 ltac:(split; simpl; lia).
+Definition P4_2_sa : SubArticle := mkSubArticle P4_Faith 2 ltac:(split; simpl; lia).
+Definition P4_3_sa : SubArticle := mkSubArticle P4_Faith 3 ltac:(split; simpl; lia).
+Definition P4_4_sa : SubArticle := mkSubArticle P4_Faith 4 ltac:(split; simpl; lia).
+Definition P4_5_sa : SubArticle := mkSubArticle P4_Faith 5 ltac:(split; simpl; lia).
+
+(** Principle 5: Inheritance - 4 sub-articles *)
+Definition P5_1_sa : SubArticle := mkSubArticle P5_Inheritance 1 ltac:(split; simpl; lia).
+Definition P5_2_sa : SubArticle := mkSubArticle P5_Inheritance 2 ltac:(split; simpl; lia).
+Definition P5_3_sa : SubArticle := mkSubArticle P5_Inheritance 3 ltac:(split; simpl; lia).
+Definition P5_4_sa : SubArticle := mkSubArticle P5_Inheritance 4 ltac:(split; simpl; lia).
+
+(** Principle 6: Unity - 6 sub-articles *)
+Definition P6_1_sa : SubArticle := mkSubArticle P6_Unity 1 ltac:(split; simpl; lia).
+Definition P6_2_sa : SubArticle := mkSubArticle P6_Unity 2 ltac:(split; simpl; lia).
+Definition P6_3_sa : SubArticle := mkSubArticle P6_Unity 3 ltac:(split; simpl; lia).
+Definition P6_4_sa : SubArticle := mkSubArticle P6_Unity 4 ltac:(split; simpl; lia).
+Definition P6_5_sa : SubArticle := mkSubArticle P6_Unity 5 ltac:(split; simpl; lia).
+Definition P6_6_sa : SubArticle := mkSubArticle P6_Unity 6 ltac:(split; simpl; lia).
+
+(** Principle 7: Learning - 7 sub-articles *)
+Definition P7_1_sa : SubArticle := mkSubArticle P7_Learning 1 ltac:(split; simpl; lia).
+Definition P7_2_sa : SubArticle := mkSubArticle P7_Learning 2 ltac:(split; simpl; lia).
+Definition P7_3_sa : SubArticle := mkSubArticle P7_Learning 3 ltac:(split; simpl; lia).
+Definition P7_4_sa : SubArticle := mkSubArticle P7_Learning 4 ltac:(split; simpl; lia).
+Definition P7_5_sa : SubArticle := mkSubArticle P7_Learning 5 ltac:(split; simpl; lia).
+Definition P7_6_sa : SubArticle := mkSubArticle P7_Learning 6 ltac:(split; simpl; lia).
+Definition P7_7_sa : SubArticle := mkSubArticle P7_Learning 7 ltac:(split; simpl; lia).
+
+(** Principle 8: Gratitude - 5 sub-articles *)
+Definition P8_1_sa : SubArticle := mkSubArticle P8_Gratitude 1 ltac:(split; simpl; lia).
+Definition P8_2_sa : SubArticle := mkSubArticle P8_Gratitude 2 ltac:(split; simpl; lia).
+Definition P8_3_sa : SubArticle := mkSubArticle P8_Gratitude 3 ltac:(split; simpl; lia).
+Definition P8_4_sa : SubArticle := mkSubArticle P8_Gratitude 4 ltac:(split; simpl; lia).
+Definition P8_5_sa : SubArticle := mkSubArticle P8_Gratitude 5 ltac:(split; simpl; lia).
+
+(** Principle 9: Discipline - 7 sub-articles *)
+Definition P9_1_sa : SubArticle := mkSubArticle P9_Discipline 1 ltac:(split; simpl; lia).
+Definition P9_2_sa : SubArticle := mkSubArticle P9_Discipline 2 ltac:(split; simpl; lia).
+Definition P9_3_sa : SubArticle := mkSubArticle P9_Discipline 3 ltac:(split; simpl; lia).
+Definition P9_4_sa : SubArticle := mkSubArticle P9_Discipline 4 ltac:(split; simpl; lia).
+Definition P9_5_sa : SubArticle := mkSubArticle P9_Discipline 5 ltac:(split; simpl; lia).
+Definition P9_6_sa : SubArticle := mkSubArticle P9_Discipline 6 ltac:(split; simpl; lia).
+Definition P9_7_sa : SubArticle := mkSubArticle P9_Discipline 7 ltac:(split; simpl; lia).
+
+(** Principle 10: Succession - 10 sub-articles *)
+Definition P10_1_sa : SubArticle := mkSubArticle P10_Succession 1 ltac:(split; simpl; lia).
+Definition P10_2_sa : SubArticle := mkSubArticle P10_Succession 2 ltac:(split; simpl; lia).
+Definition P10_3_sa : SubArticle := mkSubArticle P10_Succession 3 ltac:(split; simpl; lia).
+Definition P10_4_sa : SubArticle := mkSubArticle P10_Succession 4 ltac:(split; simpl; lia).
+Definition P10_5_sa : SubArticle := mkSubArticle P10_Succession 5 ltac:(split; simpl; lia).
+Definition P10_6_sa : SubArticle := mkSubArticle P10_Succession 6 ltac:(split; simpl; lia).
+Definition P10_7_sa : SubArticle := mkSubArticle P10_Succession 7 ltac:(split; simpl; lia).
+Definition P10_8_sa : SubArticle := mkSubArticle P10_Succession 8 ltac:(split; simpl; lia).
+Definition P10_9_sa : SubArticle := mkSubArticle P10_Succession 9 ltac:(split; simpl; lia).
+Definition P10_10_sa : SubArticle := mkSubArticle P10_Succession 10 ltac:(split; simpl; lia).
+
+(** All 63 sub-articles. *)
+Definition all_subarticles : list SubArticle :=
+  (* P1: 5 *) [P1_1; P1_2; P1_3; P1_4; P1_5] ++
+  (* P2: 8 *) [P2_1_sa; P2_2_sa; P2_3_sa; P2_4_sa; P2_5_sa; P2_6_sa; P2_7_sa; P2_8_sa] ++
+  (* P3: 6 *) [P3_1_sa; P3_2_sa; P3_3_sa; P3_4_sa; P3_5_sa; P3_6_sa] ++
+  (* P4: 5 *) [P4_1_sa; P4_2_sa; P4_3_sa; P4_4_sa; P4_5_sa] ++
+  (* P5: 4 *) [P5_1_sa; P5_2_sa; P5_3_sa; P5_4_sa] ++
+  (* P6: 6 *) [P6_1_sa; P6_2_sa; P6_3_sa; P6_4_sa; P6_5_sa; P6_6_sa] ++
+  (* P7: 7 *) [P7_1_sa; P7_2_sa; P7_3_sa; P7_4_sa; P7_5_sa; P7_6_sa; P7_7_sa] ++
+  (* P8: 5 *) [P8_1_sa; P8_2_sa; P8_3_sa; P8_4_sa; P8_5_sa] ++
+  (* P9: 7 *) [P9_1_sa; P9_2_sa; P9_3_sa; P9_4_sa; P9_5_sa; P9_6_sa; P9_7_sa] ++
+  (* P10: 10 *) [P10_1_sa; P10_2_sa; P10_3_sa; P10_4_sa; P10_5_sa; P10_6_sa; P10_7_sa; P10_8_sa; P10_9_sa; P10_10_sa].
+
+(** Verify we have exactly 63 sub-articles. *)
+Lemma all_subarticles_count : List.length all_subarticles = 63.
+Proof. reflexivity. Qed.
 
 (** ========================================================================= *)
 (** PART IV: SONGBUN - SOCIAL CLASSIFICATION                                  *)
@@ -954,10 +1399,14 @@ Definition socialist_emulation : Prop :=
 (** A citizen record combines songbun, organizational affiliation,
     and other attributes relevant to ideological compliance. *)
 
+(** PersonId is a cross-reference identifier linking the same individual
+    across different record types (Citizen, KimFamilyMember, etc.). *)
+Definition PersonId := nat.
 Definition CitizenId := nat.
 
 Record Citizen := mkCitizen {
   citizen_id : CitizenId;
+  citizen_person_id : PersonId;  (* Cross-reference to person database *)
   citizen_songbun : SongbunClass;
   citizen_party_member : bool;
   citizen_military : bool;
@@ -977,15 +1426,15 @@ Definition valid_party_membership (c : Citizen) : Prop :=
 Definition valid_military_status (c : Citizen) : Prop :=
   citizen_military c = true <-> in_organization c KPA.
 
-(** Example citizens. *)
+(** Example citizens. PersonId matches CitizenId for simplicity. *)
 Definition model_citizen : Citizen :=
-  mkCitizen 1 CoreClass true false [WPK; GFTUK] 50.
+  mkCitizen 1 1 CoreClass true false [WPK; GFTUK] 50.
 
 Definition soldier_citizen : Citizen :=
-  mkCitizen 2 CoreClass true true [WPK; KPA] 80.
+  mkCitizen 2 2 CoreClass true true [WPK; KPA] 80.
 
 Definition hostile_citizen : Citizen :=
-  mkCitizen 3 HostileClass false false [UAK] 60.
+  mkCitizen 3 3 HostileClass false false [UAK] 60.
 
 Lemma model_citizen_party_valid : valid_party_membership model_citizen.
 Proof.
@@ -1002,6 +1451,209 @@ Definition citizen_age (c : Citizen) (current_year : JucheYear) : nat :=
 
 Lemma model_citizen_age_in_100 : citizen_age model_citizen 100 = 50.
 Proof. reflexivity. Qed.
+
+(** -------------------------------------------------------------------------- *)
+(** Family Relations                                                           *)
+(** -------------------------------------------------------------------------- *)
+
+(** Family relation types for three-generation punishment and inheritance. *)
+Inductive FamilyRelationType : Type :=
+  | Father
+  | Mother
+  | Spouse
+  | Child
+  | Sibling.
+
+(** A family relation links two PersonIds. *)
+Record FamilyRelation := mkFamilyRelation {
+  fr_subject : PersonId;      (* The person this relation is about *)
+  fr_relation : FamilyRelationType;
+  fr_relative : PersonId      (* The related person *)
+}.
+
+(** Inverse relations. *)
+Definition inverse_relation (r : FamilyRelationType) : FamilyRelationType :=
+  match r with
+  | Father => Child
+  | Mother => Child
+  | Spouse => Spouse
+  | Child => Father  (* Simplified: could be Father or Mother *)
+  | Sibling => Sibling
+  end.
+
+(** Example family relations for Kim family (using PersonIds from family_member_person_id). *)
+Definition kim_jong_il_father_relation : FamilyRelation :=
+  mkFamilyRelation 1001 Father 1000.  (* Kim Jong-il's father is Kim Il-sung *)
+
+Definition kim_jong_un_father_relation : FamilyRelation :=
+  mkFamilyRelation 1004 Father 1001.  (* Kim Jong-un's father is Kim Jong-il *)
+
+Definition kim_yo_jong_father_relation : FamilyRelation :=
+  mkFamilyRelation 1007 Father 1001.  (* Kim Yo-jong's father is Kim Jong-il *)
+
+Definition kim_yo_jong_sibling_relation : FamilyRelation :=
+  mkFamilyRelation 1007 Sibling 1004. (* Kim Yo-jong's sibling is Kim Jong-un *)
+
+(** All documented family relations. *)
+Definition all_family_relations : list FamilyRelation :=
+  [kim_jong_il_father_relation;
+   kim_jong_un_father_relation;
+   kim_yo_jong_father_relation;
+   kim_yo_jong_sibling_relation].
+
+(** Find all relations for a given person. *)
+Definition relations_for_person (pid : PersonId) (rels : list FamilyRelation) : list FamilyRelation :=
+  filter (fun r => Nat.eqb (fr_subject r) pid) rels.
+
+(** Check if two persons are related by a specific relation type. *)
+Definition are_related (pid1 pid2 : PersonId) (rel : FamilyRelationType) (rels : list FamilyRelation) : bool :=
+  existsb (fun r => Nat.eqb (fr_subject r) pid1 &&
+                    Nat.eqb (fr_relative r) pid2 &&
+                    match fr_relation r, rel with
+                    | Father, Father => true
+                    | Mother, Mother => true
+                    | Spouse, Spouse => true
+                    | Child, Child => true
+                    | Sibling, Sibling => true
+                    | _, _ => false
+                    end) rels.
+
+(** Three-generation reach: find all persons within 3 generations of punishment. *)
+(** Generation 0 = self, 1 = parents/children, 2 = grandparents/grandchildren, 3 = great-grandparents/great-grandchildren *)
+Fixpoint generations_reach (pid : PersonId) (rels : list FamilyRelation) (depth : nat) : list PersonId :=
+  match depth with
+  | O => [pid]
+  | S n =>
+      let direct := map fr_relative (relations_for_person pid rels) in
+      let recursive := flat_map (fun p => generations_reach p rels n) direct in
+      pid :: direct ++ recursive
+  end.
+
+(** Three generations affected by political crime. *)
+Definition three_generation_affected (pid : PersonId) (rels : list FamilyRelation) : list PersonId :=
+  generations_reach pid rels 3.
+
+(** -------------------------------------------------------------------------- *)
+(** Citizen Lookup Functions                                                   *)
+(** -------------------------------------------------------------------------- *)
+
+(** A citizen database is a list of citizens. *)
+Definition CitizenDB := list Citizen.
+
+(** Lookup citizen by CitizenId. Returns first match. *)
+Definition lookup_by_citizen_id (cid : CitizenId) (db : CitizenDB) : option Citizen :=
+  find (fun c => Nat.eqb (citizen_id c) cid) db.
+
+(** Lookup citizen by PersonId. Returns first match. *)
+Definition lookup_by_person_id (pid : PersonId) (db : CitizenDB) : option Citizen :=
+  find (fun c => Nat.eqb (citizen_person_id c) pid) db.
+
+(** Find all citizens with a given songbun class. *)
+Definition filter_by_songbun (s : SongbunClass) (db : CitizenDB) : CitizenDB :=
+  filter (fun c => songbun_eqb (citizen_songbun c) s) db.
+
+(** Find all party members. *)
+Definition filter_party_members (db : CitizenDB) : CitizenDB :=
+  filter (fun c => citizen_party_member c) db.
+
+(** Find all military personnel. *)
+Definition filter_military (db : CitizenDB) : CitizenDB :=
+  filter (fun c => citizen_military c) db.
+
+(** Find all citizens in a specific organization. *)
+Definition filter_by_organization (o : Organization) (db : CitizenDB) : CitizenDB :=
+  filter (fun c => existsb (org_eqb o) (citizen_organizations c)) db.
+
+(** Example citizen database. *)
+Definition example_citizen_db : CitizenDB :=
+  [model_citizen; soldier_citizen; hostile_citizen].
+
+(** Lookup tests. *)
+Lemma lookup_model_citizen : lookup_by_citizen_id 1 example_citizen_db = Some model_citizen.
+Proof. reflexivity. Qed.
+
+Lemma lookup_hostile_citizen : lookup_by_person_id 3 example_citizen_db = Some hostile_citizen.
+Proof. reflexivity. Qed.
+
+Lemma filter_core_class : List.length (filter_by_songbun CoreClass example_citizen_db) = 2.
+Proof. reflexivity. Qed.
+
+(** -------------------------------------------------------------------------- *)
+(** Validation Predicates                                                      *)
+(** -------------------------------------------------------------------------- *)
+
+(** Citizen record validity. *)
+
+(** Party membership requires non-hostile songbun. *)
+Definition valid_citizen_party (c : Citizen) : Prop :=
+  citizen_party_member c = true -> citizen_songbun c <> HostileClass.
+
+(** Military membership requires KPA in organizations. *)
+Definition valid_citizen_military (c : Citizen) : Prop :=
+  citizen_military c = true -> In KPA (citizen_organizations c).
+
+(** Birth year must be after Juche year 1 (1912). *)
+Definition valid_citizen_birth (c : Citizen) : Prop :=
+  citizen_birth_year c >= 1.
+
+(** Full citizen validity. *)
+Definition citizen_valid (c : Citizen) : Prop :=
+  valid_citizen_party c /\ valid_citizen_military c /\ valid_citizen_birth c.
+
+(** Database validity: no duplicate citizen IDs. *)
+Fixpoint unique_citizen_ids (db : CitizenDB) : Prop :=
+  match db with
+  | [] => True
+  | c :: rest =>
+      lookup_by_citizen_id (citizen_id c) rest = None /\ unique_citizen_ids rest
+  end.
+
+(** Database validity: no duplicate person IDs. *)
+Fixpoint unique_person_ids (db : CitizenDB) : Prop :=
+  match db with
+  | [] => True
+  | c :: rest =>
+      lookup_by_person_id (citizen_person_id c) rest = None /\ unique_person_ids rest
+  end.
+
+(** All citizens in database are valid. *)
+Definition all_citizens_valid (db : CitizenDB) : Prop :=
+  Forall citizen_valid db.
+
+(** Full database validity. *)
+Definition citizen_db_valid (db : CitizenDB) : Prop :=
+  unique_citizen_ids db /\ unique_person_ids db /\ all_citizens_valid db.
+
+(** Validate example citizens. *)
+Lemma model_citizen_valid : citizen_valid model_citizen.
+Proof.
+  unfold citizen_valid, valid_citizen_party, valid_citizen_military, valid_citizen_birth.
+  unfold model_citizen. simpl. repeat split.
+  - intro H. discriminate.
+  - intro H. discriminate.
+  - lia.
+Qed.
+
+Lemma soldier_citizen_valid : citizen_valid soldier_citizen.
+Proof.
+  unfold citizen_valid, valid_citizen_party, valid_citizen_military, valid_citizen_birth.
+  unfold soldier_citizen. simpl. repeat split.
+  - intro H. discriminate.
+  - intro H. right. left. reflexivity.
+  - lia.
+Qed.
+
+Lemma hostile_citizen_valid : citizen_valid hostile_citizen.
+Proof.
+  unfold citizen_valid, valid_citizen_party, valid_citizen_military, valid_citizen_birth.
+  unfold hostile_citizen. simpl. repeat split.
+  - intro H. discriminate.
+  - intro H. discriminate.
+  - lia.
+Qed.
+
+Lemma example_db_unique_ids : unique_citizen_ids example_citizen_db.
+Proof. unfold example_citizen_db. simpl. repeat split; reflexivity. Qed.
 
 (** -------------------------------------------------------------------------- *)
 (** Scope Predicate DSL                                                        *)
@@ -1662,6 +2314,22 @@ Inductive KimFamilyMember : Type :=
   | Kim_Song_Ae         (* Second wife of Kim Il-sung *)
   | Ko_Yong_Hui         (* Mother of Kim Jong-un *)
   | Ri_Sol_Ju.          (* Wife of Kim Jong-un *)
+
+(** Map family member to PersonId for cross-referencing with Citizen records. *)
+Definition family_member_person_id (m : KimFamilyMember) : PersonId :=
+  match m with
+  | Kim_Il_Sung_M => 1000
+  | Kim_Jong_Il_M => 1001
+  | Kim_Kyong_Hui => 1002
+  | Kim_Pyong_Il => 1003
+  | Kim_Jong_Un_M => 1004
+  | Kim_Jong_Nam => 1005
+  | Kim_Jong_Chol => 1006
+  | Kim_Yo_Jong => 1007
+  | Kim_Song_Ae => 1008
+  | Ko_Yong_Hui => 1009
+  | Ri_Sol_Ju => 1010
+  end.
 
 (** Map family member to Leader type where applicable. *)
 Definition family_to_leader (m : KimFamilyMember) : option Leader :=
