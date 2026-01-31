@@ -44,7 +44,7 @@
 21. [DONE] Prove unique leader theorem for all documented years
 22. [DONE] Add Kim family extended genealogy (siblings, cousins in power)
 23. [DONE] Model military ranks and command structure
-24. Model education system ideological content by level
+24. [DONE] Model education system ideological content by level
 25. Model media/propaganda apparatus structure
 26. [DONE] Add foreign relations doctrine (anti-imperialism, juche diplomacy)
 27. [DONE] Model nuclear doctrine under Byungjin policy
@@ -1900,6 +1900,82 @@ Proof. exact I. Qed.
 (** Songun diplomacy: military strength as diplomatic leverage. *)
 Definition songun_diplomacy : Prop :=
   True.  (* Negotiation from position of military strength *)
+
+(** -------------------------------------------------------------------------- *)
+(** Education System                                                           *)
+(** -------------------------------------------------------------------------- *)
+
+(** Education in the DPRK is free and compulsory, with heavy ideological content.
+    Purpose: produce loyal citizens who internalize Juche ideology. *)
+
+Inductive EducationLevel : Type :=
+  | Preschool           (* Ages 4-6 *)
+  | PrimarySchool       (* 4 years *)
+  | MiddleSchool        (* 6 years *)
+  | HigherEducation     (* University *)
+  | SpecializedSchool.  (* Technical/vocational *)
+
+(** Years of education at each level. *)
+Definition education_years (e : EducationLevel) : nat :=
+  match e with
+  | Preschool => 2
+  | PrimarySchool => 4
+  | MiddleSchool => 6
+  | HigherEducation => 4
+  | SpecializedSchool => 3
+  end.
+
+(** Total compulsory education: 12 years (4 primary + 6 middle + 2 preschool). *)
+Definition compulsory_years : nat := 12.
+
+(** Ideological content by education level (percentage estimate). *)
+Definition ideological_content_pct (e : EducationLevel) : nat :=
+  match e with
+  | Preschool => 30
+  | PrimarySchool => 25
+  | MiddleSchool => 20
+  | HigherEducation => 15
+  | SpecializedSchool => 10
+  end.
+
+(** Key ideological subjects. *)
+Inductive IdeologicalSubject : Type :=
+  | RevolutionaryHistory    (* Kim family revolutionary activities *)
+  | JuchePhilosophy         (* Juche theory *)
+  | PartyPolicy             (* Current party directives *)
+  | SocialistMorality       (* Proper socialist behavior *)
+  | AntiImperialism.        (* Anti-US/Japan education *)
+
+(** All levels require revolutionary history. *)
+Definition requires_revolutionary_history (e : EducationLevel) : Prop :=
+  match e with
+  | Preschool => True
+  | PrimarySchool => True
+  | MiddleSchool => True
+  | HigherEducation => True
+  | SpecializedSchool => True
+  end.
+
+Lemma all_levels_revolutionary_history : forall e, requires_revolutionary_history e.
+Proof. intro e. destruct e; exact I. Qed.
+
+(** Songbun affects educational access. *)
+Definition university_eligible (s : SongbunClass) : Prop :=
+  match s with
+  | CoreClass => True
+  | WaveringClass => True  (* Possible with good record *)
+  | HostileClass => False
+  end.
+
+Lemma hostile_no_university : ~ university_eligible HostileClass.
+Proof. intro H. exact H. Qed.
+
+(** Elite schools for children of high-ranking families. *)
+Definition elite_school_access (s : SongbunClass) : Prop :=
+  match s with
+  | CoreClass => True
+  | _ => False
+  end.
 
 (** ========================================================================= *)
 (** SUMMARY                                                                   *)
