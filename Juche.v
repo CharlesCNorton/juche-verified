@@ -37,8 +37,8 @@
 14. [DONE] Model travel permit (tonghangjeung) system
 15. [DONE] Model self-criticism session (saenghwal chonghwa) mechanics
 16. [DONE] Add scope predicate DSL for obligation targeting (cf. halakha ScopePred)
-17. Add richer derivation rules beyond BaseSource/Derive
-18. Model economic planning units (cooperative farms, factory cells)
+17. [DONE] Add richer derivation rules beyond BaseSource/Derive
+18. [DONE] Model economic planning units (cooperative farms, factory cells)
 19. Add evidence/citation registry linking claims to DPRK documents
 20. Model loyalty investigation (seongbun josahoe) procedures
 21. Prove unique leader theorem for all documented years
@@ -50,7 +50,7 @@
 27. Model nuclear doctrine under Byungjin policy
 28. Prove succession chain well-foundedness
 29. Add temporal queries (leader_at_year, policy_at_year)
-30. Model prison camp (kwanliso) system classification
+30. [DONE] Model prison camp (kwanliso) system classification
 *)
 
 Require Import Coq.Lists.List.
@@ -888,6 +888,65 @@ Definition era_pillar_emphasis (e : PolicyEra) : Pillar :=
   | ByungjinEra => Charip     (* Economic self-reliance re-emphasized *)
   end.
 
+(** -------------------------------------------------------------------------- *)
+(** Economic Planning Units                                                    *)
+(** -------------------------------------------------------------------------- *)
+
+(** The DPRK economy is organized into production units under central planning.
+    Each unit has Party organization and ideological life. *)
+
+Inductive EconomicUnitType : Type :=
+  | StateFarm           (* State-owned agricultural unit *)
+  | CooperativeFarm     (* Collective farm *)
+  | StateFactory        (* State enterprise *)
+  | LocalFactory        (* County-level industry *)
+  | MiningUnit          (* Extraction enterprise *)
+  | ConstructionBrigade (* Infrastructure teams *)
+  | FishingCooperative  (* Maritime production *)
+  | ForestryUnit.       (* Timber/forestry *)
+
+(** Units have quotas set by central planning. *)
+Record ProductionUnit := mkProductionUnit {
+  unit_id : nat;
+  unit_type : EconomicUnitType;
+  unit_workers : nat;
+  unit_party_cell : bool;  (* Has Party organization *)
+  unit_province : nat
+}.
+
+(** All units must have Party cells if > 3 workers. *)
+Definition requires_party_cell (u : ProductionUnit) : Prop :=
+  unit_workers u >= 3 -> unit_party_cell u = true.
+
+(** Production meetings: mandatory ideological content. *)
+Inductive ProductionMeeting : Type :=
+  | DailyBriefing      (* Morning meeting with ideology *)
+  | WeeklyPlanReview   (* Production + political study *)
+  | MonthlyEvaluation  (* Output + ideological assessment *)
+  | QuotaCampaign.     (* Mobilization for quota fulfillment *)
+
+(** Chollima Movement: mass mobilization for production. *)
+Definition chollima_movement_era : PolicyEra := PreSongun.
+
+(** Speed campaigns derive from Charip (self-reliance). *)
+Definition speed_campaign_pillar : Pillar := Charip.
+
+(** Work teams (jakeopban) as basic production unit. *)
+Record WorkTeam := mkWorkTeam {
+  team_id : nat;
+  team_size : nat;
+  team_leader_party : bool;  (* Team leader is Party member *)
+  team_unit : nat            (* Parent production unit *)
+}.
+
+(** Team leaders must be Party members or candidates. *)
+Definition valid_team_leader (t : WorkTeam) : Prop :=
+  team_size t >= 5 -> team_leader_party t = true.
+
+(** Socialist emulation: competition between units. *)
+Definition socialist_emulation : Prop :=
+  True.  (* Mandatory participation in inter-unit competition *)
+
 (** ========================================================================= *)
 (** PART VIII: CITIZEN MODEL                                                  *)
 (** ========================================================================= *)
@@ -1171,6 +1230,82 @@ Proof. exact I. Qed.
 Lemma serious_triggers_three_gen : three_generation_rule Serious.
 Proof. exact I. Qed.
 
+(** -------------------------------------------------------------------------- *)
+(** Prison Camp System (Kwanliso)                                              *)
+(** -------------------------------------------------------------------------- *)
+
+(** The DPRK operates a system of political prison camps (관리소, kwanliso)
+    and reeducation camps for ideological offenders. *)
+
+Inductive CampType : Type :=
+  | Kwanliso           (* Political prison camp - lifetime, no release *)
+  | Kyohwaso           (* Reeducation camp - fixed term, possible release *)
+  | Rodongdanryeondae  (* Labor training camp - short term *)
+  | Jipkyulso.         (* Collection center - temporary detention *)
+
+(** Camp severity ranking. *)
+Definition camp_severity (c : CampType) : nat :=
+  match c with
+  | Kwanliso => 4
+  | Kyohwaso => 3
+  | Rodongdanryeondae => 2
+  | Jipkyulso => 1
+  end.
+
+(** Known kwanliso camps (numbered). *)
+Inductive KwanlisoNumber : Type :=
+  | Camp14_Kaechon    (* Total control zone *)
+  | Camp15_Yodok      (* Both total and revolutionary zones *)
+  | Camp16_Hwasong    (* Total control zone *)
+  | Camp18_Bukchang   (* Revolutionary zone - some releases *)
+  | Camp25_Chongjin.  (* Political prisoners *)
+
+(** Camp zones: total control (no release) vs revolutionary (possible release). *)
+Inductive CampZone : Type :=
+  | TotalControlZone      (* Life imprisonment, no release *)
+  | RevolutionaryZone.    (* Reeducation, possible release *)
+
+Definition camp_zone (k : KwanlisoNumber) : CampZone :=
+  match k with
+  | Camp14_Kaechon => TotalControlZone
+  | Camp15_Yodok => TotalControlZone  (* Has both, but primarily total *)
+  | Camp16_Hwasong => TotalControlZone
+  | Camp18_Bukchang => RevolutionaryZone
+  | Camp25_Chongjin => TotalControlZone
+  end.
+
+(** Total control zone means no possibility of release. *)
+Definition no_release (z : CampZone) : Prop :=
+  match z with
+  | TotalControlZone => True
+  | RevolutionaryZone => False
+  end.
+
+Lemma camp14_no_release : no_release (camp_zone Camp14_Kaechon).
+Proof. exact I. Qed.
+
+(** Violation severity maps to camp type. *)
+Definition violation_to_camp (v : ViolationSeverity) : option CampType :=
+  match v with
+  | Capital => None  (* Execution, not imprisonment *)
+  | Serious => Some Kwanliso
+  | Moderate => Some Kyohwaso
+  | Minor => Some Rodongdanryeondae
+  end.
+
+(** Family members sent to camps under three-generation rule. *)
+Definition family_camp_assignment (v : ViolationSeverity) : option CampType :=
+  match v with
+  | Capital => Some Kwanliso  (* Family imprisoned even if offender executed *)
+  | Serious => Some Kwanliso
+  | Moderate => Some Kyohwaso
+  | Minor => None
+  end.
+
+Lemma capital_family_to_kwanliso :
+  family_camp_assignment Capital = Some Kwanliso.
+Proof. reflexivity. Qed.
+
 (** ========================================================================= *)
 (** PART XI: DOCTRINAL DERIVATION                                             *)
 (** ========================================================================= *)
@@ -1207,6 +1342,69 @@ Definition self_criticism_directive : Directive :=
 Inductive DerivationStep : Type :=
   | BaseSource : DoctrinalSource -> DerivationStep
   | Derive : DoctrinalSource -> DerivationStep -> DerivationStep.
+
+(** -------------------------------------------------------------------------- *)
+(** Derivation Rules (expanded)                                                *)
+(** -------------------------------------------------------------------------- *)
+
+(** Richer derivation rules modeling different forms of ideological reasoning. *)
+Inductive DerivationRule : Type :=
+  | RuleLeaderWord       (* Direct instruction from leader - supreme authority *)
+  | RulePrincipleApply   (* Apply a principle to a situation *)
+  | RulePillarDerive     (* Derive from one of three pillars *)
+  | RuleAnalogy          (* Reason by analogy to established policy *)
+  | RuleNecessity        (* Derive from revolutionary necessity *)
+  | RuleHistorical       (* Derive from historical precedent *)
+  | RuleDialectical      (* Dialectical synthesis of contradictions *)
+  | RuleUnity            (* From monolithic unity requirement *)
+  | RuleMassLine         (* From masses-to-leader-to-masses cycle *)
+  | RuleSuccession.      (* From hereditary succession doctrine *)
+
+(** Rule authority level: leader words trump all. *)
+Definition rule_authority (r : DerivationRule) : nat :=
+  match r with
+  | RuleLeaderWord => 10
+  | RuleSuccession => 9
+  | RulePrincipleApply => 8
+  | RulePillarDerive => 7
+  | RuleUnity => 6
+  | RuleNecessity => 5
+  | RuleMassLine => 4
+  | RuleDialectical => 3
+  | RuleHistorical => 2
+  | RuleAnalogy => 1
+  end.
+
+(** A derivation node with explicit rule. *)
+Inductive RichDerivation : Type :=
+  | RichBase : DoctrinalSource -> RichDerivation
+  | RichStep : DerivationRule -> DoctrinalSource -> RichDerivation -> RichDerivation
+  | RichCombine : DerivationRule -> RichDerivation -> RichDerivation -> RichDerivation.
+
+(** Maximum authority in a derivation chain. *)
+Fixpoint derivation_max_authority (d : RichDerivation) : nat :=
+  match d with
+  | RichBase _ => 0
+  | RichStep r _ rest => max (rule_authority r) (derivation_max_authority rest)
+  | RichCombine r d1 d2 =>
+      max (rule_authority r) (max (derivation_max_authority d1) (derivation_max_authority d2))
+  end.
+
+(** A derivation is authoritative if it includes leader word or succession. *)
+Definition derivation_authoritative (d : RichDerivation) : Prop :=
+  derivation_max_authority d >= rule_authority RuleSuccession.
+
+(** Songun derivation with explicit rules. *)
+Definition songun_rich_derivation : RichDerivation :=
+  RichStep RuleLeaderWord (FromLeaderWord KimJongIl)
+    (RichStep RulePillarDerive (FromPillar Chawi)
+      (RichBase (FromPrinciple P9_Discipline))).
+
+Lemma songun_is_authoritative : derivation_authoritative songun_rich_derivation.
+Proof.
+  unfold derivation_authoritative, songun_rich_derivation.
+  simpl. lia.
+Qed.
 
 (** Derivation of Songun from first principles. *)
 Definition songun_derivation : DerivationStep :=
