@@ -41,15 +41,15 @@
 18. [DONE] Model economic planning units (cooperative farms, factory cells)
 19. Add evidence/citation registry linking claims to DPRK documents
 20. Model loyalty investigation (seongbun josahoe) procedures
-21. Prove unique leader theorem for all documented years
+21. [DONE] Prove unique leader theorem for all documented years
 22. Add Kim family extended genealogy (siblings, cousins in power)
 23. Model military ranks and command structure
 24. Model education system ideological content by level
 25. Model media/propaganda apparatus structure
 26. Add foreign relations doctrine (anti-imperialism, juche diplomacy)
 27. Model nuclear doctrine under Byungjin policy
-28. Prove succession chain well-foundedness
-29. Add temporal queries (leader_at_year, policy_at_year)
+28. [DONE] Prove succession chain well-foundedness
+29. [DONE] Add temporal queries (leader_at_year, policy_at_year)
 30. [DONE] Model prison camp (kwanliso) system classification
 *)
 
@@ -1509,6 +1509,70 @@ Lemma hostile_still_obligated : forall p,
 Proof.
   intro p. unfold citizen_obligation, hostile_citizen. simpl.
   unfold obligation_strength. lia.
+Qed.
+
+(** -------------------------------------------------------------------------- *)
+(** Temporal Queries                                                           *)
+(** -------------------------------------------------------------------------- *)
+
+(** Functions for querying leadership and policy by year. *)
+
+(** Find the leader active in a given Juche year. *)
+Definition leader_at_year (y : JucheYear) : option Leader :=
+  if Nat.ltb y founding_year then None
+  else if Nat.ltb y kim_il_sung_death then Some KimIlSung
+  else if Nat.ltb y kim_jong_il_death then Some KimJongIl
+  else Some KimJongUn.
+
+Lemma leader_1950 : leader_at_year war_start = Some KimIlSung.
+Proof. reflexivity. Qed.
+
+Lemma leader_2000 : leader_at_year 89 = Some KimJongIl.
+Proof. reflexivity. Qed.
+
+Lemma leader_2020 : leader_at_year 109 = Some KimJongUn.
+Proof. reflexivity. Qed.
+
+(** Find the policy era for a given year. *)
+Definition era_at_year (y : JucheYear) : option PolicyEra :=
+  if Nat.ltb y founding_year then None
+  else if Nat.ltb y kim_il_sung_death then Some PreSongun
+  else if Nat.ltb y kim_jong_il_death then Some SongunEra
+  else Some ByungjinEra.
+
+Lemma era_1960 : era_at_year 49 = Some PreSongun.
+Proof. reflexivity. Qed.
+
+Lemma era_2005 : era_at_year 94 = Some SongunEra.
+Proof. reflexivity. Qed.
+
+(** Find the dominant pillar for a given year. *)
+Definition pillar_at_year (y : JucheYear) : option Pillar :=
+  match era_at_year y with
+  | None => None
+  | Some e => Some (era_pillar_emphasis e)
+  end.
+
+Lemma pillar_1960 : pillar_at_year 49 = Some Chajusong.
+Proof. reflexivity. Qed.
+
+Lemma pillar_2005 : pillar_at_year 94 = Some Chawi.
+Proof. reflexivity. Qed.
+
+(** Prove unique leader for all documented years: 1948-present. *)
+Lemma unique_leader_post_founding : forall y,
+  y >= founding_year ->
+  exists l, leader_at_year y = Some l.
+Proof.
+  intros y Hge.
+  unfold leader_at_year, founding_year, kim_il_sung_death, kim_jong_il_death in *.
+  destruct (Nat.ltb y 37) eqn:E1.
+  - apply Nat.ltb_lt in E1. lia.
+  - destruct (Nat.ltb y 83) eqn:E2.
+    + exists KimIlSung. reflexivity.
+    + destruct (Nat.ltb y 100) eqn:E3.
+      * exists KimJongIl. reflexivity.
+      * exists KimJongUn. reflexivity.
 Qed.
 
 (** ========================================================================= *)
