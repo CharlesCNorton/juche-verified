@@ -21,16 +21,36 @@
 (** TODO                                                                       *)
 (** -------------------------------------------------------------------------- *)
 (**
-1. Model the Ten Principles for Monolithic Ideological System
-2. Model Suryong succession (Kim Il-sung -> Kim Jong-il -> Kim Jong-un)
-3. Model songbun (social classification) system
-4. Model three pillars: chajusong, charip, chawi
-5. Model Songun (military-first) policy derivation
-6. Model Party structure and mass organizations
-7. Add compliance evaluation predicates
-8. Add ideological derivation trees
-9. Prove internal consistency of doctrinal claims
-10. Model historical periodization (anti-Japanese, liberation, Arduous March, etc.)
+1. [DONE] Model the Ten Principles for Monolithic Ideological System
+2. [DONE] Model Suryong succession (Kim Il-sung -> Kim Jong-il -> Kim Jong-un)
+3. [DONE] Model songbun (social classification) system
+4. [DONE] Model three pillars: chajusong, charip, chawi
+5. [DONE] Model Songun (military-first) policy derivation
+6. [DONE] Model Party structure and mass organizations
+7. [DONE] Add compliance evaluation predicates
+8. [DONE] Add ideological derivation trees
+9. [DONE] Prove internal consistency of doctrinal claims
+10. [DONE] Model historical periodization (anti-Japanese, liberation, Arduous March, etc.)
+11. Expand Ten Principles with sub-articles (each principle has 5-10 sub-articles)
+12. Expand songbun to 51 documented subcategories
+13. Model inminban (neighborhood watch units) surveillance structure
+14. Model travel permit (tonghangjeung) system
+15. Model self-criticism session (saenghwal chonghwa) mechanics
+16. Add scope predicate DSL for obligation targeting (cf. halakha ScopePred)
+17. Add richer derivation rules beyond BaseSource/Derive
+18. Model economic planning units (cooperative farms, factory cells)
+19. Add evidence/citation registry linking claims to DPRK documents
+20. Model loyalty investigation (seongbun josahoe) procedures
+21. Prove unique leader theorem for all documented years
+22. Add Kim family extended genealogy (siblings, cousins in power)
+23. Model military ranks and command structure
+24. Model education system ideological content by level
+25. Model media/propaganda apparatus structure
+26. Add foreign relations doctrine (anti-imperialism, juche diplomacy)
+27. Model nuclear doctrine under Byungjin policy
+28. Prove succession chain well-foundedness
+29. Add temporal queries (leader_at_year, policy_at_year)
+30. Model prison camp (kwanliso) system classification
 *)
 
 Require Import Coq.Lists.List.
